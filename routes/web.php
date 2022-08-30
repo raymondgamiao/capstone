@@ -19,6 +19,23 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/service', function () {
+    return view('service');
+});
+
+Route::get('/project', function () {
+    return view('project');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
@@ -28,7 +45,7 @@ Route::get('/listings', function () {
         'listings',
         [
             'heading' => 'Latest Listings',
-            'listings' => Listing::showAll()
+            'listings' => Listing::all()
         ]
     );
 });
@@ -38,10 +55,11 @@ Route::get('/listing/{id}', function ($id) {
         'listing',
         [
             'heading' => 'Listing #' . $id,
-            'listing' => Listing::showOne($id)
+            'listing' => Listing::find($id)
         ]
     );
 });
+
 
 
 
