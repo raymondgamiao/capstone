@@ -15,6 +15,9 @@ use App\Models\Listing;
 |
 */
 
+
+/* main website routes */
+
 Route::get('/', function () {
     return view('index');
 });
@@ -35,6 +38,21 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+
+/* admin routes */
+
+Route::get('/admin/', function () {
+    return view('admin/index');
+});
+
+Route::get('/admin/calendar', function () {
+    return view('admin/calendar');
+});
+
+Route::get('/admin/inventory', function () {
+    return view('admin/inventory');
+});
+/* test routes */
 
 Route::get('/welcome', function () {
     return view('welcome');
