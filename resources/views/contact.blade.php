@@ -54,7 +54,8 @@
                             </div>
 
                             <div class="form-group">
-                                <input name="subject" id="subject" type="text" class="form-control" placeholder="Your Subject">
+                                <input name="subject" id="subject" type="text" class="form-control"
+                                    placeholder="Your Subject">
                             </div>
 
                             <div class="form-group">
@@ -62,11 +63,13 @@
                             </div>
 
                             <div class="form-group">
-                                <input name="email" id="email" type="email" class="form-control" placeholder="Email Address">
+                                <input name="email" id="email" type="email" class="form-control"
+                                    placeholder="Email Address">
                             </div>
 
                             <div class="form-group-2 mb-4">
-                                <textarea name="message" id="message" class="form-control" rows="4" placeholder="Your Message"></textarea>
+                                <textarea name="message" id="message" class="form-control" rows="4"
+                                    placeholder="Your Message"></textarea>
                             </div>
                             <button class="btn btn-main" name="submit" type="submit">Send Message</button>
                         </form>
@@ -115,57 +118,26 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="contact-content pl-lg-5 mt-5 mt-lg-0 mb-5 mb-lg-0">
-                    <h4 class="mb-4">Corporate Office</h4>
 
-                    <ul class="address-block list-unstyled">
-                        <li>
-                            <i class="ti-location-pin mr-3"></i>North Main Street,Brooklyn Australia
-                        </li>
-                        <li>
-                            <i class="ti-email mr-3"></i>Email: contact@mail.com
-                        </li>
-                        <li>
-                            <i class="ti-mobile mr-3"></i>Phone:+88 01672 506 744
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="contact-info mb-5 mb-lg-0 mt-md-5 mt-lg-0">
-                    <h4 class="mb-4">USA Location</h4>
-                    <ul class="address-block list-unstyled">
-                        <li>
-                            <i class="ti-location-pin mr-3"></i>North Main Street,Brooklyn Australia
-                        </li>
-                        <li>
-                            <i class="ti-email mr-3"></i>Email: contact@mail.com
-                        </li>
-                        <li>
-                            <i class="ti-mobile mr-3"></i>Phone:+88 01672 506 744
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
+            @foreach ($branches as $branch)
+            <div class="col-lg-4 col-md-6 mb-5">
                 <div class="contact-info ">
-                    <h4 class="mb-4">Europe</h4>
+                    <h4 class="mb-4">{{ $branch['name'] }}</h4>
                     <ul class="address-block list-unstyled">
                         <li>
-                            <i class="ti-location-pin mr-3"></i>North Main Street,Brooklyn Australia
+                            <i class="ti-location-pin mr-3"></i>{{ $branch['location'] }}
                         </li>
                         <li>
-                            <i class="ti-email mr-3"></i>Email: contact@mail.com
+                            <i class="ti-email mr-3"></i>{{ $branch['email'] }}
                         </li>
                         <li>
-                            <i class="ti-mobile mr-3"></i>Phone:+88 01672 506 744
+                            <i class="ti-mobile mr-3"></i>{{ $branch['contact'] }}
                         </li>
                     </ul>
                 </div>
             </div>
+            @endforeach
+
         </div>
     </div>
 </section>

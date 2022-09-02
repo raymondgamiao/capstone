@@ -25,7 +25,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="heading text-center">
-                    <h2>We help entreprenuers <br>starts up and turn <span class="text-color">their ideas into</span> produtcs</h2>
+                    <h2>We bring joy and <br> <span class="text-color">creativty with every photo</span> </h2>
                 </div>
 
                 <div class="row">
@@ -33,21 +33,21 @@
                         <div class="counter-item counter--style text-center mb-5 mb-lg-0">
                             <i class="ti-thumb-up"></i>
                             <h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">1730</span> +</h2>
-                            <p>Project Done</p>
+                            <p>Wedding Event</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="counter-item counter--style text-center mb-5 mb-lg-0">
                             <i class="ti-face-smile"></i>
                             <h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">125 </span>M </h2>
-                            <p>User Worldwide</p>
+                            <p>Debut / Birthday </p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="counter-item counter--style text-center">
                             <i class="ti-cup"></i>
                             <h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">14</span></h2>
-                            <p>Award Winner </p>
+                            <p>Graduation Ceremony</p>
                         </div>
                     </div>
                 </div>
@@ -61,14 +61,15 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="heading feature-list">
-                    <h2 class="mb-4">Growing Software Company Since 2008</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint earum, eos esse non error facilis ad,
-                        maiores eum quae vero libero voluptas! Reprehenderit sunt similique, quae quidem voluptatem odit natus.</p>
+                    <h2 class="mb-4">Growing Media Events Since 2014</h2>
+                    <p>If you are looking for a Photo Booth, Photo-Video Coverage and Sounds lights rental in
+                        Tuguegarao area for your next birthday party, wedding, or other event, we're
+                        the right company for you! </p>
 
                     <ul class="list-unstyled mt-4 mb-5">
-                        <li><i class="ti-check mr-3"></i>Create and manage any process for your business needs.</li>
-                        <li><i class="ti-check mr-3"></i>Create and manage any process for your business needs.</li>
-                        <li><i class="ti-check mr-3"></i>Full functionality without needed to install software.</li>
+                        <li><i class="ti-check mr-3"></i>Professional DSLR camera for crisp images.</li>
+                        <li><i class="ti-check mr-3"></i>Ensure quality, unique and creative service.</li>
+                        <li><i class="ti-check mr-3"></i>Flexible staff with complete equipments. </li>
                     </ul>
 
                     <a href="service.html" class="btn btn-main">All Services<i class="fa fa-angle-right ml-2"></i></a>
@@ -91,7 +92,8 @@
             <div class="col-lg-6">
                 <div class="heading text-center mb-50">
                     <h2 class="mb-4">Our Team</h2>
-                    <p>Today’s users expect effortless experiences. Don’t let essential people and processes stay stuck in the past. Speed it up, skip the hassles</p>
+                    <p>Our team is made up of professional photographers, videographers, and video editors. We are very
+                        determined and passionate about our work.</p>
                 </div>
             </div>
         </div>
@@ -99,35 +101,41 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="team-block mb-5 mb-lg-0">
-                    <img src="images/team/03-1.jpg" alt="" class="img-fluid w-100">
-
-                    <h4 class="mt-4 mb-0">John Marshal</h4>
-                    <p>Founder</p>
+                    <picture>
+                        <source type="image/webp" srcset="images/about/owner-1.webp">
+                        <img src="images/about/owner-1.webp" alt="" class="img-fluid w-100">
+                    </picture>
+                    <h4 class="mt-4 mb-0">Pastor Henry</h4>
+                    <p>Owner</p>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="team-block mb-5 mb-lg-0">
-                    <img src="images/team/01-3.jpg" alt="" class="img-fluid w-100">
-
-                    <h4 class="mt-4 mb-0">Marshal Root</h4>
-                    <p>Marketing Head</p>
+                    <picture>
+                        <source type="image/webp" srcset="images/about/executive-assistant.webp">
+                        <img src="images/about/executive-assistant.webp" alt="" class="img-fluid w-100">
+                    </picture>
+                    <h4 class="mt-4 mb-0">Sample name</h4>
+                    <p>Executive Assistant</p>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="team-block mb-5 mb-lg-0">
-                    <img src="images/team/03-1.jpg" alt="" class="img-fluid w-100">
-
-                    <h4 class="mt-4 mb-0">Siamon john</h4>
-                    <p>Co-ordinator</p>
+                    <picture>
+                        <source type="image/webp" srcset="images/about/sensation-manager.webp">
+                        <img src="images/about/sensation-manager.webp" alt="" class="img-fluid w-100">
+                    </picture>
+                    <h4 class="mt-4 mb-0">Sample name</h4>
+                    <p>Sensation Manager</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="team-block">
-                    <img src="images/team/01-3.jpg" alt="" class="img-fluid w-100">
+                    <img src="images/about/production-manager.png" alt="" class="img-fluid w-100">
 
-                    <h4 class="mt-4 mb-0">Rishat Ahmed</h4>
+                    <h4 class="mt-4 mb-0">Sample name</h4>
                     <p>Senior Developer</p>
                 </div>
             </div>
@@ -141,7 +149,8 @@
             <div class="col-lg-8">
                 <div class="why-content">
                     <h2 class="mb-4">Honors and awards</h2>
-                    <p class="mb-5">Dicta cupiditate, incidunt quia obcaecati itaque cumque, nostrum ipsum est voluptatibus, porro
+                    <p class="mb-5">Dicta cupiditate, incidunt quia obcaecati itaque cumque, nostrum ipsum est
+                        voluptatibus, porro
                         provident a quam quibusdam. Ducimus possimus, nesciunt minima magni aspernatur.</p>
                 </div>
             </div>
@@ -200,7 +209,8 @@
             <div class="col-lg-8">
                 <div class="heading">
                     <h2 class="mb-4">What they say about us</h2>
-                    <p>They are truely amazing in the industry ,molestiae expedita aspernatur officia, similique minima laudantium. Corrupti ipsa perspiciatis commodi nesciunt rerum mollitia enim voluptate!</p>
+                    <p>They are truely amazing in the industry, We'd like to think of ourselves more as historians than
+                        just artists with cameras.</p>
                 </div>
             </div>
         </div>
@@ -211,7 +221,10 @@
             <div class="col-lg-12 testimonial-wrap">
                 <div class="testimonial-block">
                     <p>
-                        Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
+                        I would like to thank you Mr. Henry(sample name) and the rest of your team for taking care of my
+                        daughter's debut party. Your teams
+                        did an excellent job in filming the event. May God bless all of you always and more power to
+                        your company.
                     </p>
 
                     <div class="client-info d-flex align-items-center">
@@ -227,7 +240,9 @@
 
                 <div class="testimonial-block">
                     <p>
-                        Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
+                        Thank you so much Photocity for making our wedding a magical! Two thumbs up for all the staff
+                        and crew, you made us feel celebrity on
+                        our wedding day, Thanks for you full support guys you grant all of our request and demands.
                     </p>
 
                     <div class="client-info d-flex align-items-center">
@@ -242,7 +257,9 @@
                 </div>
                 <div class="testimonial-block">
                     <p>
-                        Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
+                        We want to start by thanking God for what we have now and of course special thanks to Photocity
+                        for making our dream wedding come true.
+                        We recommend our awesome coordinator kahit nasa malayo kami naging perfect ang wedding namin.
                     </p>
 
                     <div class="client-info d-flex align-items-center">
@@ -257,7 +274,10 @@
                 </div>
                 <div class="testimonial-block">
                     <p>
-                        Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
+                        First time renting the Photocity and I must say the experience was terrific. The team was great
+                        to work with and could not be any nicer.
+                        They are fully equipped with proffesional lights. Looks like I found long term studio to work
+                        with.
                     </p>
 
                     <div class="client-info d-flex align-items-center">
@@ -272,7 +292,9 @@
                 </div>
                 <div class="testimonial-block">
                     <p>
-                        Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
+                        Very accomodating team, gets the look and feel of what you want, easy to coordinate with! (They
+                        give you no hassle whatsoever) Rest
+                        assured, your moments are captured a hight qaulity and good memories in the future, 5/5.
                     </p>
 
                     <div class="client-info d-flex align-items-center">

@@ -1,371 +1,381 @@
 @extends('layout')
 
 @section('content')
-    <section class="banner d-flex align-items-center">
-        <div class="banner-img-part"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-md-12 col-xl-8">
-                    <div class="block">
-                        <span class="text-uppercase text-sm letter-spacing ">The most powerful Solution</span>
-                        <h1 class="mb-3 mt-3">Capturing the beauty of your everyday life</h1>
-                        <p class="mb-5">Veritatis earum aliquid doloribus molestias, eveniet molestiae aperiam ratione. Facilis velit voluptatibus impedit eligendi delectus illo earum voluptatum, laudantium molestiae!</p>
 
-                        <a href="about.html" target="_blank" class="btn btn-main">Let's Get in Touch<i class="fa fa-angle-right ml-2"></i></a>
+<section class="banner d-flex align-items-center">
+	<div class="banner-img-part"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 col-md-12 col-xl-8">
+				<div class="block">
+					<span class="text-uppercase text-sm letter-spacing ">What are you waiting for, Book now!</span>
+					<h1 class="mb-3 mt-3">Capturing the beauty of your everyday life</h1>
+					<p class="mb-5"> We'll create the perfect photo of your event.  You've heard two heads are better than one, <br>what about a whole team of heads whose passion is great photo experiences</p>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+					<a href="about.html" target="_blank" class="btn btn-main">Let's Get in Touch<i class="fa fa-angle-right ml-2"></i></a>
 
-    <section class="section about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 ">
-                    <div class="about-item mb-5 mb-lg-5">
-                        <div class="icon">
-                            <i class="ti-video-camera"></i>
-                        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-                        <div class="content">
-                            <h4 class="mt-3 mb-3">Photo-Video Coverage</h4>
-                            <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+<section class="section about">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6 ">
+				<div class="about-item mb-5 mb-lg-5">
+					<div class="icon">
+						<i class="ti-video-camera"></i>
+					</div>
 
-                            <a href="#"> Read More </a>
-                        </div>
-                    </div>
-                </div>
+					<div class="content">
+						<h4 class="mt-3 mb-3">Photo-Video Coverage</h4>
+						<p class="mb-4">We turn into timeless memories, as well as the stories behind them.</p>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="about-item mb-5 mb-lg-5">
-                        <div class="icon">
-                            <i class="ti-panel"></i>
-                        </div>
-                        <div class="content">
-                            <h4 class="mt-3 mb-3">Sound-Light & LED Wall</h4>
-                            <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-                            <a href="#"> Read More </a>
-                        </div>
-                    </div>
-                </div>
+						<a href="#"> Read More </a>
+					</div>
+				</div>
+			</div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="about-item">
-                        <div class="icon">
-                            <i class="ti-camera"></i>
-                        </div>
-                        <div class="content">
-                            <h4 class="mt-3 mb-3">Digital Printing & Photo booth</h4>
-                            <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-                            <a href="#"> Read More </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+			<div class="col-lg-4 col-md-6">
+				<div class="about-item mb-5 mb-lg-5">
+					<div class="icon">
+						<i class="ti-panel"></i>
+					</div>
+					<div class="content">
+						<h4 class="mt-3 mb-3">Sound-Light & LED Wall</h4>
+						<p class="mb-4">We can also setup and operate sounds & lights professionaly</p>
+						<a href="#"> Read More </a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-4 col-md-6">
+				<div class="about-item">
+					<div class="icon">
+						<i class="ti-camera"></i>
+					</div>
+					<div class="content">
+						<h4 class="mt-3 mb-3">Digital Printing & Photo booth</h4>
+						<p class="mb-4">We also offer a magnetize hard copy of pictures in our photo booth</p>
+						<a href="#"> Read More </a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-    <section class="section process">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <div class="process-block pl-4">
-                        <span class="text-uppercase text-sm letter-spacing">Why choose us</span>
-                        <h2 class="mb-4 mt-3">We help your dream event, delivered</h2>
-                        <p class="mb-4">Highlight your event and capture every moment with us. Don't let your event pass without booking us.</p>
-                    </div>
-                </div>
+<section class="section process">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-5">
+				<div class="process-block pl-4">
+					<span class="text-uppercase text-sm letter-spacing">Why choose us</span>
+					<h2 class="mb-4 mt-3">We help your dream event, delivered</h2>
+					<p class="mb-4">Highlight your event and capture every moment with us. Don't let your event pass without booking us.</p>
+				</div>
+			</div>
 
-                <div class="col-lg-7 col-xs-12 col-md-12">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="icon-block text-center mb-4 mb-lg-0">
-                                <i class="ti-comment-alt"></i>
-                                <h5>Inquire</h5>
-                                <p>A complete web app solution for business</p>
-                            </div>
-                        </div>
+			<div class="col-lg-7 col-xs-12 col-md-12">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<div class="icon-block text-center mb-4 mb-lg-0">
+							<i class="ti-comment-alt"></i>
+							<h5>Inquire</h5>
+							<p>A complete web app solution for business</p>
+						</div>
+					</div>
 
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="icon-block text-center mt-4 mb-4 mb-lg-0">
-                                <i class="ti-pencil-alt"></i>
-                                <h5>Fillout our Form</h5>
-                                <p>A complete web app solution for business</p>
-                            </div>
-                        </div>
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<div class="icon-block text-center mt-4 mb-4 mb-lg-0">
+							<i class="ti-pencil-alt"></i>
+							<h5>Fillout our Form</h5>
+							<p>A complete web app solution for business</p>
+						</div>
+					</div>
 
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="icon-block text-center">
-                                <i class="ti-search"></i>
-                                <h5>Choose a package</h5>
-                                <p>A complete web app solution for business</p>
-                            </div>
-                        </div>
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<div class="icon-block text-center">
+							<i class="ti-search"></i>
+							<h5>Choose a package</h5>
+							<p>A complete web app solution for business</p>
+						</div>
+					</div>
 
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="icon-block text-center mt-4">
-                                <i class="ti-check-box"></i>
-                                <h5>Confirm Booking</h5>
-                                <p>A complete web app solution for business</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<div class="icon-block text-center mt-4">
+							<i class="ti-check-box"></i>
+							<h5>Confirm Booking</h5>
+							<p>A complete web app solution for business</p>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</section>
 
-    <section class="section cta">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="cta-content bg-white p-5 rounded">
-                        <h3 class="mb-4">Capturing moments from today<br>
-                            Creating memories for a <span class="text-color-primary"> lifetime</span> </h3>
-                        <p class="mb-30">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa perspiciatis possimus dicta dolorem quos atque accusamus nisi ea quibusdam beatae.</p>
+<section class="section cta">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5">
+				<div class="cta-content bg-white p-5 rounded">
+					<h3 class="mb-4">Capturing moments from today<br>
+						Creating memories for a <span class="text-color-primary"> lifetime</span> </h3>
+					<p class="mb-30">
+						When you look back on your special day, we want you to remember the moments that made the day special. 
+						For you to remember why you laughed or cried at a certain moment, and how you're having the time of your life
+					</p>
+					
+					<a href="project.html" class="btn btn-main">Gallery<i class="fa fa-angle-right ml-2"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-                        <a href="project.html" class="btn btn-main">Portfolio<i class="fa fa-angle-right ml-2"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section portfolio pb-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="heading">
+					<h2 class="mb-4">We’ve Done Lot’s of Events, Let’s Check Some From Here</h2>
+					<p>Wee'd like to think of ourselves more as historians that just artists with cameras.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <section class="section portfolio pb-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="heading">
-                        <h2 class="mb-4">We’ve Done Lot’s of Events, Let’s Check Some From Here</h2>
-                        <p>We have the best experts to elevate your business to the next level, try is and you will see! We have the best experts to elevate your </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+	<div class="container-fluid">
+		<div class="row portfolio-gallery">
+			<div class="col-lg-4 col-md-6">
+				<div class="portflio-item position-relative mb-4">
+					<a href="https://www.facebook.com/media/set/?set=a.2758319024430558&type=3">
+						<img src="images/portfolio/gallery-index/event1.webp" alt="" class="img-fluid w-100">
+						<div class="overlay-item"><i class="ti-link"></i></div>	
+						
+						<div class="portfolio-item-content">
+							<h3 class="mb-0 text-white">Jun & Leyn <br> Prenup shoot</h3>
+							<p class="text-white-50">12-06-20t</p>
+						</div>
+					</a>
+				</div>
+			</div>
 
-        <div class="container-fluid">
-            <div class="row portfolio-gallery">
-                <div class="col-lg-4 col-md-6">
-                    <div class="portflio-item position-relative mb-4">
-                        <a href="project-details.html">
-                            <img src="images/portfolio/event1.jpg" alt="" class="img-fluid w-100">
-                            <div class="overlay-item"><i class="ti-link"></i></div>
+			<div class="col-lg-4 col-md-6">
+				<div class="portflio-item position-relative mb-4">
+					<a href="https://www.facebook.com/media/set/?set=a.2758319024430558&type=3">
+						<img src="images/portfolio/gallery-index/event2.webp" alt="" class="img-fluid w-100">
+						<div class="overlay-item">
+							<i class="ti-link"></i>
+						</div>
+						<div class="portfolio-item-content">
+							<h3 class="mb-0 text-white">Jun & Leyn <br> Prenup shoot</h3>
+							<p class="text-white-50">12-06-20t</p>
+						</div>
+					</a>
+				</div>
+			</div>
 
-                            <div class="portfolio-item-content">
-                                <h3 class="mb-0 text-white">Project california</h3>
-                                <p class="text-white-50">Web Development</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+			<div class="col-lg-4 col-md-6">
+				<div class="portflio-item position-relative mb-4">
+					<a href="https://www.facebook.com/media/set/?set=a.2179834858945647&type=3">
+						<img src="images/portfolio/gallery-index/event3.webp" alt="" class="img-fluid w-100">
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="portflio-item position-relative mb-4">
-                        <a href="project-details.html">
-                            <img src="images/portfolio/event2.jpg" alt="" class="img-fluid w-100">
-                            <div class="overlay-item">
-                                <i class="ti-link"></i>
-                            </div>
-                            <div class="portfolio-item-content">
-                                <h3 class="mb-0 text-white">Project california</h3>
-                                <p class="text-white-50">Web Development</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+						<div class="overlay-item">
+							<i class="ti-link"></i>
+						</div>
+						<div class="portfolio-item-content">
+							<h3 class="mb-0 text-white">Cathering <br> A Decade and Eight</h3>
+							<p class="text-white-50">11-09-18</p>
+						</div>
+					</a>
+				</div>
+			</div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="portflio-item position-relative mb-4">
-                        <a href="project-details.html">
-                            <img src="images/portfolio/event3.jpg" alt="" class="img-fluid w-100">
+			<div class="col-lg-4 col-md-6">
+				<div class="portflio-item position-relative mb-4">
+					<a href="https://www.facebook.com/media/set/?set=a.2179834858945647&type=3">
+						<img src="images/portfolio/gallery-index/event4.webp" alt="" class="img-fluid w-100">
 
-                            <div class="overlay-item">
-                                <i class="ti-link"></i>
-                            </div>
-                            <div class="portfolio-item-content">
-                                <h3 class="mb-0 text-white">Project california</h3>
-                                <p class="text-white-50">Web Development</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+						<div class="overlay-item">
+							<i class="ti-link"></i>
+						</div>
+						<div class="portfolio-item-content">
+							<h3 class="mb-0 text-white">Cathering <br> A Decade and Eight</h3>
+							<p class="text-white-50">11-09-18</p>
+						</div>
+					</a>
+				</div>
+			</div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="portflio-item position-relative mb-4">
-                        <a href="project-details.html">
-                            <img src="images/portfolio/event4.jpg" alt="" class="img-fluid w-100">
+			<div class="col-lg-4 col-md-6">
+				<div class="portflio-item position-relative  mb-4">
+					<a href="https://www.facebook.com/media/set/?set=a.2486295468299583&type=3">
+						<img src="images/portfolio/gallery-index/event5.webp" alt="" class="img-fluid w-100">
 
-                            <div class="overlay-item">
-                                <i class="ti-link"></i>
-                            </div>
-                            <div class="portfolio-item-content">
-                                <h3 class="mb-0 text-white">Project california</h3>
-                                <p class="text-white-50">Web Development</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+						<div class="overlay-item">
+							<i class="ti-link"></i>
+						</div>
+						<div class="portfolio-item-content">
+							<h3 class="mb-0 text-white">ChristenJay & Hazel <br> Wedding</h3>
+							<p class="text-white-50">1-08-20</p>
+						</div>
+					</a>
+				</div>
+			</div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="portflio-item position-relative  mb-4">
-                        <a href="project-details.html">
-                            <img src="images/portfolio/event5.jpg" alt="" class="img-fluid w-100">
+			<div class="col-lg-4 col-md-6">
+				<div class="portflio-item position-relative mb-4">
+					<a href="https://www.facebook.com/media/set/?set=a.2486295468299583&type=3">
+						<img src="images/portfolio/gallery-index/event6.webp" alt="" class="img-fluid w-100">
+						
+						<div class="overlay-item">
+							<i class="ti-link"></i>
+						</div>
+						<div class="portfolio-item-content">
+							<h3 class="mb-0 text-white">Project california</h3>
+							<p class="text-white-50">Web Development</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-                            <div class="overlay-item">
-                                <i class="ti-link"></i>
-                            </div>
-                            <div class="portfolio-item-content">
-                                <h3 class="mb-0 text-white">Project california</h3>
-                                <p class="text-white-50">Web Development</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+<section class="section counter">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="counter-item text-center mb-5 mb-lg-0">
+					<h2 class="mb-0"><span class="counter-stat font-weight-bold">1730</span> +</h2>
+					<p>Project Done</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="counter-item text-center mb-5 mb-lg-0">
+					<h2 class="mb-0"><span class="counter-stat font-weight-bold">125 </span>M </h2>
+					<p>User Worldwide</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="counter-item text-center mb-5 mb-lg-0">
+					<h2 class="mb-0"><span class="counter-stat font-weight-bold">39</span></h2>
+					<p>Availble Country</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="counter-item text-center">
+					<h2 class="mb-0"><span class="counter-stat font-weight-bold">14</span></h2>
+					<p>Award Winner </p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="portflio-item position-relative mb-4">
-                        <a href="project-details.html">
-                            <img src="images/portfolio/event6.jpg" alt="" class="img-fluid w-100">
+<section class="section testimonial">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="heading">
+					<h2 class="mb-4">What they say about us</h2>
+					<p>They are truely amazing in the industry, Satisfied with their work. Surely recommended. </p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                            <div class="overlay-item">
-                                <i class="ti-link"></i>
-                            </div>
-                            <div class="portfolio-item-content">
-                                <h3 class="mb-0 text-white">Project california</h3>
-                                <p class="text-white-50">Web Development</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12 testimonial-wrap">
+				<div class="testimonial-block">
+					<p>
+						I would like to thank you Mr. Henry(sample name) and the rest of your team for taking care of my daughter's debut party. Your teams
+						did an excellent job in filming the event. May God bless all of you always and more power to your company.
+					</p>
 
-    <section class="section counter">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter-item text-center mb-5 mb-lg-0">
-                        <h2 class="mb-0"><span class="counter-stat font-weight-bold">1730</span> +</h2>
-                        <p>Project Done</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter-item text-center mb-5 mb-lg-0">
-                        <h2 class="mb-0"><span class="counter-stat font-weight-bold">125 </span>M </h2>
-                        <p>User Worldwide</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter-item text-center mb-5 mb-lg-0">
-                        <h2 class="mb-0"><span class="counter-stat font-weight-bold">39</span></h2>
-                        <p>Availble Country</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter-item text-center">
-                        <h2 class="mb-0"><span class="counter-stat font-weight-bold">14</span></h2>
-                        <p>Award Winner </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+					<div class="client-info d-flex align-items-center">
+						<div class="client-img">
+							<img src="images/team/testimonial1.jpg" alt="" class="img-fluid">
+						</div>
+						<div class="info">
+							<h6>John Partho</h6>
+							<span>Newyork USA</span>
+						</div>
+					</div>
+				</div>
 
-    <section class="section testimonial">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="heading">
-                        <h2 class="mb-4">What they say about us</h2>
-                        <p>They are truely amazing in the industry ,molestiae expedita aspernatur officia, similique minima laudantium. Corrupti ipsa perspiciatis commodi nesciunt rerum mollitia enim voluptate!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+				<div class="testimonial-block">
+					<p>
+						Thank you so much Photocity for making our wedding a magical! Two thumbs up for all the staff and crew, you made us feel celebrity on
+						our wedding day, Thanks for you full support guys you grant all of our request and demands.
+					</p>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12 testimonial-wrap">
-                    <div class="testimonial-block">
-                        <p>
-                            Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
-                        </p>
+					<div class="client-info d-flex align-items-center">
+						<div class="client-img">
+							<img src="images/team/testimonial2.jpg" alt="" class="img-fluid">
+						</div>
+						<div class="info">
+							<h6>John Partho</h6>
+							<span>Newyork USA</span>
+						</div>
+					</div>
+				</div>
+				<div class="testimonial-block">
+					<p>
+						We want to start by thanking God for what we have now and of course special thanks to Photocity for making our dream wedding come true.
+						We recommend our awesome coordinator kahit nasa malayo kami naging perfect ang wedding namin.
+					</p>
 
-                        <div class="client-info d-flex align-items-center">
-                            <div class="client-img">
-                                <img src="images/team/testimonial1.jpg" alt="" class="img-fluid">
-                            </div>
-                            <div class="info">
-                                <h6>John Partho</h6>
-                                <span>Newyork USA</span>
-                            </div>
-                        </div>
-                    </div>
+					<div class="client-info d-flex align-items-center">
+						<div class="client-img">
+							<img src="images/team/testimonial1.jpg" alt="" class="img-fluid">
+						</div>
+						<div class="info">
+							<h6>John Partho</h6>
+							<span>Newyork USA</span>
+						</div>
+					</div>
+				</div>
+				<div class="testimonial-block">
+					<p>
+						First time renting the Photocity and I must say the experience was terrific. The team was great to work with and could not be any nicer.
+						They are fully equipped with proffesional lights. Looks like I found long term studio to work with.
+					</p>
 
-                    <div class="testimonial-block">
-                        <p>
-                            Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
-                        </p>
+					<div class="client-info d-flex align-items-center">
+						<div class="client-img">
+							<img src="images/team/testimonial2.jpg" alt="" class="img-fluid">
+						</div>
+						<div class="info">
+							<h6>John Partho</h6>
+							<span>Newyork USA</span>
+						</div>
+					</div>
+				</div>
+				<div class="testimonial-block">
+					<p>
+						Very accomodating team, gets the look and feel of what you want, easy to coordinate with! (They give you no hassle whatsoever) Rest 
+						assured, your moments are captured a hight qaulity and good memories in the future, 5/5.
+					</p>
 
-                        <div class="client-info d-flex align-items-center">
-                            <div class="client-img">
-                                <img src="images/team/testimonial2.jpg" alt="" class="img-fluid">
-                            </div>
-                            <div class="info">
-                                <h6>John Partho</h6>
-                                <span>Newyork USA</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block">
-                        <p>
-                            Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
-                        </p>
+					<div class="client-info d-flex align-items-center">
+						<div class="client-img">
+							<img src="images/team/testimonial1.jpg" alt="" class="img-fluid">
+						</div>
+						<div class="info">
+							<h6>John Partho</h6>
+							<span>Newyork USA</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-                        <div class="client-info d-flex align-items-center">
-                            <div class="client-img">
-                                <img src="images/team/testimonial1.jpg" alt="" class="img-fluid">
-                            </div>
-                            <div class="info">
-                                <h6>John Partho</h6>
-                                <span>Newyork USA</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block">
-                        <p>
-                            Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
-                        </p>
-
-                        <div class="client-info d-flex align-items-center">
-                            <div class="client-img">
-                                <img src="images/team/testimonial2.jpg" alt="" class="img-fluid">
-                            </div>
-                            <div class="info">
-                                <h6>John Partho</h6>
-                                <span>Newyork USA</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block">
-                        <p>
-                            Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
-                        </p>
-
-                        <div class="client-info d-flex align-items-center">
-                            <div class="client-img">
-                                <img src="images/team/testimonial1.jpg" alt="" class="img-fluid">
-                            </div>
-                            <div class="info">
-                                <h6>John Partho</h6>
-                                <span>Newyork USA</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection
