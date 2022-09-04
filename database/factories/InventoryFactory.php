@@ -16,9 +16,9 @@ class InventoryFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->Address(),
-            'qty' => 12,
-            'branch_id' => 1,
-            'category_id' => 1
+            'qty' => $this->faker->numberBetween(1, 100),
+            'branch_id' => $this->faker->numberBetween(1, 5),
+            'category_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

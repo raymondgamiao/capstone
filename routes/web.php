@@ -24,43 +24,32 @@ use App\Models\Listing;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 Route::get('/about', function () {
     return view('about');
-});
+})->name('about');
 
-Route::get('/service', function () {
-    return view('service');
-});
+Route::get('/services', function () {
+    return view('services');
+})->name('services');
 
-Route::get('/gallery', [GalleryController::class, 'index']);
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
-/* Route::get('/gallery', function () {
-    return view('gallery');
-});
- */
-
-Route::get('/contact', [ContactController::class, 'index']);
-
-/* Route::get('/contact', function () {
-    return view('contact');
-}); */
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
 /* admin routes */
 
 Route::get('/admin/', function () {
     return view('admin/index');
-});
+})->name('admin');
 
 Route::get('/admin/calendar', function () {
     return view('admin/calendar');
-});
+})->name('admin/calendar');
 
-/* Route::get('/admin/inventory', function () {
-    return view('admin/inventory');
-}); */
+Route::get('/admin/inventory', [InventoryController::class, 'index'])->name('admin/inventory');
 
 
 /* test routes */
@@ -69,15 +58,17 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/admin/inventory', [InventoryController::class, 'index']);
-
 Route::get('/listings', [ListingControler::class, 'index']);
 
+
+Route::get('/listings/create', [ListingControler::class, 'create']);
+
+Route::post('/listings/store', [ListingControler::class, 'store']);
+
+
+
+
 Route::get('/listing/{listing}', [ListingControler::class, 'show']);
-
-
-
-
 /* 
 Route::get('/listing/{listing}', function (Listing $listing) {
     return view('listing', [

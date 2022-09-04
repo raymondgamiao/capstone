@@ -61,12 +61,12 @@
                             <tbody>
                                 @foreach ($inventory as $item)
                                 <tr>
-                                    <td>{{ $item['name'] }}</td>
+                                    <td>{{ $item->name }}</td>
                                     <td>{{
-                                        $item['description'] }}</td>
-                                    <td>{{ $item['qty'] }}</td>
-                                    <td>{{ $item['branch_id'] }}</td>
-                                    <td>{{ $item['category_id'] }}</td>
+                                        $item->description }}</td>
+                                    <td>{{ $item->qty }}</td>
+                                    <td>{{ $item->branch_name }}</td>
+                                    <td>{{ $item->category_name }}</td>
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
