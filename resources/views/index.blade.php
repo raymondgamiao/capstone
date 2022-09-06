@@ -10,9 +10,11 @@
 				<div class="block">
 					<span class="text-uppercase text-sm letter-spacing ">What are you waiting for, Book now!</span>
 					<h1 class="mb-3 mt-3">Capturing the beauty of your everyday life</h1>
-					<p class="mb-5"> We'll create the perfect photo of your event.  You've heard two heads are better than one, <br>what about a whole team of heads whose passion is great photo experiences</p>
+					<p class="mb-5"> We'll create the perfect photo of your event. You've heard two heads are better
+						than one, <br>what about a whole team of heads whose passion is great photo experiences</p>
 
-					<a href="about.html" target="_blank" class="btn btn-main">Let's Get in Touch<i class="fa fa-angle-right ml-2"></i></a>
+					<a href="about.html" target="_blank" class="btn btn-main">Let's Get in Touch<i
+							class="fa fa-angle-right ml-2"></i></a>
 
 				</div>
 			</div>
@@ -50,7 +52,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="col-lg-4 col-md-6">
 				<div class="about-item">
 					<div class="icon">
@@ -74,7 +76,8 @@
 				<div class="process-block pl-4">
 					<span class="text-uppercase text-sm letter-spacing">Why choose us</span>
 					<h2 class="mb-4 mt-3">We help your dream event, delivered</h2>
-					<p class="mb-4">Highlight your event and capture every moment with us. Don't let your event pass without booking us.</p>
+					<p class="mb-4">Highlight your event and capture every moment with us. Don't let your event pass
+						without booking us.</p>
 				</div>
 			</div>
 
@@ -112,7 +115,7 @@
 						</div>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</div>
 </section>
@@ -125,10 +128,12 @@
 					<h3 class="mb-4">Capturing moments from today<br>
 						Creating memories for a <span class="text-color-primary"> lifetime</span> </h3>
 					<p class="mb-30">
-						When you look back on your special day, we want you to remember the moments that made the day special. 
-						For you to remember why you laughed or cried at a certain moment, and how you're having the time of your life
+						When you look back on your special day, we want you to remember the moments that made the day
+						special.
+						For you to remember why you laughed or cried at a certain moment, and how you're having the time
+						of your life
 					</p>
-					
+
 					<a href="project.html" class="btn btn-main">Gallery<i class="fa fa-angle-right ml-2"></i></a>
 				</div>
 			</div>
@@ -151,11 +156,11 @@
 	<div class="container-fluid">
 		<div class="row portfolio-gallery">
 			<div class="col-lg-4 col-md-6">
-				<div class="portflio-item position-relative mb-4">
+				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2758319024430558&type=3">
 						<img src="images/portfolio/gallery-index/event1.webp" alt="" class="img-fluid w-100">
-						<div class="overlay-item"><i class="ti-link"></i></div>	
-						
+						<div class="overlay-item"><i class="ti-link"></i></div>
+
 						<div class="portfolio-item-content">
 							<h3 class="mb-0 text-white">Jun & Leyn <br> Prenup shoot</h3>
 							<p class="text-white-50">12-06-20t</p>
@@ -165,7 +170,7 @@
 			</div>
 
 			<div class="col-lg-4 col-md-6">
-				<div class="portflio-item position-relative mb-4">
+				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2758319024430558&type=3">
 						<img src="images/portfolio/gallery-index/event2.webp" alt="" class="img-fluid w-100">
 						<div class="overlay-item">
@@ -180,7 +185,7 @@
 			</div>
 
 			<div class="col-lg-4 col-md-6">
-				<div class="portflio-item position-relative mb-4">
+				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2179834858945647&type=3">
 						<img src="images/portfolio/gallery-index/event3.webp" alt="" class="img-fluid w-100">
 
@@ -196,7 +201,7 @@
 			</div>
 
 			<div class="col-lg-4 col-md-6">
-				<div class="portflio-item position-relative mb-4">
+				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2179834858945647&type=3">
 						<img src="images/portfolio/gallery-index/event4.webp" alt="" class="img-fluid w-100">
 
@@ -212,7 +217,7 @@
 			</div>
 
 			<div class="col-lg-4 col-md-6">
-				<div class="portflio-item position-relative  mb-4">
+				<div class="portflio-item position-relative  mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2486295468299583&type=3">
 						<img src="images/portfolio/gallery-index/event5.webp" alt="" class="img-fluid w-100">
 
@@ -228,19 +233,25 @@
 			</div>
 
 			<div class="col-lg-4 col-md-6">
-				<div class="portflio-item position-relative mb-4">
+				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2486295468299583&type=3">
 						<img src="images/portfolio/gallery-index/event6.webp" alt="" class="img-fluid w-100">
-						
+
 						<div class="overlay-item">
 							<i class="ti-link"></i>
 						</div>
 						<div class="portfolio-item-content">
-							<h3 class="mb-0 text-white">Project california</h3>
-							<p class="text-white-50">Web Development</p>
+							<h3 class="mb-0 text-white">ChristenJay & Hazel <br> Wedding</h3>
+							<p class="text-white-50">1-08-20</p>
 						</div>
 					</a>
 				</div>
+			</div>
+		</div>
+
+		<div class="row mx-2">
+			<div class="col-lg-4 col-md-6 mb-5 mx-2">
+				<a href="project.html" class="btn btn-main">Show more<i class="fa fa-angle-right ml-2"></i></a>
 			</div>
 		</div>
 	</div>
@@ -249,28 +260,22 @@
 <section class="section counter">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3 col-md-6 col-sm-6">
+			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="counter-item text-center mb-5 mb-lg-0">
-					<h2 class="mb-0"><span class="counter-stat font-weight-bold">1730</span> +</h2>
-					<p>Project Done</p>
+					<h2 class="mb-0"><span class="counter-stat font-weight-bold">8</span> +</h2>
+					<p>Years of Service</p>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
+			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="counter-item text-center mb-5 mb-lg-0">
-					<h2 class="mb-0"><span class="counter-stat font-weight-bold">125 </span>M </h2>
-					<p>User Worldwide</p>
+					<h2 class="mb-0"><span class="counter-stat font-weight-bold">125 </span></h2>
+					<p>Events Done</p>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
+			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="counter-item text-center mb-5 mb-lg-0">
-					<h2 class="mb-0"><span class="counter-stat font-weight-bold">39</span></h2>
-					<p>Availble Country</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="counter-item text-center">
-					<h2 class="mb-0"><span class="counter-stat font-weight-bold">14</span></h2>
-					<p>Award Winner </p>
+					<h2 class="mb-0"><span class="counter-stat font-weight-bold">10</span></h2>
+					<p>Branches</p>
 				</div>
 			</div>
 		</div>
@@ -294,8 +299,10 @@
 			<div class="col-lg-12 testimonial-wrap">
 				<div class="testimonial-block">
 					<p>
-						I would like to thank you Mr. Henry(sample name) and the rest of your team for taking care of my daughter's debut party. Your teams
-						did an excellent job in filming the event. May God bless all of you always and more power to your company.
+						I would like to thank you Mr. Henry(sample name) and the rest of your team for taking care of my
+						daughter's debut party. Your teams
+						did an excellent job in filming the event. May God bless all of you always and more power to
+						your company.
 					</p>
 
 					<div class="client-info d-flex align-items-center">
@@ -311,7 +318,8 @@
 
 				<div class="testimonial-block">
 					<p>
-						Thank you so much Photocity for making our wedding a magical! Two thumbs up for all the staff and crew, you made us feel celebrity on
+						Thank you so much Photocity for making our wedding a magical! Two thumbs up for all the staff
+						and crew, you made us feel celebrity on
 						our wedding day, Thanks for you full support guys you grant all of our request and demands.
 					</p>
 
@@ -327,7 +335,8 @@
 				</div>
 				<div class="testimonial-block">
 					<p>
-						We want to start by thanking God for what we have now and of course special thanks to Photocity for making our dream wedding come true.
+						We want to start by thanking God for what we have now and of course special thanks to Photocity
+						for making our dream wedding come true.
 						We recommend our awesome coordinator kahit nasa malayo kami naging perfect ang wedding namin.
 					</p>
 
@@ -343,8 +352,10 @@
 				</div>
 				<div class="testimonial-block">
 					<p>
-						First time renting the Photocity and I must say the experience was terrific. The team was great to work with and could not be any nicer.
-						They are fully equipped with proffesional lights. Looks like I found long term studio to work with.
+						First time renting the Photocity and I must say the experience was terrific. The team was great
+						to work with and could not be any nicer.
+						They are fully equipped with proffesional lights. Looks like I found long term studio to work
+						with.
 					</p>
 
 					<div class="client-info d-flex align-items-center">
@@ -359,7 +370,8 @@
 				</div>
 				<div class="testimonial-block">
 					<p>
-						Very accomodating team, gets the look and feel of what you want, easy to coordinate with! (They give you no hassle whatsoever) Rest 
+						Very accomodating team, gets the look and feel of what you want, easy to coordinate with! (They
+						give you no hassle whatsoever) Rest
 						assured, your moments are captured a hight qaulity and good memories in the future, 5/5.
 					</p>
 

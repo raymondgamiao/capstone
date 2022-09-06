@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Inventory</title>
+    <title>{{ $title}}</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('favicon2.png')}}">
@@ -35,13 +35,19 @@
 @endsection
 
 @section('content')
-<div class="container content-inner mt-n5 py-0">
+<div class="container-fluid content-inner mt-5 py-0">
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
-                <div class="card-header d-flex justify-content-between">
-                    <div class="header-title">
-                        <h4 class="card-title">Item Inventory</h4>
+                <div class="card-body d-flex justify-content-between align-items-center flex-wrap">
+                    <div class="card-title mb-0">
+                        <h4 class="mb-0">Item Inventory</h4>
+                    </div>
+                    <div class="card-action mt-2 mt-sm-0">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                            + Add Item
+                        </button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -69,29 +75,8 @@
                                     <td>{{ $item->category_name }}</td>
                                     <td>
                                         <div class="flex align-items-center list-user-action">
-                                            <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
-                                                data-placement="top" title="" data-original-title="Add" href="#">
-                                                <span class="btn-inner">
-                                                    <svg width="32" viewBox="0 0 24 24" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M9.87651 15.2063C6.03251 15.2063 2.74951 15.7873 2.74951 18.1153C2.74951 20.4433 6.01251 21.0453 9.87651 21.0453C13.7215 21.0453 17.0035 20.4633 17.0035 18.1363C17.0035 15.8093 13.7415 15.2063 9.87651 15.2063Z"
-                                                            stroke="currentColor" stroke-width="1.5"
-                                                            stroke-linecap="round" stroke-linejoin="round"></path>
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M9.8766 11.886C12.3996 11.886 14.4446 9.841 14.4446 7.318C14.4446 4.795 12.3996 2.75 9.8766 2.75C7.3546 2.75 5.3096 4.795 5.3096 7.318C5.3006 9.832 7.3306 11.877 9.8456 11.886H9.8766Z"
-                                                            stroke="currentColor" stroke-width="1.5"
-                                                            stroke-linecap="round" stroke-linejoin="round"></path>
-                                                        <path d="M19.2036 8.66919V12.6792" stroke="currentColor"
-                                                            stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                        <path d="M21.2497 10.6741H17.1597" stroke="currentColor"
-                                                            stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </span>
-                                            </a>
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
+                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                 data-placement="top" title="" data-original-title="Edit" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
@@ -110,7 +95,8 @@
                                                     </svg>
                                                 </span>
                                             </a>
-                                            <a class="btn btn-sm btn-icon btn-danger" data-toggle="tooltip"
+                                            <a class="btn btn-sm btn-icon btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModaldelete" data-toggle="tooltip"
                                                 data-placement="top" title="" data-original-title="Delete" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
@@ -138,6 +124,171 @@
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{-- modal add item --}}
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-1 align-items-center form-group">
+                    <div class="col-3">
+                        <label for="addtitle" class="col-form-label">InventoryID</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                    </div>
+                </div>
+
+                <div class="row g-1 align-items-center form-group">
+                    <div class="col-3">
+                        <label for="addtitle" class="col-form-label">Name</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                    </div>
+                </div>
+
+
+                <div class="row g-1 align-items-center form-group">
+                    <div class="col-3">
+                        <label for="addtitle" class="col-form-label">Description</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                    </div>
+                </div>
+
+                <div class="row g-1 align-items-center form-group">
+                    <div class="col-3">
+                        <label for="addtitle" class="col-form-label">Quantity</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                    </div>
+                </div>
+
+                <div class="row g-1 align-items-center form-group">
+                    <div class="col-3">
+                        <label for="addtitle" class="col-form-label">Branch</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                    </div>
+                </div>
+
+                <div class="row g-1 align-items-center form-group">
+                    <div class="col-3">
+                        <label for="addtitle" class="col-form-label">Category</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Add Item</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- EDIT CHANGES MODAL --}}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-1 align-items-center form-group">
+                    <div class="col-3">
+                        <label for="addtitle" class="col-form-label">InventoryID</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                    </div>
+                </div>
+
+                <div class="row g-1 align-items-center form-group">
+                    <div class="col-3">
+                        <label for="addtitle" class="col-form-label">Name</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                    </div>
+                </div>
+
+
+                <div class="row g-1 align-items-center form-group">
+                    <div class="col-3">
+                        <label for="addtitle" class="col-form-label">Description</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                    </div>
+                </div>
+
+                <div class="row g-1 align-items-center form-group">
+                    <div class="col-3">
+                        <label for="addtitle" class="col-form-label">Quantity</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                    </div>
+                </div>
+
+                <div class="row g-1 align-items-center form-group">
+                    <div class="col-3">
+                        <label for="addtitle" class="col-form-label">Branch</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                    </div>
+                </div>
+
+                <div class="row g-1 align-items-center form-group">
+                    <div class="col-3">
+                        <label for="addtitle" class="col-form-label">Category</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- Delete Modal --}}
+<div class="modal fade" id="exampleModaldelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this item?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Delete Item</button>
             </div>
         </div>
     </div>

@@ -26,6 +26,9 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
+    {{-- alpine js --}}
+    <script src="//unpkg.com/alpinejs" defer></script>
+
 </head>
 
 <body>

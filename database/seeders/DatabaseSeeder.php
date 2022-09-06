@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Branch;
 use App\Models\Category;
+use App\Models\Clients;
+use App\Models\Employees;
 use App\Models\Gallery;
 use App\Models\Inventory;
 use App\Models\Listing;
@@ -19,13 +21,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
-
-        Listing::factory(5)->create();
-
+        \App\Models\User::factory(15)->create();
+        Clients::factory(5)->create();
+        Employees::factory(5)->create();
         Inventory::factory(20)->create();
         Branch::factory(5)->create();
         Category::factory(10)->create();
+
+
+        Listing::factory(5)->create();
+
 
         Gallery::create([
             'album_url' => 'https://www.facebook.com/media/set/?set=a.3098028447126279&type=3',

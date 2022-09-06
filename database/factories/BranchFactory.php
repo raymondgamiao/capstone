@@ -17,7 +17,7 @@ class BranchFactory extends Factory
             'name' => $this->faker->company(),
             'location' => $this->faker->city(),
             'email' => $this->faker->email(),
-            'contact' => $this->faker->numerify('###-###-####')
+            'contact' => $this->faker->numerify('####-###-####')
         ];
     }
 }

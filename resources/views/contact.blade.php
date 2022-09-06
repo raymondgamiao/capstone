@@ -25,12 +25,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <span class="text-color">Send a message</span>
-                <h3 class="text-md mb-5">Contact Form</h3>
+                <span class="text-primary">Send a message</span>
+                <h3 class="text-md mb-2">Contact Form</h3>
 
                 <div class="row">
                     <div class="col-lg-8">
-                        <form id="contact-form" class="contact__form " method="post" action="mail.php">
+                        <form id="contact-form" class="contact__form" method="post" action="mail.php">
                             <!-- form message -->
                             <div class="row">
                                 <div class="col-12">
@@ -40,38 +40,84 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>I Need help in ...</option>
-                                    <option>Software Design</option>
-                                    <option>Development cycle</option>
-                                    <option>Software Development</option>
-                                    <option>Maintenance</option>
-                                    <option>Process Query</option>
-                                    <option>Cost and Duration</option>
-                                    <option>Modal Delivery</option>
-                                </select>
+                            <nav>
+                                <div class="nav nav-tabs mb-4" id="nav-tab" role="tablist">
+                                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                        aria-selected="true">
+                                        Contact us
+                                    </button>
+                                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-profile" type="button" role="tab"
+                                        aria-controls="nav-profile" aria-selected="false">
+                                        Inquire now
+                                    </button>
+
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                    aria-labelledby="nav-home-tab" tabindex="0">
+                                    <!-- Contact us -->
+
+                                    <div class="form-group">
+                                        <input name="subject" id="subject" type="text" class="form-control"
+                                            placeholder="Full Name" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="name" id="name" type="text" class="form-control"
+                                            placeholder="Email Address" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="email" id="email" type="email" class="form-control"
+                                            placeholder="Phone Number" />
+                                    </div>
+                                    <div class="form-group-2 mb-4">
+                                        <textarea name="message" id="message" class="form-control" rows="4"
+                                            placeholder="Your Message"></textarea>
+                                    </div>
+                                    <button class="btn btn-main" name="submit" type="submit">
+                                        Send Message
+                                    </button>
+                                </div>
+                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                    aria-labelledby="nav-profile-tab" tabindex="0">
+                                    <!--Inquire now-->
+                                    <div class="form-group">
+                                        <input name="subject" id="subject" type="text" class="form-control"
+                                            placeholder="Event Name" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="name" id="date" type="date" class="form-control"
+                                            placeholder="Event Date" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="email" id="duration" type="number" class="form-control"
+                                            placeholder="Duration Period / Number of Days" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="email" id="event-venue" type="text" class="form-control"
+                                            placeholder="Event Venue" />
+                                    </div>
+                                    <div class="form-group-2 mb-4">
+                                        <textarea name="message" id="message" class="form-control" rows="4"
+                                            placeholder="Your Message"></textarea>
+                                    </div>
+                                    <button class="btn btn-main" name="submit" type="submit">
+                                        Send Message
+                                    </button>
+                                </div>
+                                <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                    aria-labelledby="nav-contact-tab" tabindex="0">
+
+                                </div>
+                                <div class="tab-pane fade" id="nav-disabled" role="tabpanel"
+                                    aria-labelledby="nav-disabled-tab" tabindex="0">
+                                    ...
+                                </div>
                             </div>
 
-                            <div class="form-group">
-                                <input name="subject" id="subject" type="text" class="form-control"
-                                    placeholder="Your Subject">
-                            </div>
 
-                            <div class="form-group">
-                                <input name="name" id="name" type="text" class="form-control" placeholder="Your Name">
-                            </div>
-
-                            <div class="form-group">
-                                <input name="email" id="email" type="email" class="form-control"
-                                    placeholder="Email Address">
-                            </div>
-
-                            <div class="form-group-2 mb-4">
-                                <textarea name="message" id="message" class="form-control" rows="4"
-                                    placeholder="Your Message"></textarea>
-                            </div>
-                            <button class="btn btn-main" name="submit" type="submit">Send Message</button>
                         </form>
                     </div>
 
@@ -84,11 +130,11 @@
                                 </li>
                                 <li>
                                     <h5>Email Us</h5>
-                                    contact@mail.com
+                                    Support@megakit.com
                                 </li>
                                 <li>
                                     <h5>Location Map</h5>
-                                    North Main Street,Brooklyn Australia
+                                    Tuguegarao City, Cagayan
                                 </li>
                             </ul>
 

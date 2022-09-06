@@ -32,9 +32,12 @@
                 <div class="service-info ">
                     <span class="text-color font-weight-bold">01</span>
                     <h3 class="text-md mb-4 mt-2">
-                        Custom Software development
+                        Setup meeting with the client
                     </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptatum, nobis quos dolores reiciendis unde. Est obcaecati aspernatur pariatur aliquid quos repellendus, amet architecto similique, cumque nisi earum, culpa, ipsa!</p>
+                    <p>First we will schedule the meeting after the booking confirmation. We will discuss about the
+                        package you've avail
+                        and sign to our contract.
+                    </p>
                 </div>
             </div>
         </div>
@@ -45,10 +48,12 @@
                     <div class="service-info mb-5 mb-lg-0">
                         <span class="text-color font-weight-bold">02</span>
                         <h3 class="text-md mb-4 mt-2">
-                            Software Maintenance
+                            Get Set Up and Capture Images
                         </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptatum, nobis quos dolores reiciendis unde. Est obcaecati aspernatur pariatur aliquid quos repellendus, amet architecto similique, cumque nisi earum, culpa, ipsa!</p>
-
+                        <p>When we arrive at the shoot location, It's time to scout out backdrops and other spots where
+                            we can capture images. We
+                            want to get our gear set out so it's ready for us to grab when we need it.
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -69,9 +74,11 @@
                 <div class="service-info">
                     <span class="text-color font-weight-bold">03</span>
                     <h3 class="text-md mb-4 mt-2">
-                        Web App Development
+                        Deliver Final Photos
                     </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptatum, nobis quos dolores reiciendis unde. Est obcaecati aspernatur pariatur aliquid quos repellendus, amet architecto similique, cumque nisi earum, culpa, ipsa!</p>
+                    <p>After the event, it will take several days before we deliver because of some enchancing and
+                        editing of the images. Once
+                        that's done we will deliver the photos and we will transfer the soft copy. </p>
                 </div>
             </div>
         </div>
@@ -84,7 +91,8 @@
             <div class="col-lg-8">
                 <div class="case-study-content text-center mb-5">
                     <h2 class="mb-4">How we works</h2>
-                    <p>There are many variations of lorem passages of Lorem Ipsum available, but the majority have suffered. All the Lorem Ipsum generators.</p>
+                    <p>There are many variations of lorem passages of Lorem Ipsum available, but the majority have
+                        suffered. All the Lorem Ipsum generators.</p>
                 </div>
             </div>
         </div>
@@ -104,7 +112,8 @@
                 <div class="col-lg-6">
                     <div class="case-content">
                         <h4 class="mb-3">Competitor Research</h4>
-                        <p>Nihil fugit officia esse vero, animi tenetur ullam, dolor aperiam minus aliquid enim laudantium fuga! Commodi voluptas, deleniti distinctio quam totam vitae.</p>
+                        <p>Nihil fugit officia esse vero, animi tenetur ullam, dolor aperiam minus aliquid enim
+                            laudantium fuga! Commodi voluptas, deleniti distinctio quam totam vitae.</p>
                     </div>
                 </div>
             </div>
@@ -118,7 +127,8 @@
                 <div class="col-lg-6 order-2 order-lg-1">
                     <div class="case-content">
                         <h4 class="mb-3">Making Functional Strategy</h4>
-                        <p>Nihil fugit officia esse vero, animi tenetur ullam, dolor aperiam minus aliquid enim laudantium fuga! Commodi voluptas, deleniti distinctio quam totam vitae.</p>
+                        <p>Nihil fugit officia esse vero, animi tenetur ullam, dolor aperiam minus aliquid enim
+                            laudantium fuga! Commodi voluptas, deleniti distinctio quam totam vitae.</p>
                     </div>
                 </div>
                 <div class="col-lg-6  order-1 order-lg-2">
@@ -142,7 +152,8 @@
                 <div class="col-lg-6">
                     <div class="case-content">
                         <h4 class="mb-3">Project Outline</h4>
-                        <p>Nihil fugit officia esse vero, animi tenetur ullam, dolor aperiam minus aliquid enim laudantium fuga! Commodi voluptas, deleniti distinctio quam totam vitae.</p>
+                        <p>Nihil fugit officia esse vero, animi tenetur ullam, dolor aperiam minus aliquid enim
+                            laudantium fuga! Commodi voluptas, deleniti distinctio quam totam vitae.</p>
                     </div>
                 </div>
             </div>
@@ -156,7 +167,8 @@
                 <div class="col-lg-6 order-2 order-lg-1">
                     <div class="case-content">
                         <h4 class="mb-3">Final Delivery</h4>
-                        <p>Nihil fugit officia esse vero, animi tenetur ullam, dolor aperiam minus aliquid enim laudantium fuga! Commodi voluptas, deleniti distinctio quam totam vitae.</p>
+                        <p>Nihil fugit officia esse vero, animi tenetur ullam, dolor aperiam minus aliquid enim
+                            laudantium fuga! Commodi voluptas, deleniti distinctio quam totam vitae.</p>
                     </div>
                 </div>
 
@@ -175,56 +187,101 @@
         <div class="row">
             <div class="col-lg-10">
                 <div class="heading">
-                    <h2 class="mb-4">Industry Leading Managed <br>Services & Staffing Solutions</h2>
-                    <p>Quos recusandae dolore, consequuntur nemo hic nisi perferendis. Vel praesentium magnam architecto delectus blanditiis doloremque, deleniti aperiam ab adipisci!</p>
+                    <h2 class="mb-4">Services package that we offer</h2>
+                    <p>Quos recusandae dolore, consequuntur nemo hic nisi perferendis. Vel praesentium magnam architecto
+                        delectus blanditiis doloremque, deleniti aperiam ab adipisci!</p>
                 </div>
             </div>
         </div>
         <div class="row align-items-center">
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item-list">
-                    <i class="ti-panel"></i>
-                    <p>Flexible Engagement <br>Models </p>
+            <div class="col-lg-6 col-md-6">
+                <div class="service-offer">
+                    <i class="ti-video-clapper"></i>
+                    <h4 class="fw-bold">Photo & Video</h4>
                 </div>
                 <div class="service-item-list">
-                    <i class="ti-desktop"></i>
-                    <p>Custom Software <br>Development</p>
+                    <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
+                        aria-controls="multiCollapseExample1">Basic
+                        <i class="ti-angle-double-down"></i>
+                    </a>
+                    <div class="row">
+                        <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                <div class="card-body">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, molestiae ipsam
+                                    blanditiis doloremque quisquam vel assumenda illum facere consectetur quaerat?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="service-item-list">
-                    <i class="ti-light-bulb"></i>
-                    <p>Product Innovation &<br>Technology</p>
+                    <a data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false"
+                        aria-controls="multiCollapseExample1">Deluxe
+                        <i class="ti-angle-double-down"></i>
+                    </a>
+                    <div class="row">
+                        <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample2">
+                                <div class="card-body">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, molestiae ipsam
+                                    blanditiis doloremque quisquam vel assumenda illum facere consectetur quaerat?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-item-list">
+                    <a data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false"
+                        aria-controls="multiCollapseExample1">Ultimate
+                        <i class="ti-angle-double-down"></i>
+                    </a>
+                    <div class="row">
+                        <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample3">
+                                <div class="card-body">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, molestiae ipsam
+                                    blanditiis doloremque quisquam vel assumenda illum facere consectetur quaerat?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-6 col-md-6">
+                <div class="service-offer">
+                    <i class="ti-panel"></i>
+                    <h4 class="fw-bold">Sounds & Lights</h4>
+                </div>
                 <div class="service-item-list">
                     <i class="ti-mobile"></i>
-                    <p>Mobility<br> Service</p>
+                    <p>Bronze</p>
                 </div>
                 <div class="service-item-list">
                     <i class="ti-check-box"></i>
-                    <p>Quality <br>Assurance</p>
+                    <p>Silver</p>
                 </div>
                 <div class="service-item-list">
                     <i class="ti-dashboard"></i>
-                    <p>Enterprise <br>Solution</p>
+                    <p>Platinum</p>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item-list">
-                    <i class="ti-headphone-alt"></i>
-                    <p>Integrated & Dedicated<br> Teams</p>
-                </div>
-                <div class="service-item-list">
-                    <i class="ti-bar-chart-alt"></i>
-                    <p>Big data and<br> analytics</p>
-                </div>
-                <div class="service-item-list">
-                    <i class="ti-cloud-up"></i>
-                    <p>Cloud backup <br>System</p>
-                </div>
-            </div>
+            <!-- <div class="col-lg-4 col-md-6">
+                  <div class="service-item-list">
+                      <i class="ti-headphone-alt"></i>
+                      <p>Integrated & Dedicated<br> Teams</p>
+                  </div>
+                  <div class="service-item-list">
+                      <i class="ti-bar-chart-alt"></i>
+                      <p>Big data and<br> analytics</p>
+                  </div>
+                  <div class="service-item-list">
+                      <i class="ti-cloud-up"></i>
+                      <p>Cloud backup <br>System</p>
+                  </div>
+              </div> -->
         </div>
     </div>
 </section>

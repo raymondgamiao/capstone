@@ -12,7 +12,8 @@ class ContactController extends Controller
         return view(
             'contact',
             [
-                'branches' => Branch::all(),
+                'Categories' => Branch::all(),
+                'title' => 'Categories'
             ]
         );
     }

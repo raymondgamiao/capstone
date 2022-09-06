@@ -25,7 +25,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="heading text-center">
-                    <h2>We bring joy and <br> <span class="text-color">creativty with every photo</span> </h2>
+                    <h2>We bring joy and <br> <span class="text-color">creativity with every photo</span> </h2>
                 </div>
 
                 <div class="row">
@@ -99,44 +99,41 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="team-block mb-5 mb-lg-0">
-                    <picture>
-                        <source type="image/webp" srcset="images/about/owner-1.webp">
-                        <img src="images/about/owner-1.webp" alt="" class="img-fluid w-100">
-                    </picture>
-                    <h4 class="mt-4 mb-0">Pastor Henry</h4>
-                    <p>Owner</p>
+                    <img src="{{asset('images/team/team-3.webp')}}" alt="" class="img-fluid w-100">
+                    <h4 class="mt-4 mb-0 text-center">Pastor Henry Domingo</h4>
+                    <p class="text-center">Owner</p>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="team-block mb-5 mb-lg-0">
-                    <picture>
-                        <source type="image/webp" srcset="images/about/executive-assistant.webp">
-                        <img src="images/about/executive-assistant.webp" alt="" class="img-fluid w-100">
-                    </picture>
-                    <h4 class="mt-4 mb-0">Sample name</h4>
-                    <p>Executive Assistant</p>
+                    <img src="{{asset('images/team/team-1.webp')}}" alt="" class="img-fluid w-100">
+                    <h4 class="mt-4 mb-0 text-center">Mary jane Carbonel</h4>
+                    <p class="text-center">Executive Assistant</p>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="team-block mb-5 mb-lg-0">
-                    <picture>
-                        <source type="image/webp" srcset="images/about/sensation-manager.webp">
-                        <img src="images/about/sensation-manager.webp" alt="" class="img-fluid w-100">
-                    </picture>
-                    <h4 class="mt-4 mb-0">Sample name</h4>
-                    <p>Sensation Manager</p>
+                    <img src="{{asset('images/team/team-4.webp')}}" alt="" class="img-fluid w-100">
+                    <h4 class="mt-4 mb-0 text-center">Oliver Domingo</h4>
+                    <p class="text-center">Sensation Manager</p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="team-block">
-                    <img src="images/about/production-manager.png" alt="" class="img-fluid w-100">
-
-                    <h4 class="mt-4 mb-0">Sample name</h4>
-                    <p>Senior Developer</p>
+                    <img src="{{asset('images/team/team-2.webp')}}" alt="" class="img-fluid w-100">
+                    <h4 class="mt-4 mb-0 text-center">Jayson Bandulin</h4>
+                    <p class="text-center">Production manager</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="team-block">
+                    <img src="{{asset('images/team/team-5.webp')}}" alt="" class="img-fluid w-100">
+                    <h4 class="mt-4 mb-0 text-center">Faith Maddara</h4>
+                    <p class="text-center">Multimedia Head Officer</p>
                 </div>
             </div>
         </div>

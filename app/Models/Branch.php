@@ -9,4 +9,6 @@ class Branch extends Model
 {
     protected $table = 'Branch';
     use HasFactory;
+
+    protected $fillable = ['name', 'location', 'email', 'contact'];
 }

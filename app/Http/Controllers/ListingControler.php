@@ -13,10 +13,11 @@ class ListingControler extends Controller
     public function index()
     {
         //dd(request('tag'));
+        //dd(Listing::latest()->filter(request(['tag', 'search']))->paginate(2));
         return view(
             'listings.index',
             [
-                'listings' => Listing::latest()->filter(request(['tag', 'search']))->get()
+                'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(4)
             ]
         );
     }
@@ -48,6 +49,6 @@ class ListingControler extends Controller
 
         Listing::create($formFields);
 
-        return redirect('/listings');
+        return redirect('/listings')->with('success', 'listing created succesfully');
     }
 }

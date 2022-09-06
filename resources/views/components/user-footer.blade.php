@@ -4,10 +4,11 @@
             <div class="col-lg-3 mr-auto col-sm-6">
                 <div class="widget mb-5 mb-lg-0">
                     <div class="logo mb-4">
-                        <h3>Photocity</h3>
+                        <h3>Photo City</h3>
                     </div>
-                    <p>Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad eos obcaecati tenetur
-                        veritatis eveniet distinctio possimus.</p>
+                    <p>Our packages are offered at an affordable rate so that everyone can have their memories
+                        immortalized. All our business papers are filed and completed. We pay our taxes, just like you
+                        do.</p>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-6">
@@ -37,7 +38,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="widget widget-contact mb-5 mb-lg-0">
                     <h4 class="text-capitalize mb-4">Get in Touch</h4>
-                    <h6><a href="tel:+23-345-67890"> <i class="ti-headphone-alt mr-3"></i>Support@megakit.com</a></h6>
+                    <h6><a href="tel:+23-345-67890"> <i class="ti-headphone-alt mr-3"></i>photocity@gmail.com</a></h6>
                     <h6><a href="mailto:support@gmail.com"> <i class="ti-mobile mr-3"></i>+23-456-6588</a></h6>
 
                     <ul class="list-inline footer-socials mt-5">
@@ -56,10 +57,9 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="copyright">
-                        &copy; Copyright Reserved to <span class="text-color">Photocity</span>
+                        &copy; Copyright Reserved to <span class="text-color">Photo City</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </footer>

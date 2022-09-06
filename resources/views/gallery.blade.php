@@ -39,7 +39,7 @@
         <div class="row ">
 
             @foreach ($galleries as $gallery)
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-6">
                 <div class="portflio-item position-relative mb-4">
                     <a href="{{ $gallery['album_url'] }}" target="_blank">
                         <img src="{{ $gallery['album_cover'] }}" alt="" class="img-fluid w-100">

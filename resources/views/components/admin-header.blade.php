@@ -61,7 +61,12 @@
                 </ul>
             </div>
         </div>
-    </nav> <!-- Nav Header Component Start -->
+    </nav>
+
+    @if (Route::is('admin/gallery'))
+
+    @else
+    <!-- Nav Header Component Start -->
     <div class="iq-navbar-header" style="height: 215px;">
         <div class="container iq-container">
             <div class="row">
@@ -92,6 +97,10 @@
             <img src="{{asset('assets/images/dashboard/top-header.png')}}" alt="header"
                 class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
         </div>
-    </div> <!-- Nav Header Component End -->
+    </div>
+    <!-- Nav Header Component End -->
+    @endif
+
+
     <!--Nav End-->
 </div>

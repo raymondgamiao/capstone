@@ -13,7 +13,7 @@
                         <div class="form-group">
                             <label for="company">Company Name</label>
                             <input name="company" id="company" type="text" class="form-control"
-                                placeholder="Company name">
+                                placeholder="Company name" value={{old('company')}}>
                             @error('company')
                             <span class="text-danger "><em>{{$message}}</em></span>
                             @enderror
@@ -21,7 +21,7 @@
                         <div class="Job Title">
                             <label for="title">Job Title</label>
                             <input name="title" id="title" type="text" class="form-control"
-                                placeholder="Example: Full Stack Developer">
+                                placeholder="Example: Full Stack Developer" value={{old('title')}}>
                             @error('title')
                             <span class="text-danger "><em>{{$message}}</em></span>
                             @enderror
@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <label for="location">Job Location</label>
                             <input name="location" id="location" type="text" class="form-control"
-                                placeholder="Example: On-site: Makati">
+                                placeholder="Example: On-site: Makati" value={{old('location')}}>
                             @error('location')
                             <span class="text-danger "><em>{{$message}}</em></span>
                             @enderror
@@ -37,7 +37,7 @@
                         <div class="form-group">
                             <label for="website">Website</label>
                             <input name="website" id="website" type="text" class="form-control"
-                                placeholder="Website/Application URL">
+                                placeholder="Website/Application URL" value={{old('website')}}>
                             @error('website')
                             <span class="text-danger "><em>{{$message}}</em></span>
                             @enderror
@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <label for="email">Contact Email</label>
                             <input name="email" id="email" type="text" class="form-control"
-                                placeholder="Website/Application URL">
+                                placeholder="Website/Application URL" value={{old('email')}}>
                             @error('email')
                             <span class="text-danger "><em>{{$message}}</em></span>
                             @enderror
@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <label for="tags">Tags (Comma separated)</label>
                             <input name="tags" id="tags" type="text" class="form-control"
-                                placeholder="Example: html, css, laravel, full-stack">
+                                placeholder="Example: html, css, laravel, full-stack" value={{old('tags')}}>
                             @error('tags')
                             <span class="text-danger "><em>{{$message}}</em></span>
                             @enderror
@@ -65,7 +65,7 @@
                         <div class="form-group-2 mb-4">
                             <label for="description">Job Description</label>
                             <textarea name="description" id="description" class="form-control" rows="4"
-                                placeholder="Include tasks, requirements, salary, etc."></textarea>
+                                placeholder="Include tasks, requirements, salary, etc.">{{old('description')}}</textarea>
                             @error('description')
                             <span class="text-danger "><em>{{$message}}</em></span>
                             @enderror
