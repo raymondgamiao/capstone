@@ -18,10 +18,13 @@ class CreateInventoryTable extends Migration
             $table->string('name');
             $table->longText('description');
             $table->integer('qty');
-            $table->integer('branch_id');
-            // $table->foreign('branch_id')->references('id')->on('branch');
-            $table->integer('category_id');
-            // $table->foreign('category_id')->references('id')->on('category');
+
+            $table->unsignedBigInteger('branch_id');
+            $table->foreign('branch_id')->references('id')->on('branch')->onDelete('cascade');
+
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

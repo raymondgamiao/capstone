@@ -21,12 +21,12 @@ class BranchController extends Controller
 
     public function index()
     {
-        $branches = DB::table('branch')
+        /*   $branches = DB::table('branch')
             ->orderBy('name', 'desc')
-            ->get();
+            ->get(); */
         //dd($branches);
         return view('admin.branches', [
-            'branches' => $branches,
+            'branches' => Branch::all(),
             'title' => 'Branches'
         ]);
     }

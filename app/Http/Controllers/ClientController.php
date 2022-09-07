@@ -13,7 +13,7 @@ class ClientController extends Controller
 {
     public function index()
     {
-        $clients = DB::table('users')
+        /*         $clients = DB::table('users')
             ->select(
                 'users.username as username',
                 'clients.name as name',
@@ -23,11 +23,16 @@ class ClientController extends Controller
             )
             ->where('users.usertype', '=', 'client')
             ->join('clients', 'users.id', '=', 'clients.user_id')
-            ->get();
+            ->get(); */
 
         //dd($employees);
-        return view('admin.clients', [
+        /*         return view('admin.clients', [
             'clients' => $clients,
+            'title' => 'Clients'
+        ]); */
+
+        return view('admin.clients', [
+            'clients' => Client::all(),
             'title' => 'Clients'
         ]);
     }

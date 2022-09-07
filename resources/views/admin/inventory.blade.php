@@ -71,8 +71,8 @@
                                     <td>{{
                                         $item->description }}</td>
                                     <td>{{ $item->qty }}</td>
-                                    <td>{{ $item->branch_name }}</td>
-                                    <td>{{ $item->category_name }}</td>
+                                    <td>{{ $item->branch->name }}</td>
+                                    <td>{{ $item->category->name }}</td>
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"

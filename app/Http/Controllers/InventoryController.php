@@ -38,7 +38,7 @@ class InventoryController extends Controller
     } */
     public function index()
     {
-        $inventory = DB::table('inventory')
+        /*         $inventory = DB::table('inventory')
             ->select('inventory.name', 'inventory.description', 'inventory.qty', 'branch.name as branch_name', 'category.name as category_name')
             ->join('branch', 'branch.id', '=', 'inventory.branch_id')
             ->join('category', 'category.id', '=', 'inventory.category_id')
@@ -46,6 +46,13 @@ class InventoryController extends Controller
         // dd($inventory);
         return view('admin.inventory', [
             'inventory' => $inventory,
+            'title' => 'Inventory',
+            'branches' => Branch::all(),
+            'categories' => Category::all()
+        ]); */
+
+        return view('admin.inventory', [
+            'inventory' => Inventory::all(),
             'title' => 'Inventory',
             'branches' => Branch::all(),
             'categories' => Category::all()

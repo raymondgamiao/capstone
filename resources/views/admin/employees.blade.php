@@ -82,11 +82,11 @@
                             <tbody>
                                 @foreach ($employees as $employee)
                                 <tr>
-                                    <td>{{ $employee->username }}</td>
+                                    <td>{{ $employee->user->username }}</td>
                                     <td>{{ $employee->name }}</td>
                                     <td>{{ $employee->role }}</td>
                                     <td>{{ $employee->contact }}</td>
-                                    <td>{{ $employee->branch }}</td>
+                                    <td>{{ $employee->branch->name }}</td>
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"

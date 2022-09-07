@@ -14,7 +14,7 @@ class EmployeeContoller extends Controller
 {
     public function index()
     {
-        $employees = DB::table('users')
+        /*    $employees = DB::table('users')
             ->select(
                 'users.id as userid',
                 'employees.id as employeeid',
@@ -28,12 +28,17 @@ class EmployeeContoller extends Controller
             ->orWhere('users.usertype', '=', 'admin')
             ->join('employees', 'users.id', '=', 'employees.user_id')
             ->join('branch', 'branch.id', '=', 'employees.branch_id')
-            ->get();
+            ->get(); */
 
 
         //dd($employees);
-        return view('admin.employees', [
+        /*      return view('admin.employees', [
             'employees' => $employees,
+            'branches' => Branch::all(),
+            'title' => 'Employees'
+        ]); */
+        return view('admin.employees', [
+            'employees' => Employee::all(),
             'branches' => Branch::all(),
             'title' => 'Employees'
         ]);

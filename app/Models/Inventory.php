@@ -9,4 +9,14 @@ class Inventory extends Model
 {
     protected $table = 'Inventory';
     use HasFactory;
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
