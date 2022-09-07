@@ -2,14 +2,14 @@
 
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\EmployeesContoller;
+use App\Http\Controllers\EmployeeContoller;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ListingControler;
-use App\Models\Clients;
-use App\Models\Employees;
+use App\Models\Client;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
@@ -63,9 +63,14 @@ Route::get('/admin/inventory', [InventoryController::class, 'index'])->name('adm
 
 Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin/categories');
 
-Route::get('/admin/employees', [EmployeesContoller::class, 'index'])->name('admin/employees');
+Route::get('/admin/employees', [EmployeeContoller::class, 'index'])->name('admin/employees');
 
-Route::get('/admin/clients', [ClientsController::class, 'index'])->name('admin/clients');
+Route::post('/admin/employees/store', [EmployeeContoller::class, 'store']);
+
+Route::get('/admin/clients', [ClientController::class, 'index'])->name('admin/clients');
+
+Route::post('/admin/clients/store', [ClientController::class, 'store']);
+
 
 Route::get('/admin/gallery', function () {
     return view('admin/gallery', [

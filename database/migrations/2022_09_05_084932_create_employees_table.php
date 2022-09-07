@@ -15,15 +15,23 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->string('role');
-            $table->integer('branch_id');
+
+            $table->unsignedBigInteger('branch_id');
+            $table->foreign('branch_id')->references('id')->on('branch')->onDelete('cascade');
+
             $table->string('name');
             $table->string('contact');
             $table->timestamps();
         });
     }
 
+    //unsignedBigInteger
+    //$table->timestamps();
     /**
      * Reverse the migrations.
      *

@@ -24,7 +24,7 @@ class BranchController extends Controller
         $branches = DB::table('branch')
             ->orderBy('name', 'desc')
             ->get();
-        // dd($inventory);
+        //dd($branches);
         return view('admin.branches', [
             'branches' => $branches,
             'title' => 'Branches'

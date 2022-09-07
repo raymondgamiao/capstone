@@ -44,7 +44,7 @@
                     </div>
                     <div class="card-action mt-2 mt-sm-0">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
+                            data-bs-target="#addEmployeeModal">
                             + Add Employee
                         </button>
                     </div>
@@ -73,8 +73,13 @@
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
-                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                data-placement="top" title="" data-original-title="Edit" href="#">
+                                                data-bs-toggle="modal" data-bs-target="#editEmployeeModal"
+                                                data-userid="{{ $employee->userid }}"
+                                                data-employeeid="{{ $employee->employeeid }}"
+                                                data-username="{{ $employee->username }}"
+                                                data-name="{{ $employee->name }}" data-role="{{ $employee->role }}"
+                                                data-contact="{{ $employee->contact }}"
+                                                data-branch="{{ $employee->branch }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +98,7 @@
                                                 </span>
                                             </a>
                                             <a class="btn btn-sm btn-icon btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModaldelete" data-toggle="tooltip"
+                                                data-bs-target="#deleteEmployeeModal" data-toggle="tooltip"
                                                 data-placement="top" title="" data-original-title="Delete" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
@@ -126,7 +131,7 @@
 </div>
 
 {{-- modal add item --}}
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="modal fade" id="addEmployeeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -134,7 +139,7 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Add Employee</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/branches/store">
+            <form method="POST" action="/admin/employees/store">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
@@ -150,10 +155,67 @@
                         @enderror
                     </div>
 
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="name" class="col-form-label">Full Name</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="name" name="name" class="form-control" aria-describedby="addtitle"
+                                value={{old('name')}}>
+                        </div>
+                        @error('name')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+
+                    </div>
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="role" class="col-form-label">Role</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="role" name="role" class="form-control" aria-describedby="addtitle"
+                                value={{old('role')}}>
+                        </div>
+                        @error('role')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="branch_id" class="col-form-label">Branch</label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-select" name="branch_id">
+                                <option selected value="none">Select Branch</option>
+                                @foreach ($branches as $branch)
+                                <option value={{ $branch->id }}>{{ $branch->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('branch_id')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="contact" class="col-form-label">Contact</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="contact" name="contact" class="form-control"
+                                aria-describedby="addtitle" value={{old('contact')}}>
+                        </div>
+                        @error('contact')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add Branch </button>
+                    <button type="submit" class="btn btn-primary">Add Employee </button>
                 </div>
             </form>
         </div>
@@ -161,61 +223,97 @@
 </div>
 
 {{-- EDIT CHANGES MODAL --}}
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Branch</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Employee</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">BranchID</label>
+            <form method="POST" action="/admin/employees/store">
+                <div class="modal-body">
+                    @csrf
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="usernameEdit" class="col-form-label">Username</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="usernameEdit" name="usernameEdit" class="form-control"
+                                aria-describedby="addtitle">
+                        </div>
+                        @error('usernameEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">BranchName</label>
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="nameEdit" class="col-form-label">Full Name</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="nameEdit" name="nameEdit" class="form-control"
+                                aria-describedby="addtitle">
+                        </div>
+                        @error('nameEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="roleEdit" class="col-form-label">Role</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="roleEdit" name="roleEdit" class="form-control"
+                                aria-describedby="addtitle">
+                        </div>
+                        @error('roleEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Location</label>
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="branch_idEdit" class="col-form-label">Branch</label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-select" name="branch_idEdit">
+                                <option selected id="branchEdit"></option>
+                                @foreach ($branches as $branch)
+                                <option value={{ $branch->id }}>{{ $branch->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('branch_idEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Contact</label>
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="contactEdit" class="col-form-label">Contact</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="contactEdit" name="contactEdit" class="form-control"
+                                aria-describedby="addtitle">
+                        </div>
+                        @error('contactEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
+
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Edit Employee </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 {{-- Delete Modal --}}
-<div class="modal fade" id="exampleModaldelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -236,6 +334,9 @@
 @endsection
 
 @section('scripts')
+
+
+
 <!-- Library Bundle Script -->
 <script src="{{asset('assets/js/core/libs.min.js')}}"></script>
 
@@ -266,4 +367,19 @@
 
 <!-- App Script -->
 <script src="{{asset('assets/js/hope-ui.js')}}" defer></script>
+
+<script>
+    $('#editEmployeeModal').on('show.bs.modal', function(e) {
+    var username = $(e.relatedTarget).data('username');
+    var name = $(e.relatedTarget).data('name');
+    var role = $(e.relatedTarget).data('role');
+    var branch = $(e.relatedTarget).data('branch');
+    var contact = $(e.relatedTarget).data('contact');
+    $(e.currentTarget).find('input[name="usernameEdit"]').val(username);
+    $(e.currentTarget).find('input[name="nameEdit"]').val(name);
+    $(e.currentTarget).find('input[name="roleEdit"]').val(role);
+    $(e.currentTarget).find('#branchEdit').text(branch);
+    $(e.currentTarget).find('input[name="contactEdit"]').val(contact);
+});
+</script>
 @endsection

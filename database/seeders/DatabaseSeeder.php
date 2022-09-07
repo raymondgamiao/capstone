@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Branch;
 use App\Models\Category;
-use App\Models\Clients;
-use App\Models\Employees;
+use App\Models\Client;
+use App\Models\Employee;
 use App\Models\Gallery;
 use App\Models\Inventory;
 use App\Models\Listing;
@@ -22,14 +22,89 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory(15)->create();
-        Clients::factory(5)->create();
-        Employees::factory(5)->create();
+
         Inventory::factory(20)->create();
-        Branch::factory(5)->create();
-        Category::factory(10)->create();
+        //Branch::factory(5)->create();
+        //Category::factory(10)->create();
 
 
         Listing::factory(5)->create();
+
+
+        Branch::create([
+            'name' => 'PhotoCity Luna',
+            'location' => 'Luna St., Tuguegarao City, Cagayan',
+            'email' => 'pc1@gmail.com',
+            'contact' => '0912-345-6789'
+        ]);
+
+        Branch::create([
+            'name' => 'PhotoCity Mabini',
+            'location' => 'Mabini St., Tuguegarao City, Cagayan',
+            'email' => 'pc2@gmail.com',
+            'contact' => '0912-345-6789'
+        ]);
+
+        Branch::create([
+            'name' => 'PhotoCity Tabuk',
+            'location' => 'Barangay, Town, Province',
+            'email' => 'branchName@gmail.com',
+            'contact' => '0912-345-6789'
+        ]);
+
+        Branch::create([
+            'name' => 'PhotoCity Aparri',
+            'location' => 'Barangay, Town, Province',
+            'email' => 'branchName@gmail.com',
+            'contact' => '0912-345-6789'
+        ]);
+
+        Branch::create([
+            'name' => 'PhotoCity Junction',
+            'location' => 'Barangay, Town, Province',
+            'email' => 'branchName@gmail.com',
+            'contact' => '0912-345-6789'
+        ]);
+
+        Branch::create([
+            'name' => 'Sensation Lights and Sounds',
+            'location' => 'Barangay, Town, Province',
+            'email' => 'branchName@gmail.com',
+            'contact' => '0912-345-6789'
+        ]);
+
+        Branch::create([
+            'name' => 'Kodak',
+            'location' => 'North Star Mall, Ilagan, Isabela',
+            'email' => 'branchName@gmail.com',
+            'contact' => '0912-345-6789'
+        ]);
+
+
+
+        Client::factory(5)->create();
+        Employee::factory(5)->create();
+
+        Category::create([
+            'name' => 'Cameras Lenses and Accesories',
+            'description' => 'Lore Ipsum Dolor Sit amet'
+        ]);
+
+        Category::create([
+            'name' => 'Merchandise',
+            'description' => 'Lore Ipsum Dolor Sit amet'
+        ]);
+
+        Category::create([
+            'name' => 'Printers',
+            'description' => 'Lore Ipsum Dolor Sit amet'
+        ]);
+
+        Category::create([
+            'name' => 'Bahala ka na',
+            'description' => 'Lore Ipsum Dolor Sit amet'
+        ]);
+
 
 
         Gallery::create([

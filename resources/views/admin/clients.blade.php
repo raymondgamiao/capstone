@@ -131,10 +131,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Add Employee</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Add Client</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/branches/store">
+            <form method="POST" action="/admin/clients/store">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
@@ -150,10 +150,64 @@
                         @enderror
                     </div>
 
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="name" class="col-form-label">Name</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="name" name="name" class="form-control" aria-describedby="addtitle"
+                                value={{old('name')}}>
+                        </div>
+                        @error('name')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="email" class="col-form-label">Email</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="email" id="email" name="email" class="form-control" aria-describedby="addtitle"
+                                value={{old('email')}}>
+                        </div>
+                        @error('email')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="contact" class="col-form-label">Contact</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="contact" name="contact" class="form-control"
+                                aria-describedby="addtitle" value={{old('contact')}}>
+                        </div>
+                        @error('contact')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="address" class="col-form-label">
+                                Address
+                            </label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="address" name="address" class="form-control"
+                                aria-describedby="addtitle" value={{old('address')}}>
+                        </div>
+                        @error('address')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add Branch </button>
+                    <button type="submit" class="btn btn-primary">Add Client </button>
                 </div>
             </form>
         </div>
@@ -165,51 +219,29 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Branch</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Client</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">BranchID</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
+            <form method="POST" action="/admin/branches/update">
+                <div class="modal-body">
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">BranchName</label>
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="usernameEdit" class="col-form-label">Username</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="usernameEdit" nae="usernameEdit" class="form-control"
+                                aria-describedby="addtitle">
+                        </div>
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Location</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
                 </div>
-
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Contact</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>
