@@ -63,9 +63,9 @@
         </div>
     </nav>
 
-    @if (Route::is('admin/gallery'))
 
-    @else
+
+
     <!-- Nav Header Component Start -->
     <div class="iq-navbar-header" style="height: 215px;">
         <div class="container iq-container">
@@ -99,7 +99,7 @@
         </div>
     </div>
     <!-- Nav Header Component End -->
-    @endif
+
 
 
     <!--Nav End-->

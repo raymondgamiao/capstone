@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminGalleryController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
@@ -78,11 +79,8 @@ Route::get('/admin/clients', [ClientController::class, 'index'])->name('admin/cl
 Route::post('/admin/clients/store', [ClientController::class, 'store']);
 
 
-Route::get('/admin/gallery', function () {
-    return view('admin/gallery', [
-        'title' => 'Gallery'
-    ]);
-})->name('admin/gallery');
+Route::get('/admin/gallery', [AdminGalleryController::class, 'index'])->name('admin/gallery');
+Route::post('/admin/gallery/store', [AdminGalleryController::class, 'store']);
 
 
 Route::get('/admin/branches', [BranchController::class, 'index'])->name('admin/branches');

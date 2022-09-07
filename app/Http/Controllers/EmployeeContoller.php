@@ -65,7 +65,7 @@ class EmployeeContoller extends Controller
                 'contact' => 'required'
             ],
             [
-                'branch_id.numeric' => 'Select a branch',
+                'branch_id.numeric' => 'Select a branch'
             ]
         );
         // dd($request->all());

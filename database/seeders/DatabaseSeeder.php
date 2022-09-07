@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
         Listing::factory(5)->create();
 
 
+
         Branch::create([
             'name' => 'PhotoCity Luna',
             'location' => 'Luna St., Tuguegarao City, Cagayan',
