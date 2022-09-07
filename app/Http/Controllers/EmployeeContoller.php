@@ -50,18 +50,6 @@ class EmployeeContoller extends Controller
         ]); */
 
 
-        /*  $formFields = $request->validate([
-            'title' => 'required',
-            'company' => ['required', Rule::unique('listings', 'company')],
-            'location' => 'required',
-            'website' => 'required',
-            'email' => ['required', 'email'],
-            'tags' => 'required',
-            'description' => 'required'
-        ]);
-
-        Listing::create($formFields); */
-
 
         $formFields = $request->validate(
             [
@@ -75,45 +63,42 @@ class EmployeeContoller extends Controller
                 'branch_id.numeric' => 'Select a branch',
             ]
         );
-
         // dd($request->all());
-        $user = new User;
-        $employee = new Employee;
-
+        $user = User::create([
+            'username' =>  $formFields['username'],
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'usertype' =>  'employee',
+            'remember_token' => Str::random(10)
+        ]);
+        /*   
+        $user = new User; 
         $user->username = $formFields['username'];
         $user->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
         $user->usertype = 'employee';
         $user->remember_token =  Str::random(10);
+        $user->save(); 
+        */
+        $employee = Employee::create([
+            'user_id' => $user->id,
+            'name' =>  $formFields['name'],
+            'role' =>   $formFields['role'],
+            'branch_id' => $formFields['branch_id'],
+            'contact' => $formFields['contact']
+        ]);
 
-        // dd($user->id);
+        /* 
+        $employee = new Employee;
         $employee->user_id = $user->id;
         $employee->name = $formFields['name'];
         $employee->role = $formFields['role'];
         $employee->branch_id = $formFields['branch_id'];
-        $employee->contact =  $formFields['contact'];
-
-        $user->save();
+        $employee->contact =  $formFields['contact']; 
         $employee->save();
+        */
 
+        return redirect('/admin/employees')->with('success', 'employee created succesfully');
         /*  $users = User::where('username', '=', $request->username)->first();
         if ($users === null) {
-            // dd($request->all());
-            $user = new User;
-            $user->username = $formFields['username'];
-            $user->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
-            $user->usertype = 'employee';
-            $user->remember_token =  Str::random(10);
-
-            // dd($user->id);
-            $employee = new Employee;
-            $employee->user_id = $user->id;
-            $employee->name = $formFields['name'];
-            $employee->role = $formFields['role'];
-            $employee->branch_id = $formFields['branch_id'];
-            $employee->contact =  $formFields['contact'];
-            $user->save();
-            $employee->save();
-
             return redirect('/admin/employees')->with('success', 'employee created succesfully');
         } else {
             // echo 'meron na';

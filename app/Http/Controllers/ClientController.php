@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Client;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
@@ -34,23 +35,30 @@ class ClientController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request->all());
+        $formFields = $request->validate(
+            [
+                'username' => ['required', Rule::unique('users', 'username')],
+                'name' => 'required',
+                'email' => 'required|email',
+                'contact' => 'required',
+                'address' => 'required'
+            ]
+        );
 
-        $user = new User;
-        $user->username = $request->username;
-        $user->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
-        $user->usertype = 'client';
-        $user->remember_token =  Str::random(10);
-        $user->save();
+        $user = User::create([
+            'username' =>  $formFields['username'],
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'usertype' =>  'client',
+            'remember_token' => Str::random(10)
+        ]);
 
-        // dd($user->id);
-        $client = new Client();
-        $client->user_id = $user->id;
-        $client->email = $request->email;
-        $client->name = $request->name;
-        $client->contact =  $request->contact;
-        $client->address = $request->address;
-        $client->save();
+        Client::create([
+            'user_id' => $user->id,
+            'name' =>  $formFields['name'],
+            'email' =>   $formFields['email'],
+            'address' => $formFields['address'],
+            'contact' => $formFields['contact']
+        ]);
 
         return redirect('/admin/clients')->with('success', 'client created succesfully');
     }

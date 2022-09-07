@@ -30,6 +30,8 @@
     <!-- RTL Css -->
     <link rel="stylesheet" href="{{asset('assets/css/rtl.min.css')}}" />
 
+    {{-- alpine js --}}
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 @endsection
 
@@ -38,6 +40,21 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                @if ($errors->any())
+                <div x-data="{show: true}" class="alert alert-danger card-action " role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                @if (session()->has('success'))
+                <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show"
+                    class="alert alert-success" role="alert">
+                    {{session('success')}}
+                </div>
+                @endif
                 <div class="card-body d-flex justify-content-between align-items-center flex-wrap">
                     <div class="card-title mb-0">
                         <h4 class="mb-0">Employee List</h4>
@@ -132,7 +149,7 @@
 
 {{-- modal add item --}}
 <div class="modal fade" id="addEmployeeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    aria-labelledby="staticBackdropLabel">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

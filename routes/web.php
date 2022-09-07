@@ -45,6 +45,12 @@ Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
+
+
+
+
+
+
 /* admin routes */
 
 Route::get('/admin/', function () {
@@ -59,16 +65,16 @@ Route::get('/admin/calendar', function () {
     ]);
 })->name('admin/calendar');
 
-Route::get('/admin/inventory', [InventoryController::class, 'index'])->name('admin/inventory');
 
+Route::get('/admin/inventory', [InventoryController::class, 'index'])->name('admin/inventory');
 Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin/categories');
 
-Route::get('/admin/employees', [EmployeeContoller::class, 'index'])->name('admin/employees');
 
+Route::get('/admin/employees', [EmployeeContoller::class, 'index'])->name('admin/employees');
 Route::post('/admin/employees/store', [EmployeeContoller::class, 'store']);
 
-Route::get('/admin/clients', [ClientController::class, 'index'])->name('admin/clients');
 
+Route::get('/admin/clients', [ClientController::class, 'index'])->name('admin/clients');
 Route::post('/admin/clients/store', [ClientController::class, 'store']);
 
 
@@ -78,15 +84,15 @@ Route::get('/admin/gallery', function () {
     ]);
 })->name('admin/gallery');
 
-/* Route::get('/admin/branches', function () {
-    return view('admin/branches');
-})->name('admin/branches');
- */
-
 
 Route::get('/admin/branches', [BranchController::class, 'index'])->name('admin/branches');
-
 Route::post('/admin/branches/store', [BranchController::class, 'store']);
+
+
+
+
+
+
 
 /* test routes */
 

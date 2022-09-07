@@ -182,7 +182,12 @@
                         <label for="addtitle" class="col-form-label">Branch</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                        <select class="form-select" name="branch_id">
+                            <option selected value="none">Select Branch</option>
+                            @foreach ($branches as $branch)
+                            <option value={{ $branch->id }}>{{ $branch->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 
@@ -191,7 +196,12 @@
                         <label for="addtitle" class="col-form-label">Category</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+                        <select class="form-select" name="branch_id">
+                            <option selected value="none">Select Category</option>
+                            @foreach ($categories as $category)
+                            <option value={{ $category->id }}>{{ $category->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
             </div>

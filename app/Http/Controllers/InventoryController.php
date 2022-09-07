@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
+use App\Models\Category;
 use App\Models\Inventory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -45,7 +47,8 @@ class InventoryController extends Controller
         return view('admin.inventory', [
             'inventory' => $inventory,
             'title' => 'Inventory',
-            'active' => 'Inventory'
+            'branches' => Branch::all(),
+            'categories' => Category::all()
         ]);
     }
 }
