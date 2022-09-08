@@ -87,7 +87,8 @@ Route::post('/admin/gallery/store', [AdminGalleryController::class, 'store']);
 
 
 Route::get('/admin/branches', [BranchController::class, 'index'])->name('admin/branches');
-Route::post('/admin/branches/store', [BranchController::class, 'store']);
+Route::post('/admin/branches/store', [BranchController::class, 'store'])->name('admin/branches/store');
+Route::post('/admin/branches/update', [BranchController::class, 'update'])->name('admin/branches/update');
 Route::post('/admin/branches/delete', [BranchController::class, 'delete'])->name('admin/branches/delete');
 
 

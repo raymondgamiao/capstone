@@ -90,7 +90,12 @@
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
                                                 data-bs-toggle="modal" data-bs-target="#editBranchModal"
-                                                data-placement="top" title="" data-original-title="Edit" href="#">
+                                                data-placement="top" title="" data-original-title="Edit"
+                                                data-branch-id="{{ $branch->id }}"
+                                                data-branch-name="{{ $branch->name }}"
+                                                data-branch-location="{{ $branch->location }}"
+                                                data-branch-email="{{ $branch->email }}"
+                                                data-branch-contact="{{ $branch->contact }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -221,52 +226,73 @@
 <div class="modal fade" id="editBranchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Branch</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">BranchID</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
+            <form action="{{ route('admin/branches/update') }}" method="POST">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Branch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <div class="modal-body">
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">BranchName</label>
+                    <div class="row g-1 align-items-center form-group">
+                        <input type="hidden" id="branchIDEdit" name="branchIDEdit" class="form-control" hidden>
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="branchNameEdit" class="col-form-label">Branch Name</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="branchNameEdit" name="branchNameEdit" class="form-control">
+                        </div>
+                        @error('branchNameEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="branchLocationEdit" class="col-form-label">Branch Location</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="branchLocationEdit" name="branchLocationEdit" class="form-control">
+                        </div>
+                        @error('branchLocationEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="branchEmailEdit" class="col-form-label">Branch Email</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="branchEmailEdit" name="branchEmailEdit" class="form-control">
+                        </div>
+                        @error('branchEmailEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="branchContactEdit" class="col-form-label">Branch Contact</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="branchContactEdit" name="branchContactEdit" class="form-control">
+                        </div>
+                        @error('branchContactEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
+
                 </div>
-
-
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Location</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
-
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Contact</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -283,9 +309,13 @@
                 </div>
                 <div class="modal-body">
                     <p>Are you sure you want to delete <span id="branch-name-delete"></span> Branch?</p>
-                    <p> <span class="text-danger "><em>WARNING: This will also delete ALL inventory items and Users
-                                registered to this branch</em></span></p>
-                    <input type="hidden" id="id" name="id" class="form-control">
+                    <p>
+                        <span class="text-danger ">
+                            <em>WARNING: This will also delete ALL inventory items and Users
+                                registered to this branch</em>
+                        </span>
+                    </p>
+                    <input type="hidden" id="branchIDDelete" name="branchIDDelete" class="form-control">
                 </div>
 
                 <div class="modal-footer">
@@ -335,9 +365,23 @@
     $('#deleteBranchModal').on('show.bs.modal', function(e) {
     var id = $(e.relatedTarget).data('branch-id');
     var branchname = $(e.relatedTarget).data('branch-name-delete');
-  
-    $(e.currentTarget).find('input[name="id"]').val(id);
+
+    $(e.currentTarget).find('input[name="branchIDDelete"]').val(id);
     $(e.currentTarget).find('#branch-name-delete').text(branchname);
+});
+   
+$('#editBranchModal').on('show.bs.modal', function(e) {
+    var id = $(e.relatedTarget).data('branch-id');
+    var branchname = $(e.relatedTarget).data('branch-name');
+    var branchlocation = $(e.relatedTarget).data('branch-location');
+    var branchemail = $(e.relatedTarget).data('branch-email');
+    var branchcontact = $(e.relatedTarget).data('branch-contact');
+  
+    $(e.currentTarget).find('input[name="branchIDEdit"]').val(id);
+    $(e.currentTarget).find('input[name="branchNameEdit"]').val(branchname);
+    $(e.currentTarget).find('input[name="branchLocationEdit"]').val(branchlocation);
+    $(e.currentTarget).find('input[name="branchEmailEdit"]').val(branchemail);
+    $(e.currentTarget).find('input[name="branchContactEdit"]').val(branchcontact);
 });
 </script>
 @endsection

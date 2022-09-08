@@ -43,15 +43,37 @@ class BranchController extends Controller
 
         Branch::create($formFields);
 
-        return redirect('/admin/branches')->with('success', 'branch created succesfully');
+        return redirect()->route('admin/branches')->with('success', 'branch created succesfully');
     }
 
     public function delete(Request $request)
     {
-        //dd($request->all());
-        $branch = Branch::find($request->id);
+        // dd($request->all());
+        $branch = Branch::find($request->branchIDDelete);
         $branch->delete();
 
-        return redirect('/admin/branches')->with('success', 'branch deleted succesfully');
+        return redirect()->route('admin/branches')->with('success', 'branch deleted succesfully');
+    }
+
+    public function update(Request $request)
+    {
+        //dd($request->branchIDEdit);
+        $formFields = $request->validate([
+            'branchNameEdit' => 'required',
+            'branchLocationEdit' => 'required',
+            'branchEmailEdit' => ['required', 'email'],
+            'branchContactEdit' => 'required'
+        ]);
+
+        $branch = Branch::find($request->branchIDEdit);
+
+        $branch->name = $formFields['branchNameEdit'];
+        $branch->location = $formFields['branchLocationEdit'];
+        $branch->email = $formFields['branchEmailEdit'];
+        $branch->contact = $formFields['branchContactEdit'];
+        $branch->save();
+
+
+        return redirect()->route('admin/branches')->with('success', 'branch updated succesfully');
     }
 }
