@@ -45,4 +45,13 @@ class BranchController extends Controller
 
         return redirect('/admin/branches')->with('success', 'branch created succesfully');
     }
+
+    public function delete(Request $request)
+    {
+        //dd($request->all());
+        $branch = Branch::find($request->id);
+        $branch->delete();
+
+        return redirect('/admin/branches')->with('success', 'branch deleted succesfully');
+    }
 }

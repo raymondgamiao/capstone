@@ -1,6 +1,6 @@
 <aside class="sidebar sidebar-default navs-rounded-all ">
     <div class="sidebar-header d-flex align-items-center justify-content-start">
-        <a href="/admin/" class="navbar-brand">
+        <a href="{{route('admin')}}" class="navbar-brand">
             <!--Logo start-->
             <img src="{{asset('favicon2.png')}}" alt="" width="30" height="30">
             <!--logo End-->
@@ -31,7 +31,8 @@
 
                 {{-- dashboard --}}
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::is('admin')  ? 'active' : '' }} " aria-current="page" href="/admin/">
+                    <a class="nav-link {{ Route::is('admin')  ? 'active' : '' }} " aria-current="page"
+                        href="{{route('admin')}}">
                         <i class="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.4"
@@ -49,7 +50,7 @@
                 {{-- calendar --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('admin/calendar')  ? 'active' : '' }}" aria-current="page"
-                        href="/admin/calendar">
+                        href="{{route('admin/calendar')}}">
                         <i class="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3 16.8701V9.25708H21V16.9311C21 20.0701 19.0241 22.0001 15.8628 22.0001H8.12733C4.99561 22.0001 3 20.0301 3 16.8701ZM7.95938 14.4101C7.50494 14.4311 7.12953 14.0701 7.10977 13.6111C7.10977 13.1511 7.46542 12.7711 7.91987 12.7501C8.36443 12.7501 8.72997 13.1011 8.73985 13.5501C8.7596 14.0111 8.40395 14.3911 7.95938 14.4101ZM12.0198 14.4101C11.5653 14.4311 11.1899 14.0701 11.1701 13.6111C11.1701 
@@ -101,7 +102,7 @@
                     <ul class="sub-nav collapse" id="sidebar-inventory" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
                             <a class="nav-link {{ Route::is('admin/inventory')  ? 'active' : '' }}"
-                                href="/admin/inventory">
+                                href="{{route('admin/inventory')}}">
                                 <i class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                         fill="currentColor">
@@ -117,7 +118,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link {{ Route::is('admin/categories') ? 'active' : '' }}"
-                                href="/admin/categories">
+                                href="{{route('admin/categories')}}">
                                 <i class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                         fill="currentColor">
@@ -172,7 +173,7 @@
                     <ul class="sub-nav collapse" id="sidebar-user" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
                             <a class="nav-link {{ Route::is('admin/employees')  ? 'active' : '' }}"
-                                href="/admin/employees">
+                                href="{{route('admin/employees')}}">
                                 <i class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                         fill="currentColor">
@@ -187,7 +188,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::is('admin/clients')  ? 'active' : '' }}" href="/admin/clients">
+                            <a class="nav-link {{ Route::is('admin/clients')  ? 'active' : '' }}"
+                                href="{{route('admin/clients')}}">
                                 <i class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                         fill="currentColor">
@@ -206,7 +208,7 @@
                 {{-- gallery --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('admin/gallery')  ? 'active' : '' }}" aria-current="page"
-                        href="/admin/gallery">
+                        href="{{route('admin/gallery')}}">
                         <i class="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -226,7 +228,7 @@
                 {{-- branches --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('admin/branches')  ? 'active' : '' }}" aria-current="page"
-                        href="/admin/branches">
+                        href="{{route('admin/branches')}}">
                         <i class="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"

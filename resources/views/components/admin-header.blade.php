@@ -2,7 +2,7 @@
     <!--Nav Start-->
     <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar">
         <div class="container-fluid navbar-inner">
-            <a href="../admin/index.html" class="navbar-brand">
+            <a href="{{route('admin')}}" class="navbar-brand">
                 <!--Logo start-->
                 <img src="{{asset('favicon2.png')}}" alt="">
                 <!--logo End-->

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg py-4 navigation header-padding " id="navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="{{route('home')}}">
             Photo City
         </a>
 
@@ -11,16 +11,17 @@
 
         <div class="collapse navbar-collapse text-center" id="navbarsExample09">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item"><a class="nav-link {{ Route::is('home')  ? 'active' : '' }}" href="/">Home</a>
+                <li class="nav-item"><a class="nav-link {{ Route::is('home')  ? 'active' : '' }}"
+                        href="{{route('home')}}">Home</a>
                 </li>
                 <li class="nav-item"><a class="nav-link {{ Route::is('about')  ? 'active' : '' }}"
-                        href="/about">About</a></li>
+                        href="{{route('about')}}">About</a></li>
                 <li class="nav-item"><a class="nav-link {{ Route::is('services')  ? 'active' : '' }}"
-                        href="/services">Services</a></li>
+                        href="{{route('services')}}">Services</a></li>
                 <li class="nav-item"><a class="nav-link {{ Route::is('gallery')  ? 'active' : '' }}"
-                        href="/gallery">Gallery</a></li>
+                        href="{{route('gallery')}}">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link {{ Route::is('contact')  ? 'active' : '' }}"
-                        href="/contact">Contact</a></li>
+                        href="{{route('contact')}}">Contact</a></li>
             </ul>
 
             <a href="contact.html" class="btn btn-solid-border d-none d-lg-block">Get an estimate <i

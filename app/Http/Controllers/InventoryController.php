@@ -7,55 +7,44 @@ use App\Models\Category;
 use App\Models\Inventory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class InventoryController extends Controller
 {
-    /*  public function index()
-    {
-        // ddd(Inventory::all());
-        return view(
-            'admin.inventory',
-            [
-                'inventory' => Inventory::all(),
-                'title' => 'Inventory',
-                'active' => 'Inventory'
-            ]
-        );
-    }
- */
-
-    /*     public function index()
-    {
-        $inventory = DB::table('inventory')
-            ->join('branch', 'branch.id', '=', 'inventory.branch_id')
-            ->join('category', 'category.id', '=', 'inventory.category_id')
-            ->get();
-        return view('admin.inventory', [
-            'inventory' => $inventory,
-            'title' => 'Inventory',
-            'active' => 'Inventory'
-        ]);
-    } */
     public function index()
     {
-        /*         $inventory = DB::table('inventory')
-            ->select('inventory.name', 'inventory.description', 'inventory.qty', 'branch.name as branch_name', 'category.name as category_name')
-            ->join('branch', 'branch.id', '=', 'inventory.branch_id')
-            ->join('category', 'category.id', '=', 'inventory.category_id')
-            ->get();
-        // dd($inventory);
-        return view('admin.inventory', [
-            'inventory' => $inventory,
-            'title' => 'Inventory',
-            'branches' => Branch::all(),
-            'categories' => Category::all()
-        ]); */
-
         return view('admin.inventory', [
             'inventory' => Inventory::all(),
             'title' => 'Inventory',
             'branches' => Branch::all(),
             'categories' => Category::all()
         ]);
+    }
+
+    public function store(Request $request)
+    {
+        $formFields = $request->validate(
+            [
+                'name' => ['required', Rule::unique('inventory', 'name')],
+                'description' => 'required',
+                'qty' => 'required|numeric',
+                'branch_id' => 'required|numeric',
+                'category_id' => 'required|numeric'
+            ],
+            [
+                'branch_id.numeric' => 'Select a branch',
+                'category_id.numeric' => 'Select a category'
+            ]
+        );
+
+        Inventory::create([
+            'name' =>  $formFields['name'],
+            'description' =>  $formFields['description'],
+            'qty' =>  $formFields['qty'],
+            'branch_id' =>  $formFields['branch_id'],
+            'category_id' =>  $formFields['category_id']
+        ]);
+
+        return redirect()->route('admin/inventory')->with('success', 'Item created succesfully');
     }
 }

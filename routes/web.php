@@ -68,7 +68,10 @@ Route::get('/admin/calendar', function () {
 
 
 Route::get('/admin/inventory', [InventoryController::class, 'index'])->name('admin/inventory');
+Route::post('/admin/inventory/store', [InventoryController::class, 'store']);
+
 Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin/categories');
+Route::post('/admin/categories/store', [CategoryController::class, 'store']);
 
 
 Route::get('/admin/employees', [EmployeeContoller::class, 'index'])->name('admin/employees');
@@ -85,6 +88,7 @@ Route::post('/admin/gallery/store', [AdminGalleryController::class, 'store']);
 
 Route::get('/admin/branches', [BranchController::class, 'index'])->name('admin/branches');
 Route::post('/admin/branches/store', [BranchController::class, 'store']);
+Route::post('/admin/branches/delete', [BranchController::class, 'delete'])->name('admin/branches/delete');
 
 
 

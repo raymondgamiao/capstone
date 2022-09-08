@@ -31,6 +31,9 @@
 
     <!-- RTL Css -->
     <link rel="stylesheet" href="{{asset('assets/css/rtl.min.css')}}" />
+
+    {{-- alpine js --}}
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 @endsection
 
@@ -39,13 +42,28 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
+                @if ($errors->any())
+                <div x-data="{show: true}" class="alert alert-danger card-action " role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                @if (session()->has('success'))
+                <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show"
+                    class="alert alert-success" role="alert">
+                    {{session('success')}}
+                </div>
+                @endif
                 <div class="card-body d-flex justify-content-between align-items-center flex-wrap">
                     <div class="card-title mb-0">
                         <h4 class="mb-0">Item Inventory</h4>
                     </div>
                     <div class="card-action mt-2 mt-sm-0">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
+                            data-bs-target="#addInventoryModal">
                             + Add Item
                         </button>
                     </div>
@@ -76,7 +94,7 @@
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
-                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                data-bs-toggle="modal" data-bs-target="#editInventoryModal"
                                                 data-placement="top" title="" data-original-title="Edit" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
@@ -96,7 +114,7 @@
                                                 </span>
                                             </a>
                                             <a class="btn btn-sm btn-icon btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModaldelete" data-toggle="tooltip"
+                                                data-bs-target="#deleteInvetoryModal" data-toggle="tooltip"
                                                 data-placement="top" title="" data-original-title="Delete" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
@@ -131,178 +149,208 @@
 
 
 {{-- modal add item --}}
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="addInventoryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Add Item</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">InventoryID</label>
+            <form method="POST" action="/admin/inventory/store">
+                <div class="modal-body">
+                    @csrf
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="name" class="col-form-label">Item Name</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="name" name="name" class="form-control" value={{old('name')}}>
+                        </div>
+                        @error('name')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Name</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="description" class="col-form-label">Item Description</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="description" name="description" class="form-control"
+                                value={{old('description')}}>
+                        </div>
+                        @error('description')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
 
+                    </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Description</label>
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="qty" class="col-form-label">Quantity</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="number" id="qty" name="qty" class="form-control" value={{old('qty')}}>
+                        </div>
+                        @error('qty')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Quantity</label>
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="branch_id" class="col-form-label">Branch</label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-select" name="branch_id">
+                                <option selected value="none">Select Branch</option>
+                                @foreach ($branches as $branch)
+                                <option value={{ $branch->id }}>{{ $branch->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('branch_id')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Branch</label>
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="category_id" class="col-form-label">Category</label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-select" name="category_id">
+                                <option selected value="none">Select Category</option>
+                                @foreach ($categories as $category)
+                                <option value={{ $category->id }}>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('category_id')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <select class="form-select" name="branch_id">
-                            <option selected value="none">Select Branch</option>
-                            @foreach ($branches as $branch)
-                            <option value={{ $branch->id }}>{{ $branch->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Category</label>
-                    </div>
-                    <div class="col-8">
-                        <select class="form-select" name="branch_id">
-                            <option selected value="none">Select Category</option>
-                            @foreach ($categories as $category)
-                            <option value={{ $category->id }}>{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add Item</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Item </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 {{-- EDIT CHANGES MODAL --}}
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editInventoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Item</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Employee</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">InventoryID</label>
+            <form method="POST" action="/admin/employees/store">
+                <div class="modal-body">
+                    @csrf
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="usernameEdit" class="col-form-label">Username</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="usernameEdit" name="usernameEdit" class="form-control"
+                                aria-describedby="addtitle">
+                        </div>
+                        @error('usernameEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Name</label>
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="nameEdit" class="col-form-label">Full Name</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="nameEdit" name="nameEdit" class="form-control"
+                                aria-describedby="addtitle">
+                        </div>
+                        @error('nameEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="roleEdit" class="col-form-label">Role</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="roleEdit" name="roleEdit" class="form-control"
+                                aria-describedby="addtitle">
+                        </div>
+                        @error('roleEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Description</label>
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="branch_idEdit" class="col-form-label">Branch</label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-select" name="branch_idEdit">
+                                <option selected id="branchEdit"></option>
+                                @foreach ($branches as $branch)
+                                <option value={{ $branch->id }}>{{ $branch->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('branch_idEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Quantity</label>
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="contactEdit" class="col-form-label">Contact</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="contactEdit" name="contactEdit" class="form-control"
+                                aria-describedby="addtitle">
+                        </div>
+                        @error('contactEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Branch</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
                 </div>
-
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Category</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Edit Employee </button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>
 
 {{-- Delete Modal --}}
-<div class="modal fade" id="exampleModaldelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteInvetoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Item</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Branch</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to delete this item?</p>
+                <p>Are you sure you want to delete this Branch?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Delete Item</button>
+                <button type="button" class="btn btn-primary">Delete Branch</button>
             </div>
         </div>
     </div>
 </div>
+
 @endsection
 
 @section('scripts')

@@ -72,6 +72,7 @@
                             <thead>
                                 <tr class="light">
                                     <th>Album Name</th>
+                                    <th>Cover Image</th>
                                     <th>Cover</th>
                                     <th>Date</th>
                                     <th>URL</th>
@@ -82,6 +83,7 @@
                                 @foreach ($galleries as $gallery)
                                 <tr>
                                     <td>{{ $gallery->album_name }}</td>
+                                    <td><img src="{{asset( $gallery->album_cover )}}" alt="sad" width="30px"></td>
                                     <td>{{ $gallery->album_cover }}</td>
                                     <td>{{ $gallery->album_date }}</td>
                                     <td>{{ $gallery->album_url }}</td>

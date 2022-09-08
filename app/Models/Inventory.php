@@ -10,6 +10,8 @@ class Inventory extends Model
     protected $table = 'Inventory';
     use HasFactory;
 
+    protected $fillable = ['name', 'description', 'qty', 'branch_id', 'category_id'];
+
     public function branch()
     {
         return $this->belongsTo(Branch::class);

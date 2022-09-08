@@ -30,6 +30,9 @@
     <!-- RTL Css -->
     <link rel="stylesheet" href="{{asset('assets/css/rtl.min.css')}}" />
 
+    {{-- alpine js --}}
+    <script src="//unpkg.com/alpinejs" defer></script>
+
 </head>
 @endsection
 
@@ -38,6 +41,21 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                @if ($errors->any())
+                <div x-data="{show: true}" class="alert alert-danger card-action " role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                @if (session()->has('success'))
+                <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show"
+                    class="alert alert-success" role="alert">
+                    {{session('success')}}
+                </div>
+                @endif
                 <div class="card-body d-flex justify-content-between align-items-center flex-wrap">
                     <div class="card-title mb-0">
                         <h4 class="mb-0">Category List</h4>
@@ -125,60 +143,33 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Add User</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Add Category</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/branches/store">
+            <form method="POST" action="/admin/categories/store">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
                         <div class="col-3">
-                            <label for="name" class="col-form-label">BranchName</label>
+                            <label for="name" class="col-form-label">Category Name</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="name" name="name" class="form-control" aria-describedby="addtitle"
-                                value={{old('name')}}>
+                            <input type="text" id="name" name="name" class="form-control" value={{old('name')}}>
                         </div>
-                        @error('company')
+                        @error('name')
                         <span class="text-danger "><em>{{$message}}</em></span>
                         @enderror
                     </div>
 
                     <div class="row g-1 align-items-center form-group">
                         <div class="col-3">
-                            <label for="location" class="col-form-label">Location</label>
+                            <label for="description" class="col-form-label">Description</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="location" name="location" class="form-control"
-                                aria-describedby="addtitle" value={{old('location')}}>
+                            <input type="text" id="description" name="description" class="form-control"
+                                value={{old('description')}}>
                         </div>
-                        @error('company')
-                        <span class="text-danger "><em>{{$message}}</em></span>
-                        @enderror
-                    </div>
-
-                    <div class="row g-1 align-items-center form-group">
-                        <div class="col-3">
-                            <label for="email" class="col-form-label">Email</label>
-                        </div>
-                        <div class="col-8">
-                            <input type="email" id="email" name="email" class="form-control" aria-describedby="addtitle"
-                                value={{old('email')}}>
-                        </div>
-                        @error('company')
-                        <span class="text-danger "><em>{{$message}}</em></span>
-                        @enderror
-                    </div>
-
-                    <div class="row g-1 align-items-center form-group">
-                        <div class="col-3">
-                            <label for="contact" class="col-form-label">Contact</label>
-                        </div>
-                        <div class="col-8">
-                            <input type="text" id="contact" name="contact" class="form-control"
-                                aria-describedby="addtitle" value={{old('contact')}}>
-                        </div>
-                        @error('company')
+                        @error('description')
                         <span class="text-danger "><em>{{$message}}</em></span>
                         @enderror
                     </div>
@@ -186,7 +177,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add Branch </button>
+                    <button type="submit" class="btn btn-primary">Add Category </button>
                 </div>
             </form>
         </div>

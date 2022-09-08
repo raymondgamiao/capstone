@@ -30,6 +30,9 @@
     <!-- RTL Css -->
     <link rel="stylesheet" href="{{asset('assets/css/rtl.min.css')}}" />
 
+    {{-- alpine js --}}
+    <script src="//unpkg.com/alpinejs" defer></script>
+
 </head>
 @endsection
 
@@ -38,13 +41,28 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                @if ($errors->any())
+                <div x-data="{show: true}" class="alert alert-danger card-action " role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                @if (session()->has('success'))
+                <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show"
+                    class="alert alert-success" role="alert">
+                    {{session('success')}}
+                </div>
+                @endif
                 <div class="card-body d-flex justify-content-between align-items-center flex-wrap">
                     <div class="card-title mb-0">
                         <h4 class="mb-0">Branch List</h4>
                     </div>
                     <div class="card-action mt-2 mt-sm-0">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
+                            data-bs-target="#addBranchModal">
                             + Add Branch
                         </button>
                     </div>
@@ -71,7 +89,7 @@
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
-                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                data-bs-toggle="modal" data-bs-target="#editBranchModal"
                                                 data-placement="top" title="" data-original-title="Edit" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
@@ -91,8 +109,10 @@
                                                 </span>
                                             </a>
                                             <a class="btn btn-sm btn-icon btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModaldelete" data-toggle="tooltip"
-                                                data-placement="top" title="" data-original-title="Delete" href="#">
+                                                data-bs-target="#deleteBranchModal" data-toggle="tooltip"
+                                                data-placement="top" title="" data-original-title="Delete"
+                                                data-branch-id="{{ $branch->id }}"
+                                                data-branch-name-delete="{{ $branch->name }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
@@ -124,15 +144,15 @@
 </div>
 
 {{-- modal add item --}}
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="modal fade" id="addBranchModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Add User</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Add Branch</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/branches/store">
+            <form method="POST" action="{{ route('admin/branches/store') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
@@ -198,7 +218,7 @@
 </div>
 
 {{-- EDIT CHANGES MODAL --}}
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editBranchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -252,20 +272,27 @@
 </div>
 
 {{-- Delete Modal --}}
-<div class="modal fade" id="exampleModaldelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteBranchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Branch</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete this Branch?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Delete Branch</button>
-            </div>
+            <form action="{{ route('admin/branches/delete') }}" method="POST">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Branch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete <span id="branch-name-delete"></span> Branch?</p>
+                    <p> <span class="text-danger "><em>WARNING: This will also delete ALL inventory items and Users
+                                registered to this branch</em></span></p>
+                    <input type="hidden" id="id" name="id" class="form-control">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Delete Branch</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -303,4 +330,14 @@
 
 <!-- App Script -->
 <script src="{{asset('assets/js/hope-ui.js')}}" defer></script>
+
+<script>
+    $('#deleteBranchModal').on('show.bs.modal', function(e) {
+    var id = $(e.relatedTarget).data('branch-id');
+    var branchname = $(e.relatedTarget).data('branch-name-delete');
+  
+    $(e.currentTarget).find('input[name="id"]').val(id);
+    $(e.currentTarget).find('#branch-name-delete').text(branchname);
+});
+</script>
 @endsection

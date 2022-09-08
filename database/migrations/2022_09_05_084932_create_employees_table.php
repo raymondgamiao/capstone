@@ -23,6 +23,7 @@ class CreateEmployeesTable extends Migration
 
             $table->unsignedBigInteger('branch_id');
             $table->foreign('branch_id')->references('id')->on('branch')->onDelete('cascade');
+            //employee join branch on employee.branch_id = branch.id
 
             $table->string('name');
             $table->string('contact');

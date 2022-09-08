@@ -89,10 +89,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-
-        // Client::factory(5)->create();
-        //  Employee::factory(5)->create();
-
         Category::create([
             'name' => 'Cameras Lenses and Accesories',
             'description' => 'Lore Ipsum Dolor Sit amet'
