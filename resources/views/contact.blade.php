@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <span class="text-primary">Send a message</span>
+                <span>Send a message</span>
                 <h3 class="text-md mb-2">Contact Form</h3>
 
                 <div class="row">

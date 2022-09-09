@@ -91,12 +91,12 @@
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
                                                 data-bs-toggle="modal" data-bs-target="#editEmployeeModal"
-                                                data-userid="{{ $employee->userid }}"
-                                                data-employeeid="{{ $employee->employeeid }}"
-                                                data-username="{{ $employee->username }}"
+                                                data-employee-id="{{ $employee->id }}"
+                                                data-username="{{ $employee->user->username }}"
                                                 data-name="{{ $employee->name }}" data-role="{{ $employee->role }}"
                                                 data-contact="{{ $employee->contact }}"
-                                                data-branch="{{ $employee->branch }}" href="#">
+                                                data-branch-name="{{ $employee->branch->name }}"
+                                                data-branch-id="{{ $employee->branch_id }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -116,7 +116,9 @@
                                             </a>
                                             <a class="btn btn-sm btn-icon btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteEmployeeModal" data-toggle="tooltip"
-                                                data-placement="top" title="" data-original-title="Delete" href="#">
+                                                data-placement="top" title="" data-original-title="Delete"
+                                                data-employee-id="{{ $employee->id }}"
+                                                data-employee-name-delete="{{ $employee->name }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
@@ -156,7 +158,7 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Add Employee</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/employees/store">
+            <form method="POST" action="{{ route('admin/employees/store') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
@@ -247,16 +249,20 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Edit Employee</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/employees/store">
+            <form method="POST" action="{{ route('admin/employees/update') }}">
                 <div class="modal-body">
                     @csrf
+
+                    <div class="row g-1 align-items-center form-group">
+                        <input type="hidden" id="employeeIDEdit" name="employeeIDEdit" class="form-control">
+                    </div>
+
                     <div class="row g-1 align-items-center form-group">
                         <div class="col-3">
                             <label for="usernameEdit" class="col-form-label">Username</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="usernameEdit" name="usernameEdit" class="form-control"
-                                aria-describedby="addtitle">
+                            <input type="text" id="usernameEdit" name="usernameEdit" class="form-control" disabled>
                         </div>
                         @error('usernameEdit')
                         <span class="text-danger "><em>{{$message}}</em></span>
@@ -268,8 +274,7 @@
                             <label for="nameEdit" class="col-form-label">Full Name</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="nameEdit" name="nameEdit" class="form-control"
-                                aria-describedby="addtitle">
+                            <input type="text" id="nameEdit" name="nameEdit" class="form-control">
                         </div>
                         @error('nameEdit')
                         <span class="text-danger "><em>{{$message}}</em></span>
@@ -281,8 +286,7 @@
                             <label for="roleEdit" class="col-form-label">Role</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="roleEdit" name="roleEdit" class="form-control"
-                                aria-describedby="addtitle">
+                            <input type="text" id="roleEdit" name="roleEdit" class="form-control">
                         </div>
                         @error('roleEdit')
                         <span class="text-danger "><em>{{$message}}</em></span>
@@ -295,7 +299,7 @@
                         </div>
                         <div class="col-8">
                             <select class="form-select" name="branch_idEdit">
-                                <option selected id="branchEdit"></option>
+                                <option selected id="branchnameEdit"></option>
                                 @foreach ($branches as $branch)
                                 <option value={{ $branch->id }}>{{ $branch->name}}</option>
                                 @endforeach
@@ -311,8 +315,7 @@
                             <label for="contactEdit" class="col-form-label">Contact</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="contactEdit" name="contactEdit" class="form-control"
-                                aria-describedby="addtitle">
+                            <input type="text" id="contactEdit" name="contactEdit" class="form-control">
                         </div>
                         @error('contactEdit')
                         <span class="text-danger "><em>{{$message}}</em></span>
@@ -333,17 +336,22 @@
 <div class="modal fade" id="deleteEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Branch</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete this Branch?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Delete Branch</button>
-            </div>
+            <form action="{{ route('admin/employees/delete') }}" method="POST">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Branch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to <strong class="text-danger">DELETE</strong> Employee <strong
+                            id="employee-name-delete" class="text-dark"></strong>?</p>
+                    <input type="hidden" id="employeeIDDelete" name="employeeIDDelete" class="form-control">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete Employee</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -386,16 +394,29 @@
 <script src="{{asset('assets/js/hope-ui.js')}}" defer></script>
 
 <script>
-    $('#editEmployeeModal').on('show.bs.modal', function(e) {
+    $('#deleteEmployeeModal').on('show.bs.modal', function(e) {
+    var id = $(e.relatedTarget).data('employee-id');
+    var employeename = $(e.relatedTarget).data('employee-name-delete');
+
+    $(e.currentTarget).find('input[name="employeeIDDelete"]').val(id);
+    $(e.currentTarget).find('#employee-name-delete').text(employeename);
+});
+
+$('#editEmployeeModal').on('show.bs.modal', function(e) {
+    var employeeID = $(e.relatedTarget).data('employee-id');
     var username = $(e.relatedTarget).data('username');
     var name = $(e.relatedTarget).data('name');
     var role = $(e.relatedTarget).data('role');
-    var branch = $(e.relatedTarget).data('branch');
+    var branch = $(e.relatedTarget).data('branch-name');
+    var branchID = $(e.relatedTarget).data('branch-id');
     var contact = $(e.relatedTarget).data('contact');
+
+    $(e.currentTarget).find('input[name="employeeIDEdit"]').val(employeeID);
     $(e.currentTarget).find('input[name="usernameEdit"]').val(username);
     $(e.currentTarget).find('input[name="nameEdit"]').val(name);
     $(e.currentTarget).find('input[name="roleEdit"]').val(role);
-    $(e.currentTarget).find('#branchEdit').text(branch);
+    $(e.currentTarget).find('#branchnameEdit').val(branchID);
+    $(e.currentTarget).find('#branchnameEdit').text(branch);
     $(e.currentTarget).find('input[name="contactEdit"]').val(contact);
 });
 </script>

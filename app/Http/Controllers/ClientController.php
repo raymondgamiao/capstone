@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
 use App\Models\User;
+use App\Models\Branch;
+use App\Models\Client;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -33,7 +34,8 @@ class ClientController extends Controller
 
         return view('admin.clients', [
             'clients' => Client::all(),
-            'title' => 'Clients'
+            'title' => 'Employees'
+
         ]);
     }
 
@@ -66,5 +68,34 @@ class ClientController extends Controller
         ]);
 
         return redirect('/admin/clients')->with('success', 'client created succesfully');
+    }
+
+    public function delete(Request $request)
+    {
+        // dd($request->all());
+        $client = Client::find($request->clientIDDelete);
+        $client->delete();
+
+        return redirect()->route('admin/clients')->with('success', 'client deleted succesfully');
+    }
+
+    public function update(Request $request)
+    {
+        //dd($request->branchIDEdit);
+        $formFields = $request->validate([
+            'nameEdit' => 'required',
+            'emailEdit' => ['required', 'email'],
+            'contactEdit' => 'required',
+            'addressEdit' => 'required'
+        ]);
+
+        $client = Client::find($request->clientIDEdit);
+        $client->name = $formFields['nameEdit'];
+        $client->email = $formFields['emailEdit'];
+        $client->contact = $formFields['contactEdit'];
+        $client->address = $formFields['addressEdit'];
+        $client->save();
+
+        return redirect()->route('admin/clients')->with('success', 'client updated succesfully');
     }
 }

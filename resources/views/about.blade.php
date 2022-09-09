@@ -32,22 +32,22 @@
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="counter-item counter--style text-center mb-5 mb-lg-0">
                             <i class="ti-thumb-up"></i>
-                            <h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">1730</span> +</h2>
-                            <p>Wedding Event</p>
+                            <h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">8</span> +</h2>
+                            <p>Years of Service</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="counter-item counter--style text-center mb-5 mb-lg-0">
                             <i class="ti-face-smile"></i>
-                            <h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">125 </span>M </h2>
-                            <p>Debut / Birthday </p>
+                            <h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">1364 </span>M </h2>
+                            <p>Events Covered</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="counter-item counter--style text-center">
                             <i class="ti-cup"></i>
-                            <h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">14</span></h2>
-                            <p>Graduation Ceremony</p>
+                            <h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">10</span></h2>
+                            <p>Branches</p>
                         </div>
                     </div>
                 </div>

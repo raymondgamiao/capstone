@@ -308,7 +308,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete <span id="branch-name-delete"></span> Branch?</p>
+                    <p>Are you sure you want to <strong class="text-danger">DELETE</strong> <strong
+                            id="branch-name-delete" class="text-dark"></strong>
+                        Branch?</p>
                     <p>
                         <span class="text-danger ">
                             <em>WARNING: This will also delete ALL inventory items and Users
@@ -320,7 +322,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Delete Branch</button>
+                    <button type="submit" class="btn btn-danger">Delete Branch</button>
                 </div>
             </form>
         </div>

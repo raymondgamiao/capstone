@@ -20,7 +20,6 @@ class AdminGalleryController extends Controller
 
     public function store(Request $request)
     {
-
         $formFields = $request->validate(
             [
                 'album_name' => 'required',
@@ -39,5 +38,37 @@ class AdminGalleryController extends Controller
         ]);
 
         return redirect('/admin/gallery')->with('success', 'gallery album created succesfully');
+    }
+
+    public function delete(Request $request)
+    {
+        // dd($request->all());
+        $gallery = Gallery::find($request->albumIDDelete);
+        $gallery->delete();
+
+        return redirect()->route('admin/gallery')->with('success', 'gallery deleted succesfully');
+    }
+
+    public function update(Request $request)
+    {
+        $formFields = $request->validate(
+            [
+                'album_nameEdit' => 'required',
+                'album_coverEdit' => 'required',
+                'album_urlEdit' => 'required',
+                'album_dateEdit' => 'required|date'
+            ]
+        );
+
+        $gallery = Gallery::find($request->album_IDEdit);
+
+        $gallery->album_name = $formFields['album_nameEdit'];
+        $gallery->album_cover = $formFields['album_coverEdit'];
+        $gallery->album_url = $formFields['album_urlEdit'];
+        $gallery->album_date = $formFields['album_dateEdit'];
+
+        $gallery->save();
+
+        return redirect()->route('admin/gallery')->with('success', 'gallery updated succesfully');
     }
 }

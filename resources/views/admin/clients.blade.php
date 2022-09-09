@@ -62,7 +62,7 @@
                     </div>
                     <div class="card-action mt-2 mt-sm-0">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
+                            data-bs-target="#addClientModal">
                             + Add Client
                         </button>
                     </div>
@@ -91,8 +91,13 @@
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
-                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                data-placement="top" title="" data-original-title="Edit" href="#">
+                                                data-bs-toggle="modal" data-bs-target="#editClientModal"
+                                                data-placement="top" title="" data-original-title="Edit"
+                                                data-client-id="{{ $client->id }}"
+                                                data-username="{{ $client->user->username }}"
+                                                data-name="{{ $client->name }}" data-contact="{{ $client->contact }}"
+                                                data-address="{{ $client->address }}" data-email="{{ $client->email }}"
+                                                href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -111,8 +116,10 @@
                                                 </span>
                                             </a>
                                             <a class="btn btn-sm btn-icon btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModaldelete" data-toggle="tooltip"
-                                                data-placement="top" title="" data-original-title="Delete" href="#">
+                                                data-bs-target="#deleteClientModal" data-toggle="tooltip"
+                                                data-placement="top" title="" data-original-title="Delete"
+                                                data-client-id="{{ $client->id }}"
+                                                data-client-name-delete="{{ $client->name }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
@@ -144,7 +151,7 @@
 </div>
 
 {{-- modal add item --}}
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="modal fade" id="addClientModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -152,7 +159,7 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Add Client</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/clients/store">
+            <form method="POST" action="{{ route('admin/clients/store') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
@@ -233,31 +240,85 @@
 </div>
 
 {{-- EDIT CHANGES MODAL --}}
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editClientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Edit Client</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/branches/update">
+            <form method="POST" action="{{ route('admin/clients/update') }}">
                 <div class="modal-body">
+                    @csrf
+                    <div class="row g-1 align-items-center form-group">
+                        <input type="hidden" id="clientIDEdit" name="clientIDEdit" class="form-control">
+                    </div>
 
                     <div class="row g-1 align-items-center form-group">
                         <div class="col-3">
                             <label for="usernameEdit" class="col-form-label">Username</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="usernameEdit" nae="usernameEdit" class="form-control"
-                                aria-describedby="addtitle">
+                            <input type="text" id="usernameEdit" name="usernameEdit" class="form-control" disabled>
                         </div>
+                        @error('usernameEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
 
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="nameEdit" class="col-form-label">Full Name</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="nameEdit" name="nameEdit" class="form-control">
+                        </div>
+                        @error('nameEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="emailEdit" class="col-form-label">Email</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="emailEdit" name="emailEdit" class="form-control">
+                        </div>
+                        @error('emailEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="contactEdit" class="col-form-label">Contact</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="contactEdit" name="contactEdit" class="form-control">
+                        </div>
+                        @error('contactEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="addressEdit" class="col-form-label">Address</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="addressEdit" name="addressEdit" class="form-control">
+                        </div>
+                        @error('addressEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">Edit Client </button>
                 </div>
             </form>
         </div>
@@ -265,20 +326,25 @@
 </div>
 
 {{-- Delete Modal --}}
-<div class="modal fade" id="exampleModaldelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteClientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Branch</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete this Branch?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Delete Branch</button>
-            </div>
+            <form action="{{ route('admin/clients/delete') }}" method="POST">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Branch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to <strong class="text-danger">DELETE</strong> Client <strong
+                            id="client-name-delete" class="text-dark"></strong>?</p>
+                    <input type="hidden" id="clientIDDelete" name="clientIDDelete" class="form-control">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete Client</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -316,4 +382,31 @@
 
 <!-- App Script -->
 <script src="{{asset('assets/js/hope-ui.js')}}" defer></script>
+
+<script>
+    $('#deleteClientModal').on('show.bs.modal', function(e) {
+    var id = $(e.relatedTarget).data('client-id');
+    var clientname = $(e.relatedTarget).data('client-name-delete');
+
+    $(e.currentTarget).find('input[name="clientIDDelete"]').val(id);
+    $(e.currentTarget).find('#client-name-delete').text(clientname);
+});
+
+$('#editClientModal').on('show.bs.modal', function(e) {
+    var clientID = $(e.relatedTarget).data('client-id');
+    var username = $(e.relatedTarget).data('username');
+    var name = $(e.relatedTarget).data('name');
+    var email = $(e.relatedTarget).data('email');
+    var contact = $(e.relatedTarget).data('contact');
+    var address = $(e.relatedTarget).data('address');
+    
+
+    $(e.currentTarget).find('input[name="clientIDEdit"]').val(clientID);
+    $(e.currentTarget).find('input[name="usernameEdit"]').val(username);
+    $(e.currentTarget).find('input[name="nameEdit"]').val(name);
+    $(e.currentTarget).find('input[name="emailEdit"]').val(email);
+    $(e.currentTarget).find('input[name="contactEdit"]').val(contact);
+    $(e.currentTarget).find('input[name="addressEdit"]').val(address);
+});
+</script>
 @endsection

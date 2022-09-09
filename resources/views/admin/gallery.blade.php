@@ -90,7 +90,12 @@
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
-                                                data-bs-toggle="modal" data-bs-target="#editAlbumModal" href="#">
+                                                data-bs-toggle="modal" data-bs-target="#editAlbumModal"
+                                                data-album-id="{{ $gallery->id }}"
+                                                data-album-name="{{ $gallery->album_name }}"
+                                                data-album-cover="{{ $gallery->album_cover }}"
+                                                data-album-url="{{ $gallery->album_url }}"
+                                                data-album-date="{{ $gallery->album_date }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -108,9 +113,12 @@
                                                     </svg>
                                                 </span>
                                             </a>
+
                                             <a class="btn btn-sm btn-icon btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteAlbumModal" data-toggle="tooltip"
-                                                data-placement="top" title="" data-original-title="Delete" href="#">
+                                                data-placement="top" title="" data-original-title="Delete"
+                                                data-album-id="{{ $gallery->id }}"
+                                                data-album-name-delete="{{ $gallery->album_name }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
@@ -150,7 +158,7 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Add Album</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/gallery/store">
+            <form method="POST" action="{{ route('admin/gallery/store') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
@@ -225,80 +233,64 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Edit Employee</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/employees/store">
+            <form method="POST" action="{{ route('admin/gallery/update') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
+                        <input type="text" id="album_IDEdit" name="album_IDEdit" class="form-control">
+                    </div>
+
+                    <div class="row g-1 align-items-center form-group">
                         <div class="col-3">
-                            <label for="usernameEdit" class="col-form-label">Username</label>
+                            <label for="album_nameEdit" class="col-form-label">Album Name</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="usernameEdit" name="usernameEdit" class="form-control"
-                                aria-describedby="addtitle">
+                            <input type="text" id="album_nameEdit" name="album_nameEdit" class="form-control">
                         </div>
-                        @error('usernameEdit')
+                        @error('album_nameEdit')
                         <span class="text-danger "><em>{{$message}}</em></span>
                         @enderror
                     </div>
 
                     <div class="row g-1 align-items-center form-group">
                         <div class="col-3">
-                            <label for="nameEdit" class="col-form-label">Full Name</label>
+                            <label for="album_coverEdit" class="col-form-label">Album Cover</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="nameEdit" name="nameEdit" class="form-control"
-                                aria-describedby="addtitle">
+                            <input type="text" id="album_nameEdit" name="album_coverEdit" class="form-control">
                         </div>
-                        @error('nameEdit')
+                        @error('album_coverEdit')
                         <span class="text-danger "><em>{{$message}}</em></span>
                         @enderror
                     </div>
 
                     <div class="row g-1 align-items-center form-group">
                         <div class="col-3">
-                            <label for="roleEdit" class="col-form-label">Role</label>
+                            <label for="album_dateEdit" class="col-form-label">Album Date</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="roleEdit" name="roleEdit" class="form-control"
-                                aria-describedby="addtitle">
+                            <input type="date" id="album_dateEdit" name="album_dateEdit" class="form-control">
                         </div>
-                        @error('roleEdit')
+                        @error('album_dateEdit')
                         <span class="text-danger "><em>{{$message}}</em></span>
                         @enderror
                     </div>
 
                     <div class="row g-1 align-items-center form-group">
                         <div class="col-3">
-                            <label for="branch_idEdit" class="col-form-label">Branch</label>
+                            <label for="album_urlEdit" class="col-form-label">Album URL</label>
                         </div>
                         <div class="col-8">
-                            <select class="form-select" name="branch_idEdit">
-                                <option selected id="branchEdit"></option>
-
-                            </select>
+                            <input type="text" id="album_urlEdit" name="album_urlEdit" class="form-control">
                         </div>
-                        @error('branch_idEdit')
+                        @error('album_urlEdit')
                         <span class="text-danger "><em>{{$message}}</em></span>
                         @enderror
                     </div>
-
-                    <div class="row g-1 align-items-center form-group">
-                        <div class="col-3">
-                            <label for="contactEdit" class="col-form-label">Contact</label>
-                        </div>
-                        <div class="col-8">
-                            <input type="text" id="contactEdit" name="contactEdit" class="form-control"
-                                aria-describedby="addtitle">
-                        </div>
-                        @error('contactEdit')
-                        <span class="text-danger "><em>{{$message}}</em></span>
-                        @enderror
-                    </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Edit Employee </button>
+                    <button type="submit" class="btn btn-primary">Edit Album </button>
                 </div>
             </form>
         </div>
@@ -309,17 +301,22 @@
 <div class="modal fade" id="deleteAlbumModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Branch</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete this Branch?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Delete Branch</button>
-            </div>
+            <form action="{{ route('admin/gallery/delete') }}" method="POST">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Album</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to <strong class="text-danger">DELETE</strong> the Album <strong
+                            id="album-name-delete" class="text-dark"></strong>?</p>
+                    <input type="hidden" id="albumIDDelete" name="albumIDDelete" class="form-control">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete Album</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -361,17 +358,28 @@
 <script src="{{asset('assets/js/hope-ui.js')}}" defer></script>
 
 <script>
-    $('#editEmployeeModal').on('show.bs.modal', function(e) {
-    var username = $(e.relatedTarget).data('username');
-    var name = $(e.relatedTarget).data('name');
-    var role = $(e.relatedTarget).data('role');
-    var branch = $(e.relatedTarget).data('branch');
-    var contact = $(e.relatedTarget).data('contact');
-    $(e.currentTarget).find('input[name="usernameEdit"]').val(username);
-    $(e.currentTarget).find('input[name="nameEdit"]').val(name);
-    $(e.currentTarget).find('input[name="roleEdit"]').val(role);
-    $(e.currentTarget).find('#branchEdit').text(branch);
-    $(e.currentTarget).find('input[name="contactEdit"]').val(contact);
-});
+    $('#deleteAlbumModal').on('show.bs.modal', function(e) {
+        var id = $(e.relatedTarget).data('album-id');
+        var albumname = $(e.relatedTarget).data('album-name-delete');
+
+        $(e.currentTarget).find('input[name="albumIDDelete"]').val(id);
+        $(e.currentTarget).find('#album-name-delete').text(albumname);
+    });
+
+    $('#editAlbumModal').on('show.bs.modal', function(e) {
+        var album_id = $(e.relatedTarget).data('album-id');
+        var album_name = $(e.relatedTarget).data('album-name');
+        var album_cover = $(e.relatedTarget).data('album-cover');
+        var album_url = $(e.relatedTarget).data('album-url');
+        var album_date = $(e.relatedTarget).data('album-date');
+
+        $(e.currentTarget).find('input[name="album_IDEdit"]').val(album_id);
+        $(e.currentTarget).find('input[name="album_nameEdit"]').val(album_name);
+        $(e.currentTarget).find('input[name="album_coverEdit"]').val(album_cover);
+        $(e.currentTarget).find('input[name="album_urlEdit"]').val(album_url);
+        $(e.currentTarget).find('input[name="album_dateEdit"]').val(album_date);
+    });
+
 </script>
+
 @endsection

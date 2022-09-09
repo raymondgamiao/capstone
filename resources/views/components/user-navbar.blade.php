@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg py-4 navigation header-padding " id="navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{route('home')}}">
-            Photo City
+            <h3 class="{{ Route::is('home')  ? 'logo' : 'logo-white' }}">Photo City</h3>
         </a>
 
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09"
@@ -10,7 +10,7 @@
         </button>
 
         <div class="collapse navbar-collapse text-center" id="navbarsExample09">
-            <ul class="navbar-nav m-auto">
+            <ul class="navbar-nav m-auto {{ Route::is('home')  ? 'nav-text-dark' : 'nav-text-white' }}">
                 <li class="nav-item"><a class="nav-link {{ Route::is('home')  ? 'active' : '' }}"
                         href="{{route('home')}}">Home</a>
                 </li>

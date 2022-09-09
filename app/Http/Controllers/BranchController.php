@@ -8,16 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class BranchController extends Controller
 {
-    /*   public function index()
-    {
-        return view(
-            'admin.branches',
-            [
-                'branches' => Branch::all()
-            ]
-        );
-    }
- */
 
     public function index()
     {
@@ -66,13 +56,11 @@ class BranchController extends Controller
         ]);
 
         $branch = Branch::find($request->branchIDEdit);
-
         $branch->name = $formFields['branchNameEdit'];
         $branch->location = $formFields['branchLocationEdit'];
         $branch->email = $formFields['branchEmailEdit'];
         $branch->contact = $formFields['branchContactEdit'];
         $branch->save();
-
 
         return redirect()->route('admin/branches')->with('success', 'branch updated succesfully');
     }

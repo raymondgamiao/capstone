@@ -75,25 +75,27 @@ Route::post('/admin/categories/store', [CategoryController::class, 'store']);
 
 
 Route::get('/admin/employees', [EmployeeContoller::class, 'index'])->name('admin/employees');
-Route::post('/admin/employees/store', [EmployeeContoller::class, 'store']);
+Route::post('/admin/employees/store', [EmployeeContoller::class, 'store'])->name('admin/employees/store');
+Route::post('/admin/employees/update', [EmployeeContoller::class, 'update'])->name('admin/employees/update');
+Route::post('/admin/employees/delete', [EmployeeContoller::class, 'delete'])->name('admin/employees/delete');
 
 
 Route::get('/admin/clients', [ClientController::class, 'index'])->name('admin/clients');
-Route::post('/admin/clients/store', [ClientController::class, 'store']);
+Route::post('/admin/clients/store', [ClientController::class, 'store'])->name('admin/clients/store');
+Route::post('/admin/clients/update', [ClientController::class, 'update'])->name('admin/clients/update');
+Route::post('/admin/clients/delete', [ClientController::class, 'delete'])->name('admin/clients/delete');
 
 
 Route::get('/admin/gallery', [AdminGalleryController::class, 'index'])->name('admin/gallery');
-Route::post('/admin/gallery/store', [AdminGalleryController::class, 'store']);
+Route::post('/admin/gallery/store', [AdminGalleryController::class, 'store'])->name('admin/gallery/store');
+Route::post('/admin/gallery/update', [AdminGalleryController::class, 'update'])->name('admin/gallery/update');
+Route::post('/admin/gallery/delete', [AdminGalleryController::class, 'delete'])->name('admin/gallery/delete');
 
 
 Route::get('/admin/branches', [BranchController::class, 'index'])->name('admin/branches');
 Route::post('/admin/branches/store', [BranchController::class, 'store'])->name('admin/branches/store');
 Route::post('/admin/branches/update', [BranchController::class, 'update'])->name('admin/branches/update');
 Route::post('/admin/branches/delete', [BranchController::class, 'delete'])->name('admin/branches/delete');
-
-
-
-
 
 
 
