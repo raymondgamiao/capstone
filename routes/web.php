@@ -68,10 +68,16 @@ Route::get('/admin/calendar', function () {
 
 
 Route::get('/admin/inventory', [InventoryController::class, 'index'])->name('admin/inventory');
-Route::post('/admin/inventory/store', [InventoryController::class, 'store']);
+Route::post('/admin/inventory/store', [InventoryController::class, 'store'])->name('admin/inventory/store');
+Route::post('/admin/inventory/update', [InventoryController::class, 'update'])->name('admin/inventory/update');
+Route::post('/admin/inventory/delete', [InventoryController::class, 'delete'])->name('admin/inventory/delete');
+
 
 Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin/categories');
-Route::post('/admin/categories/store', [CategoryController::class, 'store']);
+Route::post('/admin/categories/store', [CategoryController::class, 'store'])->name('admin/categories/store');
+Route::post('/admin/categories/update', [CategoryController::class, 'update'])->name('admin/categories/update');
+Route::post('/admin/categories/delete', [CategoryController::class, 'delete'])->name('admin/categories/delete');
+
 
 
 Route::get('/admin/employees', [EmployeeContoller::class, 'index'])->name('admin/employees');

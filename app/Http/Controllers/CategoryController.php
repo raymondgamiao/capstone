@@ -35,4 +35,30 @@ class CategoryController extends Controller
 
         return redirect()->route('admin/categories')->with('success', 'Category created succesfully');
     }
+
+    public function delete(Request $request)
+    {
+        // dd($request->all());
+        $category = Category::find($request->categoryIDDelete);
+        $category->delete();
+
+        return redirect()->route('admin/categories')->with('success', 'category deleted succesfully');
+    }
+
+
+    public function update(Request $request)
+    {
+        //dd($request->branchIDEdit);
+        $formFields = $request->validate([
+            'nameEdit' => 'required',
+            'descEdit' => 'required'
+        ]);
+
+        $category = Category::find($request->categoryIDEdit);
+        $category->name = $formFields['nameEdit'];
+        $category->description = $formFields['descEdit'];
+        $category->save();
+
+        return redirect()->route('admin/categories')->with('success', 'category updated succesfully');
+    }
 }

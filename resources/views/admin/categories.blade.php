@@ -62,7 +62,7 @@
                     </div>
                     <div class="card-action mt-2 mt-sm-0">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
+                            data-bs-target="#addCategoryModal">
                             + Add Category
                         </button>
                     </div>
@@ -85,8 +85,10 @@
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
-                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                data-placement="top" title="" data-original-title="Edit" href="#">
+                                                data-bs-toggle="modal" data-bs-target="#editCategoryModal"
+                                                data-placement="top" title="" data-original-title="Edit"
+                                                data-id="{{ $category->id }}" data-name="{{ $category->name }}"
+                                                data-description="{{ $category->description }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -105,8 +107,10 @@
                                                 </span>
                                             </a>
                                             <a class="btn btn-sm btn-icon btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModaldelete" data-toggle="tooltip"
-                                                data-placement="top" title="" data-original-title="Delete" href="#">
+                                                data-bs-target="#deleteCategoryModal" data-toggle="tooltip"
+                                                data-placement="top" title="" data-original-title="Delete"
+                                                data-id="{{ $category->id }}" data-name="{{ $category->name }}"
+                                                href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
@@ -138,7 +142,7 @@
 </div>
 
 {{-- modal add item --}}
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="modal fade" id="addCategoryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -146,7 +150,7 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Add Category</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/categories/store">
+            <form method="POST" action="{{ route('admin/categories/store') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
@@ -185,74 +189,74 @@
 </div>
 
 {{-- EDIT CHANGES MODAL --}}
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Branch</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">BranchID</label>
+            <form method="POST" action="{{ route('admin/categories/update') }}">
+                <div class="modal-body">
+                    @csrf
+                    <div class="row g-1 align-items-center form-group">
+                        <input type="hidden" id="categoryIDEdit" name="categoryIDEdit" class="form-control">
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">BranchName</label>
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="nameEdit" class="col-form-label">Category Name</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="nameEdit" name="nameEdit" class="form-control">
+                        </div>
+                        @error('nameEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
                     </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
-                </div>
 
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="descEdit" class="col-form-label">Description</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="descEdit" name="descEdit" class="form-control">
+                        </div>
+                        @error('descEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
 
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Location</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
                 </div>
-
-                <div class="row g-1 align-items-center form-group">
-                    <div class="col-3">
-                        <label for="addtitle" class="col-form-label">Contact</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" id="addtitle" class="form-control" aria-describedby="addtitle">
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Edit Category </button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>
 
 {{-- Delete Modal --}}
-<div class="modal fade" id="exampleModaldelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteCategoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Branch</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete this Branch?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Delete Branch</button>
-            </div>
+            <form action="{{ route('admin/categories/delete') }}" method="POST">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to <strong class="text-danger">DELETE</strong> Category <strong
+                            id="category-name-delete" class="text-dark"></strong>?</p>
+                    <input type="hidden" id="categoryIDDelete" name="categoryIDDelete" class="form-control">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete Category</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -290,4 +294,24 @@
 
 <!-- App Script -->
 <script src="{{asset('assets/js/hope-ui.js')}}" defer></script>
+
+<script>
+    $('#deleteCategoryModal').on('show.bs.modal', function(e) {
+    var id = $(e.relatedTarget).data('id');
+    var categoryname = $(e.relatedTarget).data('name');
+
+    $(e.currentTarget).find('input[name="categoryIDDelete"]').val(id);
+    $(e.currentTarget).find('#category-name-delete').text(categoryname);
+});
+
+$('#editCategoryModal').on('show.bs.modal', function(e) {
+    var id = $(e.relatedTarget).data('id');
+    var name = $(e.relatedTarget).data('name');
+    var description = $(e.relatedTarget).data('description');
+
+    $(e.currentTarget).find('input[name="categoryIDEdit"]').val(id);
+    $(e.currentTarget).find('input[name="nameEdit"]').val(name);
+    $(e.currentTarget).find('input[name="descEdit"]').val(description);
+});
+</script>
 @endsection

@@ -95,7 +95,13 @@
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
                                                 data-bs-toggle="modal" data-bs-target="#editInventoryModal"
-                                                data-placement="top" title="" data-original-title="Edit" href="#">
+                                                data-placement="top" title="" data-original-title="Edit"
+                                                data-inventory-id="{{ $item->id }}" data-name="{{ $item->name }}"
+                                                data-description="{{ $item->description }}" data-qty="{{ $item->qty }}"
+                                                data-branch-id="{{ $item->branch_id }}"
+                                                data-branch-name="{{ $item->branch->name }}"
+                                                data-category-id="{{ $item->category_id }}"
+                                                data-category-name="{{ $item->category->name }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -114,8 +120,10 @@
                                                 </span>
                                             </a>
                                             <a class="btn btn-sm btn-icon btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteInvetoryModal" data-toggle="tooltip"
-                                                data-placement="top" title="" data-original-title="Delete" href="#">
+                                                data-bs-target="#deleteInventoryModal" data-toggle="tooltip"
+                                                data-placement="top" title="" data-original-title="Delete"
+                                                data-inventory-id="{{ $item->id }}"
+                                                data-inventory-name-delete="{{ $item->name }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
@@ -157,7 +165,7 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Add Item</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/inventory/store">
+            <form method="POST" action="{{ route('admin/inventory/store') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
@@ -243,36 +251,26 @@
 </div>
 
 {{-- EDIT CHANGES MODAL --}}
-<div class="modal fade" id="editInventoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editInventoryModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Edit Employee</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Item</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="/admin/employees/store">
+            <form method="POST" action="{{ route('admin/inventory/update') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
-                        <div class="col-3">
-                            <label for="usernameEdit" class="col-form-label">Username</label>
-                        </div>
-                        <div class="col-8">
-                            <input type="text" id="usernameEdit" name="usernameEdit" class="form-control"
-                                aria-describedby="addtitle">
-                        </div>
-                        @error('usernameEdit')
-                        <span class="text-danger "><em>{{$message}}</em></span>
-                        @enderror
+                        <input type="hidden" id="inventoryIDEdit" name="inventoryIDEdit" class="form-control">
                     </div>
 
                     <div class="row g-1 align-items-center form-group">
                         <div class="col-3">
-                            <label for="nameEdit" class="col-form-label">Full Name</label>
+                            <label for="nameEdit" class="col-form-label">Name</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="nameEdit" name="nameEdit" class="form-control"
-                                aria-describedby="addtitle">
+                            <input type="text" id="nameEdit" name="nameEdit" class="form-control">
                         </div>
                         @error('nameEdit')
                         <span class="text-danger "><em>{{$message}}</em></span>
@@ -281,13 +279,24 @@
 
                     <div class="row g-1 align-items-center form-group">
                         <div class="col-3">
-                            <label for="roleEdit" class="col-form-label">Role</label>
+                            <label for="descriptionEdit" class="col-form-label">Description</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="roleEdit" name="roleEdit" class="form-control"
-                                aria-describedby="addtitle">
+                            <input type="text" id="descriptionEdit" name="descriptionEdit" class="form-control">
                         </div>
-                        @error('roleEdit')
+                        @error('descriptionEdit')
+                        <span class="text-danger "><em>{{$message}}</em></span>
+                        @enderror
+                    </div>
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="quantityEdit" class="col-form-label">Quantity</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="number" id="quantityEdit" name="quantityEdit" class="form-control">
+                        </div>
+                        @error('quantityEdit')
                         <span class="text-danger "><em>{{$message}}</em></span>
                         @enderror
                     </div>
@@ -298,7 +307,7 @@
                         </div>
                         <div class="col-8">
                             <select class="form-select" name="branch_idEdit">
-                                <option selected id="branchEdit"></option>
+                                <option selected id="branch_idEdit"></option>
                                 @foreach ($branches as $branch)
                                 <option value={{ $branch->id }}>{{ $branch->name}}</option>
                                 @endforeach
@@ -311,21 +320,26 @@
 
                     <div class="row g-1 align-items-center form-group">
                         <div class="col-3">
-                            <label for="contactEdit" class="col-form-label">Contact</label>
+                            <label for="category_idEdit" class="col-form-label">Category</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="contactEdit" name="contactEdit" class="form-control"
-                                aria-describedby="addtitle">
+                            <select class="form-select" name="category_idEdit">
+                                <option selected id="category_idEdit"></option>
+                                @foreach ($categories as $category)
+                                <option value={{ $category->id }}>{{ $category->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        @error('contactEdit')
+                        @error('category_idEdit')
                         <span class="text-danger "><em>{{$message}}</em></span>
                         @enderror
                     </div>
 
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Edit Employee </button>
+                    <button type="submit" class="btn btn-primary">Edit Item </button>
                 </div>
             </form>
         </div>
@@ -333,20 +347,25 @@
 </div>
 
 {{-- Delete Modal --}}
-<div class="modal fade" id="deleteInvetoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteInventoryModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Branch</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete this Branch?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Delete Branch</button>
-            </div>
+            <form action="{{ route('admin/inventory/delete') }}" method="POST">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Branch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to <strong class="text-danger">DELETE</strong> Item <strong
+                            id="inventory-name-delete" class="text-dark"></strong>?</p>
+                    <input type="hidden" id="inventoryIDDelete" name="inventoryIDDelete" class="form-control">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete Inventory</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -385,5 +404,37 @@
 <!-- App Script -->
 <script src="{{asset('assets/js/hope-ui.js')}}" defer></script>
 
+<script>
+    $('#deleteInventoryModal').on('show.bs.modal', function(e) {
+    var id = $(e.relatedTarget).data('inventory-id');
+    var inventoryname = $(e.relatedTarget).data('inventory-name-delete');
+
+    $(e.currentTarget).find('input[name="inventoryIDDelete"]').val(id);
+    $(e.currentTarget).find('#inventory-name-delete').text(inventoryname);
+});
+
+$('#editInventoryModal').on('show.bs.modal', function(e) {
+    var inventoryID = $(e.relatedTarget).data('inventory-id');
+    var name = $(e.relatedTarget).data('name');
+    var description = $(e.relatedTarget).data('description');
+    var qty = $(e.relatedTarget).data('qty');
+    var branchID = $(e.relatedTarget).data('branch-id');
+    var branch = $(e.relatedTarget).data('branch-name');
+    var categoryID = $(e.relatedTarget).data('category-id');
+    var category = $(e.relatedTarget).data('category-name');
+
+
+    $(e.currentTarget).find('input[name="inventoryIDEdit"]').val(inventoryID);
+    $(e.currentTarget).find('input[name="nameEdit"]').val(name);
+    $(e.currentTarget).find('input[name="descriptionEdit"]').val(description);
+    $(e.currentTarget).find('input[name="quantityEdit"]').val(qty);
+    $(e.currentTarget).find('#branch_idEdit').val(branchID);
+    $(e.currentTarget).find('#branch_idEdit').text(branch);
+    $(e.currentTarget).find('#category_idEdit').val(categoryID);
+    $(e.currentTarget).find('#category_idEdit').text(category);
+
+
+});
+</script>
 
 @endsection
