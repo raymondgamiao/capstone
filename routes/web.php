@@ -1,19 +1,20 @@
 <?php
 
-use App\Http\Controllers\AdminGalleryController;
-use App\Http\Controllers\BranchController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\EmployeeContoller;
-use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\InventoryController;
-use App\Http\Controllers\ListingControler;
 use App\Models\Client;
+use App\Models\Listing;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Listing;
+use App\Http\Controllers\BranchController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ListingControler;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EmployeeContoller;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\AdminGalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,11 +61,16 @@ Route::get('/admin/', function () {
     ]);
 })->name('admin');
 
-Route::get('/admin/calendar', function () {
+/* Route::get('/admin/calendar', function () {
     return view('admin/calendar', [
         'title' => 'Calendar'
     ]);
-})->name('admin/calendar');
+})->name('admin/calendar'); */
+
+Route::get('/admin/calendar', [CalendarController::class, 'index'])->name('admin/calendar');
+Route::post('/admin/calendar/store', [CalendarController::class, 'store'])->name('admin/calendar/store');
+Route::post('/admin/calendar/update', [CalendarController::class, 'update'])->name('admin/calendar/update');
+Route::post('/admin/calendar/delete', [CalendarController::class, 'delete'])->name('admin/calendar/delete');
 
 
 Route::get('/admin/inventory', [InventoryController::class, 'index'])->name('admin/inventory');
@@ -106,6 +112,9 @@ Route::post('/admin/branches/delete', [BranchController::class, 'delete'])->name
 
 
 /* test routes */
+
+
+
 
 Route::get('/welcome', function () {
     return view('welcome');

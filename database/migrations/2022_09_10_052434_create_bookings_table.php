@@ -16,7 +16,6 @@ class CreateBookingsTable extends Migration
     {
 
 
-
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -27,7 +26,8 @@ class CreateBookingsTable extends Migration
             $table->string('venue');
 
             $table->unsignedBigInteger('client_id');
-            $table->foreign('client_id')->references('id')->on('client')->onDelete('cascade');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
