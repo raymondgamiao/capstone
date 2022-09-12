@@ -48,12 +48,6 @@ Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
-
-
-
-
-
-
 /* admin routes */
 
 Route::get('/admin/', [DashboardController::class, 'index'])->name('admin');

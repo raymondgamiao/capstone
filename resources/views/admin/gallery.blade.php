@@ -158,7 +158,7 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Add Album</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('admin/gallery/store') }}">
+            <form method="POST" action="{{ route('admin/gallery/store') }}" enctype="multipart/form-data">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
@@ -179,7 +179,7 @@
                             <label for="album_cover" class="col-form-label">Cover Image</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="album_cover" name="album_cover" class="form-control"
+                            <input type="file" id="album_cover" name="album_cover" class="form-control"
                                 aria-describedby="addtitle" value={{old('album_cover')}}>
                         </div>
                         @error('album_cover')
@@ -237,7 +237,7 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
-                        <input type="text" id="album_IDEdit" name="album_IDEdit" class="form-control">
+                        <input type="hidden" id="album_IDEdit" name="album_IDEdit" class="form-control">
                     </div>
 
                     <div class="row g-1 align-items-center form-group">

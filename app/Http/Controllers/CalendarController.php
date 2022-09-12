@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\Bookings;
+use App\Models\logs;
 use App\Models\Client;
+use App\Models\Bookings;
 use Illuminate\Http\Request;
 
 class CalendarController extends Controller
@@ -60,8 +61,7 @@ class CalendarController extends Controller
         } else {
             $end_date = $request->end_date;
         }
-
-        Bookings::create([
+        $booking = Bookings::create([
             'name' =>  $formFields['name'],
             'date_start' =>   $formFields['start_date'],
             'date_end' =>   $end_date,
@@ -71,6 +71,12 @@ class CalendarController extends Controller
             'venue' => $formFields['venue']
         ]);
 
+        logs::create([
+            'log_id' => $booking->id,
+            'name' => 'New Booking ' .  $formFields['name'],
+            'log_type' => 'Booking'
+        ]);
+
 
         return redirect()->route('admin/calendar')->with('success', 'Event created succesfully');
     }
@@ -78,8 +84,14 @@ class CalendarController extends Controller
     public function delete(Request $request)
     {
         // dd($request->all());
-        $category = Bookings::find($request->iddelete);
-        $category->delete();
+        $booking = Bookings::find($request->iddelete);
+        $booking->delete();
+
+        logs::create([
+            'log_id' => $request->iddelete,
+            'name' => 'Deleted Booking ' . $booking->name,
+            'log_type' => 'Booking'
+        ]);
 
         return redirect()->route('admin/calendar')->with('success', 'Event deleted succesfully');
     }
@@ -102,15 +114,21 @@ class CalendarController extends Controller
             $end_date = $request->end_date;
         }
 
-        $category = Bookings::find($request->id);
-        $category->name = $formFields['name'];
-        $category->date_start = $formFields['start_date'];
-        $category->date_end = $end_date;
-        $category->time_start = $formFields['start_time'];
-        $category->time_end = $formFields['end_time'];
-        $category->venue = $formFields['venue'];
-        $category->client_id = $formFields['client'];
-        $category->save();
+        $booking = Bookings::find($request->id);
+        $booking->name = $formFields['name'];
+        $booking->date_start = $formFields['start_date'];
+        $booking->date_end = $end_date;
+        $booking->time_start = $formFields['start_time'];
+        $booking->time_end = $formFields['end_time'];
+        $booking->venue = $formFields['venue'];
+        $booking->client_id = $formFields['client'];
+        $booking->save();
+
+        logs::create([
+            'log_id' => $request->id,
+            'name' => 'Updated Booking ' .  $formFields['name'],
+            'log_type' => 'Booking'
+        ]);
 
         return redirect()->route('admin/calendar')->with('success', 'Event updated succesfully');
     }
