@@ -18,6 +18,32 @@ class DashboardController extends Controller
     public function index()
     {
 
+
+        $bookingsArr = array();
+        $monthsArr = array();
+
+        /*     $monthss = Bookings::get()->groupBy(function ($d) {
+            return Carbon::parse($d->created_at)->format('m');
+        }); */
+        DB::statement("SET SQL_MODE=''");
+        $bookings = DB::table('bookings')
+            ->select(
+                DB::raw('DATE_FORMAT(date_start, "%M") as month'),
+                DB::raw('count(bookings.id) as total'),
+                'date_start'
+            )
+            ->groupBy('month')
+            ->orderBy('date_start')
+            ->whereYear('date_start', date('Y'))
+            ->get();
+
+        foreach ($bookings as $booking) {
+            $bookingsArr[] = $booking->total;
+            $monthsArr[] = $booking->month;
+        }
+        //dd($bookingsArr);
+
+
         $newclients = Client::select('*')
             ->whereMonth('created_at', Carbon::now()->month)
             ->get()
@@ -42,6 +68,8 @@ class DashboardController extends Controller
             'logs' => logs::orderBy('id', 'desc')->take(10)->get(),
             'newclients' => $newclients,
             'topclients' => $topclients,
+            'bookingsArr' => $bookingsArr,
+            'monthsArr' => $monthsArr,
             'title' => 'Dashboard'
         ]);
     }

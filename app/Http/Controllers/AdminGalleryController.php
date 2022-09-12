@@ -34,7 +34,7 @@ class AdminGalleryController extends Controller
         // dd($request->all());
         $gallery =  Gallery::create([
             'album_name' =>  $formFields['album_name'],
-            'album_cover' => $request->file('album_cover')->store('logos/images/portfolio', 'public'),
+            'album_cover' => $request->file('album_cover')->store('images/portfolio', 'public'),
             'album_url' =>  $formFields['album_url'],
             'album_date' => $formFields['album_date'],
         ]);

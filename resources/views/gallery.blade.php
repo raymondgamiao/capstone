@@ -42,7 +42,7 @@
             <div class="col-lg-4 col-6">
                 <div class="portflio-item position-relative mb-4">
                     <a href="{{ $gallery['album_url'] }}" target="_blank">
-                        <img src="{{ $gallery['album_cover'] }}" alt="" class="img-fluid w-100">
+                        <img src="{{ 'storage/' . $gallery->album_cover }}" alt="" class="img-fluid w-100">
                         <div class="overlay-item"><i class="ti-link"></i></div>
 
                         <div class="portfolio-item-content">

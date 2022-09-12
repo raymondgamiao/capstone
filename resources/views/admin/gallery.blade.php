@@ -73,7 +73,7 @@
                                 <tr class="light">
                                     <th>Album Name</th>
                                     <th>Thumbnail</th>
-                                    <th>Cover</th>
+
                                     <th>Date</th>
                                     <th>URL</th>
                                     <th style="min-width: 100px">Action</th>
@@ -83,8 +83,8 @@
                                 @foreach ($galleries as $gallery)
                                 <tr>
                                     <td>{{ $gallery->album_name }}</td>
-                                    <td><img src="{{asset( $gallery->album_cover )}}" alt="sad" width="50px"></td>
-                                    <td>{{ $gallery->album_cover }}</td>
+                                    <td><img src="{{asset( 'storage/' . $gallery->album_cover )}}" alt="sad"
+                                            width="50px"></td>
                                     <td>{{ $gallery->album_date }}</td>
                                     <td>{{ $gallery->album_url }}</td>
                                     <td>

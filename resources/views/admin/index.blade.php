@@ -117,48 +117,24 @@
             <div class="row">
 
                 {{-- yung chart ng per month --}}
-
                 <div class="col-md-12">
                     <div class="card" data-aos="fade-up" data-aos-delay="800">
                         <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
                             <div class="header-title">
-                                <h4 class="card-title">&#8369 20,000</h4>
-                                <p class="mb-0">Gross Sales</p>
+                                <h4 class="card-title">Bookings {{ date('Y') }} </h4>
                             </div>
                             <div class="d-flex align-items-center align-self-center">
                                 <div class="d-flex align-items-center text-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24"
-                                        fill="currentColor">
+                                        fill="#4bc7d2">
                                         <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            <circle cx="12" cy="12" r="8" fill="#4bc7d2"></circle>
                                         </g>
                                     </svg>
                                     <div class="ms-2">
-                                        <span class="text-secondary">Sales</span>
+                                        <span class="text-secondary"># of bookings</span>
                                     </div>
                                 </div>
-                                <div class="d-flex align-items-center ms-3 text-info">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24"
-                                        fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                    <div class="ms-2">
-                                        <span class="text-secondary">Cost</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="dropdown">
-                                <a href="#" class="text-secondary dropdown-toggle" id="dropdownMenuButton22"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    This Week
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton22">
-                                    <li><a class="dropdown-item" href="#">This Week</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="card-body">
@@ -168,7 +144,7 @@
                 </div>
 
                 {{-- circle chart --}}
-                <div class="col-md-12 col-xl-6">
+                {{-- <div class="col-md-12 col-xl-6">
                     <div class="card" data-aos="fade-up" data-aos-delay="900">
                         <div class="flex-wrap card-header d-flex justify-content-between">
                             <div class="header-title">
@@ -218,10 +194,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 {{-- bar graph --}}
-                <div class="col-md-12 col-xl-6">
+                {{-- <div class="col-md-12 col-xl-6">
                     <div class="card" data-aos="fade-up" data-aos-delay="1000">
                         <div class="flex-wrap card-header d-flex justify-content-between">
                             <div class="header-title">
@@ -243,7 +219,7 @@
                             <div id="d-activity" class="d-activity"></div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 {{-- new clients table --}}
                 <div class="col-lg-12 col-lg-12">
@@ -276,7 +252,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <img class="rounded bg-soft-primary img-fluid avatar-40 me-3"
-                                                        src="assets/images/shapes/01.png" alt="profile">
+                                                        src="{{asset('assets/images/shapes/01.png')}}" alt="profile">
                                                     <h6>{{ $topclient->name }}</h6>
                                                 </div>
                                             </td>
@@ -357,4 +333,110 @@
 
 <!-- App Script -->
 <script src="{{asset('assets/js/hope-ui.js')}}" defer></script>
+
+{{-- bookings by month --}}
+<script>
+    var bookingsArr  = @json($bookingsArr);
+    var monthsArr  = @json($monthsArr);
+    if (document.querySelectorAll('#d-main').length) {
+    const options = {
+        series: [{
+            name: 'Bookings',
+            data:bookingsArr
+        }],
+        chart: {
+            fontFamily: '"Inter", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+            height: 245,
+            type: 'area',
+            toolbar: {
+                show: false
+            },
+            sparkline: {
+                enabled: false,
+            },
+        },
+        colors: [ "#4bc7d2"],
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'smooth',
+            width: 3,
+        },
+        yaxis: {
+            show: true,
+            labels: {
+            show: true,
+            minWidth: 19,
+            maxWidth: 19,
+            style: {
+                colors: "#8A92A6",
+            },
+            offsetX: -5,
+            },
+        },
+        legend: {
+            show: false,
+        },
+        xaxis: {
+            labels: {
+                minHeight:22,
+                maxHeight:22,
+                show: true,
+                style: {
+                    colors: "#8A92A6",
+                },
+            },
+            lines: {
+                show: false  //or just here to disable only x axis grids
+            },
+            categories: monthsArr
+        },
+        grid: {
+            show: false,
+        },
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shade: 'dark',
+                type: "vertical",
+                shadeIntensity: 0,
+                gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
+                inverseColors: true,
+                opacityFrom: .4,
+                opacityTo: .1,
+                stops: [0, 50, 80],
+                colors: ["#3a57e8", "#4bc7d2"]
+            }
+        },
+        tooltip: {
+            enabled: true,
+        },
+    };
+
+    const chart = new ApexCharts(document.querySelector("#d-main"), options);
+    chart.render();
+    document.addEventListener('ColorChange', (e) => {
+        console.log(e)
+        const newOpt = {
+        colors: [e.detail.detail1, e.detail.detail2],
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shade: 'dark',
+                type: "vertical",
+                shadeIntensity: 0,
+                gradientToColors: [e.detail.detail1, e.detail.detail2], // optional, if not defined - uses the shades of same color in series
+                inverseColors: true,
+                opacityFrom: .4,
+                opacityTo: .1,
+                stops: [0, 50, 60],
+                colors: [e.detail.detail1, e.detail.detail2],
+            }
+        },
+    }
+        chart.updateOptions(newOpt)
+    })
+}
+</script>
 @endsection
