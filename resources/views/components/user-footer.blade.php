@@ -36,21 +36,15 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="widget widget-contact mb-5 mb-lg-0">
-                    <h4 class="text-capitalize mb-4">Get in Touch</h4>
-                    <h6><a href="tel:+23-345-67890"> <i class="ti-headphone-alt mr-3"></i>photocity@gmail.com</a></h6>
-                    <h6><a href="mailto:support@gmail.com"> <i class="ti-mobile mr-3"></i>+23-456-6588</a></h6>
+				<div class="widget widget-contact mb-5 mb-lg-0">
+					<h4 class="text-capitalize mb-4">Get in Touch</h4>
+					<h6><a href="tel:+23-345-67890" > <i class="ti-email mr-3"></i>Support@megakit.com</a></h6>
+					<h6><a href="Support@megakit.com " > <i class="ti-mobile mr-3"></i>+23-456-6588</a></h6>
+					<h6><a href="https://web.facebook.com/pc2luna"> <i class="ti-facebook mr-3"></i>Faceook Page</a></h6>
 
-                    <ul class="list-inline footer-socials mt-5">
-                        <li class="list-inline-item"><a href="https://www.facebook.com/themefisher"><i
-                                    class="ti-facebook mr-2"></i></a></li>
-                        <li class="list-inline-item"><a href="https://twitter.com/themefisher"><i
-                                    class="ti-twitter mr-2"></i></a></li>
-                        <li class="list-inline-item"><a href="https://www.pinterest.com/themefisher/"><i
-                                    class="ti-linkedin mr-2 "></i></a></li>
-                    </ul>
-                </div>
-            </div>
+					
+				</div>
+			</div>
         </div>
 
         <div class="footer-btm py-4 mt-5">

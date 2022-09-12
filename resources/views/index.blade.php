@@ -81,13 +81,13 @@
 				</div>
 			</div>
 
-			<div class="col-lg-7 col-xs-12 col-md-12">
+				<div class="col-lg-7 col-xs-12 col-md-12">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<div class="icon-block text-center mb-4 mb-lg-0">
 							<i class="ti-comment-alt"></i>
 							<h5>Inquire</h5>
-							<p>A complete web app solution for business</p>
+							<p>Consulit faster in our form. Will response immmediately</p>
 						</div>
 					</div>
 
@@ -95,7 +95,7 @@
 						<div class="icon-block text-center mt-4 mb-4 mb-lg-0">
 							<i class="ti-pencil-alt"></i>
 							<h5>Fillout our Form</h5>
-							<p>A complete web app solution for business</p>
+							<p>A little bit of your information to proceed to the next step</p>
 						</div>
 					</div>
 
@@ -103,7 +103,7 @@
 						<div class="icon-block text-center">
 							<i class="ti-search"></i>
 							<h5>Choose a package</h5>
-							<p>A complete web app solution for business</p>
+							<p>Surely our set of package are affordable</p>
 						</div>
 					</div>
 
@@ -111,11 +111,11 @@
 						<div class="icon-block text-center mt-4">
 							<i class="ti-check-box"></i>
 							<h5>Confirm Booking</h5>
-							<p>A complete web app solution for business</p>
+							<p>All done! Easy as that</p>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>	
 		</div>
 	</div>
 </section>
@@ -282,6 +282,8 @@
 	</div>
 </section>
 
+
+
 <section class="section testimonial">
 	<div class="container">
 		<div class="row">
@@ -299,19 +301,19 @@
 			<div class="col-lg-12 testimonial-wrap">
 				<div class="testimonial-block">
 					<p>
-						I would like to thank you Mr. Henry(sample name) and the rest of your team for taking care of my
-						daughter's debut party. Your teams
+						I would like to thank you Mr. Henry and the rest of your team for taking care of my
+						debut party. Your teams
 						did an excellent job in filming the event. May God bless all of you always and more power to
 						your company.
 					</p>
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial1.jpg" alt="" class="img-fluid">
+							<img src="images/team/testimonial-one.webp" alt="" class="img-fluid">
 						</div>
 						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
+							<h6>Kate Garcia</h6>
+							<span>Solena Tuguegarao</span>
 						</div>
 					</div>
 				</div>
@@ -325,11 +327,11 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial2.jpg" alt="" class="img-fluid">
+							<img src="images/team/testimonial-two.webp" alt="" class="img-fluid">
 						</div>
 						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
+							<h6>Andrew Reyes</h6>
+							<span>Isabela</span>
 						</div>
 					</div>
 				</div>
@@ -342,11 +344,11 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial1.jpg" alt="" class="img-fluid">
+							<img src="images/team/testimonial-five.webp" alt="" class="img-fluid">
 						</div>
 						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
+							<h6>Liebel Delacruz</h6>
+							<span>Isabela City</span>
 						</div>
 					</div>
 				</div>
@@ -360,11 +362,11 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial2.jpg" alt="" class="img-fluid">
+							<img src="images/team/testimonial-six.webp"alt="" class="img-fluid">
 						</div>
 						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
+							<h6>Catherine Delosantos</h6>
+							<span>Nueva Viscaya</span>
 						</div>
 					</div>
 				</div>
@@ -377,11 +379,11 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial1.jpg" alt="" class="img-fluid">
+							<img src="images/team/testimonial-four.webp" alt="" class="img-fluid">
 						</div>
 						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
+							<h6>Erna Joyce</h6>
+							<span>Ilagan City</span>
 						</div>
 					</div>
 				</div>

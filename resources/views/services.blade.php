@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="service-img mb-5 mb-lg-0">
-                    <img src="images/service/service-1.jpg" alt="" class="img-fluid">
+                    <img src="images/service/service-one.jpg" alt="" class="img-fluid">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="service-img">
-                        <img src="images/service/service-3.jpg" alt="" class="img-fluid">
+                        <img src="images/service/service-two.jpg" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -90,9 +90,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="case-study-content text-center mb-5">
-                    <h2 class="mb-4">How we works</h2>
-                    <p>There are many variations of lorem passages of Lorem Ipsum available, but the majority have
-                        suffered. All the Lorem Ipsum generators.</p>
+                    <h2 class="mb-4">Other offers</h2>
+                    <p>There are also many variations of services that we can offer. <br> Examples below</p>
                 </div>
             </div>
         </div>
@@ -106,14 +105,15 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="case-img ">
-                        <img src="images/about/process-3.jpg" alt="" class="img-fluid">
+                        <img src="images/service/passport.webp" alt="" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="case-content">
-                        <h4 class="mb-3">Competitor Research</h4>
-                        <p>Nihil fugit officia esse vero, animi tenetur ullam, dolor aperiam minus aliquid enim
-                            laudantium fuga! Commodi voluptas, deleniti distinctio quam totam vitae.</p>
+                        <h4 class="mb-3">Passport size picture</h4>
+                        <p>We can assist you on managing your passport size picture. At a small 
+                            cost we can assist you and have a good quality photo.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -126,14 +126,15 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 order-2 order-lg-1">
                     <div class="case-content">
-                        <h4 class="mb-3">Making Functional Strategy</h4>
-                        <p>Nihil fugit officia esse vero, animi tenetur ullam, dolor aperiam minus aliquid enim
-                            laudantium fuga! Commodi voluptas, deleniti distinctio quam totam vitae.</p>
+                        <h4 class="mb-3">Tarpaulin printing</h4>
+                        <p> We also offer tarpaulin printing, 1pc or bulk orders, yes we can do it!
+                            Now let's talk about your dimension! 
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-6  order-1 order-lg-2">
                     <div class="case-img">
-                        <img src="images/about/process-2.jpg" alt="" class="img-fluid">
+                        <img src="images/service/tarpaulin.webp" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -146,39 +147,22 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="case-img">
-                        <img src="images/about/process-1.jpg" alt="" class="img-fluid">
+                        <img src="images/service/bindings.webp" alt="" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="case-content">
-                        <h4 class="mb-3">Project Outline</h4>
-                        <p>Nihil fugit officia esse vero, animi tenetur ullam, dolor aperiam minus aliquid enim
-                            laudantium fuga! Commodi voluptas, deleniti distinctio quam totam vitae.</p>
+                        <h4 class="mb-3">Soft and Hard Bindings</h4>
+                        <p>For those who are making a book or want to bind the documentation of your 
+                            thesis. Inlcuding engrave of your title at the cover.  
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="case-timeline">
-            <div class="case-timeline-divider"></div>
-            <div class="case-timeline-dot"></div>
-
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-2 order-lg-1">
-                    <div class="case-content">
-                        <h4 class="mb-3">Final Delivery</h4>
-                        <p>Nihil fugit officia esse vero, animi tenetur ullam, dolor aperiam minus aliquid enim
-                            laudantium fuga! Commodi voluptas, deleniti distinctio quam totam vitae.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-6  order-1 order-lg-2">
-                    <div class="case-img">
-                        <img src="images/about/structure_sass.png" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+        
     </div>
 </section>
 
@@ -188,8 +172,9 @@
             <div class="col-lg-10">
                 <div class="heading">
                     <h2 class="mb-4">Services package that we offer</h2>
-                    <p>Quos recusandae dolore, consequuntur nemo hic nisi perferendis. Vel praesentium magnam architecto
-                        delectus blanditiis doloremque, deleniti aperiam ab adipisci!</p>
+                    <p>Show off and spice up your event with our package variations including our photo booths! We offer a variety of backdrops, booths, and more to match your theme!
+						Our packages are offered at an affordable rate so that everyone can have their memories immortalized. All our business papers are filed and completed. 
+					</p>
                 </div>
             </div>
         </div>
@@ -255,16 +240,52 @@
                     <h4 class="fw-bold">Sounds & Lights</h4>
                 </div>
                 <div class="service-item-list">
-                    <i class="ti-mobile"></i>
-                    <p>Bronze</p>
+                    <a data-bs-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
+                        aria-controls="multiCollapseExample4">Bronze
+                        <i class="ti-angle-double-down"></i>
+                    </a>
+                    <div class="row">
+                        <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample4">
+                                <div class="card-body">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, molestiae ipsam
+                                    blanditiis doloremque quisquam vel assumenda illum facere consectetur quaerat?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="service-item-list">
-                    <i class="ti-check-box"></i>
-                    <p>Silver</p>
+                    <a data-bs-toggle="collapse" href="#multiCollapseExample5" role="button" aria-expanded="false"
+                        aria-controls="multiCollapseExample5">Silver
+                        <i class="ti-angle-double-down"></i>
+                    </a>
+                    <div class="row">
+                        <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample5">
+                                <div class="card-body">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, molestiae ipsam
+                                    blanditiis doloremque quisquam vel assumenda illum facere consectetur quaerat?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="service-item-list">
-                    <i class="ti-dashboard"></i>
-                    <p>Platinum</p>
+                    <a data-bs-toggle="collapse" href="#multiCollapseExample6" role="button" aria-expanded="false"
+                        aria-controls="multiCollapseExample6">Platinum
+                        <i class="ti-angle-double-down"></i>
+                    </a>
+                    <div class="row">
+                        <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample6">
+                                <div class="card-body">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, molestiae ipsam
+                                    blanditiis doloremque quisquam vel assumenda illum facere consectetur quaerat?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -291,11 +312,11 @@
         <div class="cta-block py-5">
             <div class="row align-items-center ">
                 <div class="col-lg-8">
-                    <span class="text-color">For Every type business</span>
-                    <h2 class="mt-2 mb-4 mb-lg-0">Entrust your project to our best team of professionals</h2>
+                    <span class="text-color">For Every type events</span>
+                    <h2 class="mt-2 mb-4 mb-lg-0">Entrust your events to our best team of professionals</h2>
                 </div>
                 <div class="col-lg-4">
-                    <a href="contact.html" class="btn btn-main btn-round-full float-lg-right">Contact Us</a>
+                    <a href={{route('contact')}} class="btn btn-main btn-round-full float-lg-right">Contact Us</a>
                 </div>
             </div>
         </div>
