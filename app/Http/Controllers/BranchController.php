@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\logs;
 use App\Models\Branch;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,7 +32,13 @@ class BranchController extends Controller
             'contact' => 'required'
         ]);
 
-        Branch::create($formFields);
+        $branch = Branch::create($formFields);
+
+        logs::create([
+            'log_id' => $branch->id,
+            'name' => 'New Branch ' .  $formFields['name'],
+            'log_type' => 'Branch'
+        ]);
 
         return redirect()->route('admin/branches')->with('success', 'branch created succesfully');
     }
@@ -41,6 +48,12 @@ class BranchController extends Controller
         // dd($request->all());
         $branch = Branch::find($request->branchIDDelete);
         $branch->delete();
+
+        logs::create([
+            'log_id' => $request->branchIDDelete,
+            'name' => 'Deleted Branch ' . $branch->name,
+            'log_type' => 'Branch'
+        ]);
 
         return redirect()->route('admin/branches')->with('success', 'branch deleted succesfully');
     }
@@ -61,6 +74,12 @@ class BranchController extends Controller
         $branch->email = $formFields['branchEmailEdit'];
         $branch->contact = $formFields['branchContactEdit'];
         $branch->save();
+
+        logs::create([
+            'log_id' => $request->branchIDEdit,
+            'name' => 'Updated Branch ' .  $formFields['branchNameEdit'],
+            'log_type' => 'Branch'
+        ]);
 
         return redirect()->route('admin/branches')->with('success', 'branch updated succesfully');
     }

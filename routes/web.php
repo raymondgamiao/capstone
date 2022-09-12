@@ -13,6 +13,7 @@ use App\Http\Controllers\EmployeeContoller;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\AdminGalleryController;
 
@@ -47,20 +48,9 @@ Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
-
-
-
-
-
-
 /* admin routes */
 
-Route::get('/admin/', function () {
-    return view('admin/index', [
-        'title' => 'Dashboard'
-    ]);
-})->name('admin');
-
+Route::get('/admin/', [DashboardController::class, 'index'])->name('admin');
 /* Route::get('/admin/calendar', function () {
     return view('admin/calendar', [
         'title' => 'Calendar'

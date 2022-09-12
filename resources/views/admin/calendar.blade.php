@@ -274,7 +274,7 @@
                         <div class=" w-100" id="app-pills-tabContent">
                             <div class="fade active show" id="v-pills-home-3">
 
-                                <input type="text" name="id" id="id">
+                                <input type="hidden" name="id" id="id">
 
                                 <div class="row g-3 align-items-center form-group">
                                     <div class="col-2">
@@ -401,7 +401,7 @@
                 </form>
                 <form action="{{ route('admin/calendar/delete') }}" method="post" id="delete-form">
                     @csrf
-                    <input type="text" name="iddelete" id="iddelete">
+                    <input type="hidden" name="iddelete" id="iddelete">
                 </form>
             </div>
             <div class="modal-footer border-0">
