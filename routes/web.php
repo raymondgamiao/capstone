@@ -40,7 +40,7 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::get('/services', function () {
-    return view('services'); 
+    return view('services');
 })->name('services');
 
 
@@ -48,11 +48,11 @@ Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
-Route::get('/register', function() {
+Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/login', function() {
+Route::get('/login', function () {
     return view('login');
 })->name('login');
 
@@ -73,9 +73,6 @@ Route::get('/admin/editprofile', function () {
     return view('admin/editprofile');
 })->name('editprofile');
 
-Route::get('/admin/errorpage', function () {
-    return view('admin/errorpage');
-})->name('errorpage');
 
 
 Route::get('/admin/calendar', [CalendarController::class, 'index'])->name('admin/calendar');
