@@ -43,6 +43,7 @@ Route::get('/services', function () {
     return view('services');
 })->name('services');
 
+
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
@@ -56,6 +57,19 @@ Route::get('/admin/', [DashboardController::class, 'index'])->name('admin');
         'title' => 'Calendar'
     ]);
 })->name('admin/calendar'); */
+
+Route::get('/admin/profile', function () {
+    return view('admin/profile');
+})->name('profile');
+
+Route::get('/admin/editprofile', function () {
+    return view('admin/editprofile');
+})->name('editprofile');
+
+Route::get('/admin/errorpage', function () {
+    return view('admin/errorpage');
+})->name('errorpage');
+
 
 Route::get('/admin/calendar', [CalendarController::class, 'index'])->name('admin/calendar');
 Route::post('/admin/calendar/store', [CalendarController::class, 'store'])->name('admin/calendar/store');
