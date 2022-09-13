@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\logs;
 use App\Models\User;
 use App\Models\Branch;
 use App\Models\Employee;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeContoller extends Controller
 {
@@ -43,12 +44,18 @@ class EmployeeContoller extends Controller
             'remember_token' => Str::random(10)
         ]);
 
-        Employee::create([
+        $employee =  Employee::create([
             'user_id' => $user->id,
             'name' =>  $formFields['name'],
             'role' =>   $formFields['role'],
             'branch_id' => $formFields['branch_id'],
             'contact' => $formFields['contact']
+        ]);
+
+        logs::create([
+            'log_id' => $employee->id,
+            'name' => 'New Employee ' .  $formFields['name'],
+            'log_type' => 'Employee'
         ]);
 
         return redirect('/admin/employees')->with('success', 'employee created succesfully');
@@ -59,6 +66,12 @@ class EmployeeContoller extends Controller
         // dd($request->all());
         $employee = Employee::find($request->employeeIDDelete);
         $employee->delete();
+
+        logs::create([
+            'log_id' => $request->employeeIDDelete,
+            'name' => 'Deleted Employee ' . $employee->name,
+            'log_type' => 'Employee'
+        ]);
 
         return redirect()->route('admin/employees')->with('success', 'employee deleted succesfully');
     }
@@ -79,6 +92,12 @@ class EmployeeContoller extends Controller
         $employee->name = $formFields['nameEdit'];
         $employee->contact = $formFields['contactEdit'];
         $employee->save();
+
+        logs::create([
+            'log_id' => $request->employeeIDEdit,
+            'name' => 'Updated Employee ' .  $formFields['nameEdit'],
+            'log_type' => 'Employee'
+        ]);
 
         return redirect()->route('admin/employees')->with('success', 'employee updated succesfully');
     }
