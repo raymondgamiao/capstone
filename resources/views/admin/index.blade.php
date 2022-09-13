@@ -226,7 +226,7 @@
                     <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
                         <div class="flex-wrap card-header d-flex justify-content-between">
                             <div class="header-title">
-                                <h4 class="mb-2 card-title">Clients</h4>
+                                <h4 class="mb-2 card-title">Top Clients</h4>
                                 <p class="mb-0">
                                     <svg class="me-2 text-primary" width="24" height="24" viewBox="0 0 24 24">
                                         <path fill="currentColor"
