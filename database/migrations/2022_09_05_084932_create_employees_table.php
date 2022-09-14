@@ -19,14 +19,14 @@ class CreateEmployeesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->string('role');
+            $table->string('role')->nullable();
 
-            $table->unsignedBigInteger('branch_id');
+            $table->unsignedBigInteger('branch_id')->nullable();
             $table->foreign('branch_id')->references('id')->on('branch')->onDelete('cascade');
             //employee join branch on employee.branch_id = branch.id
 
             $table->string('name');
-            $table->string('contact');
+            $table->string('contact')->nullable();
             $table->timestamps();
         });
     }

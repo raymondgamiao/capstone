@@ -76,6 +76,7 @@
                                     <th>Role</th>
                                     <th>Contact</th>
                                     <th>Branch</th>
+                                    <th>Status</th>
                                     <th style="min-width: 100px">Action</th>
                                 </tr>
                             </thead>
@@ -86,7 +87,14 @@
                                     <td>{{ $employee->name }}</td>
                                     <td>{{ $employee->role }}</td>
                                     <td>{{ $employee->contact }}</td>
-                                    <td>{{ $employee->branch->name }}</td>
+                                    <td>{{ $employee->branch?->name}}</td>
+                                    <td>
+                                        <span
+                                            class="badge text-white {{ $employee->user->status === 'active' ? 'bg-success' : 'bg-secondary' }}">
+                                            {{ $employee->user->status }}
+                                        </span>
+                                    </td>
+
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
@@ -95,7 +103,7 @@
                                                 data-username="{{ $employee->user->username }}"
                                                 data-name="{{ $employee->name }}" data-role="{{ $employee->role }}"
                                                 data-contact="{{ $employee->contact }}"
-                                                data-branch-name="{{ $employee->branch->name }}"
+                                                data-branch-name="{{ $employee->branch?->name }}"
                                                 data-branch-id="{{ $employee->branch_id }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
