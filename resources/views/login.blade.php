@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="vh-100 bg-image">
+<section class="section mt-3">
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
