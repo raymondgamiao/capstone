@@ -16,6 +16,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\AdminGalleryController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,13 +49,14 @@ Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
+Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::get('/login', [UserController::class, 'login'])->name('login');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+Route::post('/user/store', [UserController::class, 'store'])->name('user/store');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+Route::post('/user/authenticate', [UserController::class, 'authenticate'])->name('user/authenticate');
+
+
 
 /* admin routes */
 
@@ -81,7 +83,7 @@ Route::post('/admin/calendar/update', [CalendarController::class, 'update'])->na
 Route::post('/admin/calendar/delete', [CalendarController::class, 'delete'])->name('admin/calendar/delete');
 
 
-Route::get('/admin/inventory', [InventoryController::class, 'index'])->name('admin/inventory');
+Route::get('/admin/inventory', [InventoryController::class, 'index'])->name('admin/inventory')->middleware('auth');
 Route::post('/admin/inventory/store', [InventoryController::class, 'store'])->name('admin/inventory/store');
 Route::post('/admin/inventory/update', [InventoryController::class, 'update'])->name('admin/inventory/update');
 Route::post('/admin/inventory/delete', [InventoryController::class, 'delete'])->name('admin/inventory/delete');

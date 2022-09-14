@@ -11,20 +11,26 @@
             <div class="card-body p-5">
               <h3 class="text-uppercase text-center mb-5">Login your account</h3>
 
-              <form method="POST" action="#">
+              <form method="POST" action="{{ route('user/authenticate') }}">
                 @csrf
+                @error('username')
+                <span class="text-danger "><em>{{$message}}</em></span>
+                @enderror
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                  <input type="text" id="username" name="username" class="form-control form-control-lg"
+                    value="{{old('username')}}" />
+                  <label class="form-label" for="username">Username</label>
                 </div>
 
+
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cg">Password</label>
+                  <input type="password" id="password" name="password" class="form-control form-control-lg"
+                    value="{{old('password')}}" />
+                  <label class="form-label" for="password">Password</label>
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="button"
+                  <button type="submit"
                     class="btn btn-solid-border btn-block btn-lg gradient-custom-4 text-body">Login</button>
                 </div>
 
@@ -41,4 +47,4 @@
   </div>
 </section>
 
-  @endsection
+@endsection

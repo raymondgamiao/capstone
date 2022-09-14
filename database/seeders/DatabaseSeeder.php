@@ -133,10 +133,13 @@ class DatabaseSeeder extends Seeder
         ];
  */
 
+
+
         User::create([
             'username' => 'mondi',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'password' =>  bcrypt('mondi'),
             'usertype' => 'employee',
+            'status' => 'active',
             'remember_token' =>  Str::random(10)
         ]);
 
@@ -150,15 +153,16 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'username' => 'ardhen',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'password' =>  bcrypt('ardhen'),
             'usertype' => 'employee',
+            'status' => 'active',
             'remember_token' =>  Str::random(10)
         ]);
 
         Employee::create([
             'user_id' => 2,
             'role' => 'Admin',
-            'branch_id' => 1,
+            'branch_id' => 2,
             'name' => 'Ardhen Braso',
             'contact' => '0911-111-1111'
         ]);
@@ -166,15 +170,16 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'username' => 'brian',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'password' =>  bcrypt('brian'),
             'usertype' => 'admin',
+            'status' => 'active',
             'remember_token' =>  Str::random(10)
         ]);
 
         Employee::create([
             'user_id' => 3,
             'role' => 'Admin',
-            'branch_id' => 1,
+            'branch_id' => 3,
             'name' => 'Brian Duterte',
             'contact' => '0911-111-1111'
         ]);
