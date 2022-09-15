@@ -44,7 +44,6 @@ Route::get('/services', function () {
     return view('services');
 })->name('services');
 
-
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
@@ -57,74 +56,60 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 Route::post('/user/authenticate', [UserController::class, 'authenticate'])->name('user/authenticate');
 
 
-
 /* admin routes */
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::post('/admin/calendar/store', [CalendarController::class, 'store'])->name('admin/calendar/store');
+    Route::post('/admin/calendar/update', [CalendarController::class, 'update'])->name('admin/calendar/update');
+    Route::post('/admin/calendar/delete', [CalendarController::class, 'delete'])->name('admin/calendar/delete');
 
-Route::get('/admin/', [DashboardController::class, 'index'])->name('admin');
-/* Route::get('/admin/calendar', function () {
-    return view('admin/calendar', [
-        'title' => 'Calendar'
-    ]);
-})->name('admin/calendar'); */
+    Route::post('/admin/inventory/store', [InventoryController::class, 'store'])->name('admin/inventory/store');
+    Route::post('/admin/inventory/update', [InventoryController::class, 'update'])->name('admin/inventory/update');
+    Route::post('/admin/inventory/delete', [InventoryController::class, 'delete'])->name('admin/inventory/delete');
 
-Route::get('/admin/profile', function () {
-    return view('admin/profile');
-})->name('admin/profile');
+    Route::post('/admin/categories/store', [CategoryController::class, 'store'])->name('admin/categories/store');
+    Route::post('/admin/categories/update', [CategoryController::class, 'update'])->name('admin/categories/update');
+    Route::post('/admin/categories/delete', [CategoryController::class, 'delete'])->name('admin/categories/delete');
 
-Route::get('/admin/editprofile', function () {
-    return view('admin/editprofile');
-})->name('editprofile');
+    Route::post('/admin/employees/store', [EmployeeContoller::class, 'store'])->name('admin/employees/store');
+    Route::post('/admin/employees/update', [EmployeeContoller::class, 'update'])->name('admin/employees/update');
+    Route::post('/admin/employees/delete', [EmployeeContoller::class, 'delete'])->name('admin/employees/delete');
 
+    Route::post('/admin/clients/store', [ClientController::class, 'store'])->name('admin/clients/store');
+    Route::post('/admin/clients/update', [ClientController::class, 'update'])->name('admin/clients/update');
+    Route::post('/admin/clients/delete', [ClientController::class, 'delete'])->name('admin/clients/delete');
 
+    Route::post('/admin/gallery/store', [AdminGalleryController::class, 'store'])->name('admin/gallery/store');
+    Route::post('/admin/gallery/update', [AdminGalleryController::class, 'update'])->name('admin/gallery/update');
+    Route::post('/admin/gallery/delete', [AdminGalleryController::class, 'delete'])->name('admin/gallery/delete');
 
-Route::get('/admin/calendar', [CalendarController::class, 'index'])->name('admin/calendar');
-Route::post('/admin/calendar/store', [CalendarController::class, 'store'])->name('admin/calendar/store');
-Route::post('/admin/calendar/update', [CalendarController::class, 'update'])->name('admin/calendar/update');
-Route::post('/admin/calendar/delete', [CalendarController::class, 'delete'])->name('admin/calendar/delete');
+    Route::post('/admin/branches/store', [BranchController::class, 'store'])->name('admin/branches/store');
+    Route::post('/admin/branches/update', [BranchController::class, 'update'])->name('admin/branches/update');
+    Route::post('/admin/branches/delete', [BranchController::class, 'delete'])->name('admin/branches/delete');
+});
 
+Route::middleware(['auth', 'isEmployee'])->group(function () {
+    Route::get('/admin/', [DashboardController::class, 'index'])->name('admin');
+    Route::get('/admin/calendar', [CalendarController::class, 'index'])->name('admin/calendar');
+    Route::get('/admin/inventory', [InventoryController::class, 'index'])->name('admin/inventory');
+    Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin/categories');
+    Route::get('/admin/employees', [EmployeeContoller::class, 'index'])->name('admin/employees');
+    Route::get('/admin/clients', [ClientController::class, 'index'])->name('admin/clients');
+    Route::get('/admin/gallery', [AdminGalleryController::class, 'index'])->name('admin/gallery');
+    Route::get('/admin/branches', [BranchController::class, 'index'])->name('admin/branches');
 
-Route::get('/admin/inventory', [InventoryController::class, 'index'])->name('admin/inventory')->middleware('auth');
-Route::post('/admin/inventory/store', [InventoryController::class, 'store'])->name('admin/inventory/store');
-Route::post('/admin/inventory/update', [InventoryController::class, 'update'])->name('admin/inventory/update');
-Route::post('/admin/inventory/delete', [InventoryController::class, 'delete'])->name('admin/inventory/delete');
+    Route::get('/admin/profile', function () {
+        return view('admin/profile');
+    })->name('admin/profile');
 
+    Route::get('/admin/editprofile', function () {
+        return view('admin/editprofile');
+    })->name('editprofile');
+});
 
-Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin/categories');
-Route::post('/admin/categories/store', [CategoryController::class, 'store'])->name('admin/categories/store');
-Route::post('/admin/categories/update', [CategoryController::class, 'update'])->name('admin/categories/update');
-Route::post('/admin/categories/delete', [CategoryController::class, 'delete'])->name('admin/categories/delete');
-
-
-
-Route::get('/admin/employees', [EmployeeContoller::class, 'index'])->name('admin/employees');
-Route::post('/admin/employees/store', [EmployeeContoller::class, 'store'])->name('admin/employees/store');
-Route::post('/admin/employees/update', [EmployeeContoller::class, 'update'])->name('admin/employees/update');
-Route::post('/admin/employees/delete', [EmployeeContoller::class, 'delete'])->name('admin/employees/delete');
-
-
-Route::get('/admin/clients', [ClientController::class, 'index'])->name('admin/clients');
-Route::post('/admin/clients/store', [ClientController::class, 'store'])->name('admin/clients/store');
-Route::post('/admin/clients/update', [ClientController::class, 'update'])->name('admin/clients/update');
-Route::post('/admin/clients/delete', [ClientController::class, 'delete'])->name('admin/clients/delete');
-
-
-Route::get('/admin/gallery', [AdminGalleryController::class, 'index'])->name('admin/gallery');
-Route::post('/admin/gallery/store', [AdminGalleryController::class, 'store'])->name('admin/gallery/store');
-Route::post('/admin/gallery/update', [AdminGalleryController::class, 'update'])->name('admin/gallery/update');
-Route::post('/admin/gallery/delete', [AdminGalleryController::class, 'delete'])->name('admin/gallery/delete');
-
-
-Route::get('/admin/branches', [BranchController::class, 'index'])->name('admin/branches');
-Route::post('/admin/branches/store', [BranchController::class, 'store'])->name('admin/branches/store');
-Route::post('/admin/branches/update', [BranchController::class, 'update'])->name('admin/branches/update');
-Route::post('/admin/branches/delete', [BranchController::class, 'delete'])->name('admin/branches/delete');
 
 
 
 /* test routes */
-
-
-
 
 Route::get('/welcome', function () {
     return view('welcome');
