@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Branch;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
 {
@@ -17,4 +18,7 @@ class ContactController extends Controller
             ]
         );
     }
+    
 }
+
+

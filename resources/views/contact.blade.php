@@ -20,6 +20,8 @@
         </div>
     </div>
 </section>
+
+
 <!-- contact form start -->
 <section class="contact-form-wrap section">
     <div class="container">
@@ -30,7 +32,7 @@
 
                 <div class="row">
                     <div class="col-lg-8">
-                        <form id="contact-form" class="contact__form" method="post" action="mail.php">
+                    <form action="https://formsubmit.co/photocity38@gmail.com" method="POST">
                             <!-- form message -->
                             <div class="row">
                                 <div class="col-12">
@@ -39,7 +41,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <nav>
                                 <div class="nav nav-tabs mb-4" id="nav-tab" role="tablist">
                                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
@@ -55,26 +56,26 @@
 
                                 </div>
                             </nav>
+
                             <div class="tab-content" id="nav-tabContent">
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                     aria-labelledby="nav-home-tab" tabindex="0">
                                     <!-- Contact us -->
 
                                     <div class="form-group">
-                                        <input name="subject" id="subject" type="text" class="form-control"
+                                        <input type="text" name="Name" class="form-control"
                                             placeholder="Full Name" />
                                     </div>
                                     <div class="form-group">
-                                        <input name="name" id="name" type="text" class="form-control"
+                                        <input type="email" name="Email" class="form-control"
                                             placeholder="Email Address" />
                                     </div>
                                     <div class="form-group">
-                                        <input name="email" id="email" type="email" class="form-control"
+                                        <input type="number" name="Number" class="form-control"
                                             placeholder="Phone Number" />
                                     </div>
                                     <div class="form-group-2 mb-4">
-                                        <textarea name="message" id="message" class="form-control" rows="4"
-                                            placeholder="Your Message"></textarea>
+                                        <textarea name="Message" placeholder="Your Message"></textarea>
                                     </div>
                                     <button class="btn btn-main" name="submit" type="submit">
                                         Send Message
@@ -84,26 +85,26 @@
                                     aria-labelledby="nav-profile-tab" tabindex="0">
                                     <!--Inquire now-->
                                     <div class="form-group">
-                                        <input name="subject" id="subject" type="text" class="form-control"
+                                        <input  id="subject" type="text" class="form-control"
                                             placeholder="Event Name" />
                                     </div>
                                     <div class="form-group">
-                                        <input name="name" id="date" type="date" class="form-control"
+                                        <input id="date" type="date" class="form-control"
                                             placeholder="Event Date" />
                                     </div>
                                     <div class="form-group">
-                                        <input name="email" id="duration" type="number" class="form-control"
+                                        <input id="duration" type="number" class="form-control"
                                             placeholder="Duration Period / Number of Days" />
                                     </div>
                                     <div class="form-group">
-                                        <input name="email" id="event-venue" type="text" class="form-control"
+                                        <input id="event-venue" type="text" class="form-control"
                                             placeholder="Event Venue" />
                                     </div>
                                     <div class="form-group-2 mb-4">
-                                        <textarea name="message" id="message" class="form-control" rows="4"
+                                        <textarea id="message" class="form-control" rows="4"
                                             placeholder="Your Message"></textarea>
                                     </div>
-                                    <button class="btn btn-main" name="submit" type="submit">
+                                    <button class="btn btn-main" type="submit">
                                         Send Message
                                     </button>
                                 </div>
@@ -116,9 +117,7 @@
                                     ...
                                 </div>
                             </div>
-
-
-                        </form>
+</form>
                     </div>
 
                     <div class="col-lg-4">

@@ -112,6 +112,7 @@ Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
 
 /* test routes */
 
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
