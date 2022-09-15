@@ -27,6 +27,7 @@ class CreateBookingsTable extends Migration
 
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

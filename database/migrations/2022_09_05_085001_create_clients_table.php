@@ -23,6 +23,7 @@ class CreateClientsTable extends Migration
             $table->string('name');
             $table->string('contact')->nullable();
             $table->string('address')->nullable();
+            $table->longText('pfp')->nullable();
             $table->timestamps();
         });
     }

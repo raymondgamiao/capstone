@@ -6,7 +6,10 @@ use Carbon\Carbon;
 use App\Models\logs;
 use App\Models\Client;
 use App\Models\Bookings;
+use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Models\BookingEmployees;
+use Illuminate\Support\Facades\DB;
 
 class CalendarController extends Controller
 {
@@ -14,6 +17,10 @@ class CalendarController extends Controller
     {
         $events = array();
         $bookings = Bookings::all();
+        $booking_employees = BookingEmployees::all();
+
+        //  dd($booking_employee->employees);
+
 
         foreach ($bookings as $booking) {
             $events[] = [
@@ -31,22 +38,30 @@ class CalendarController extends Controller
                     'time_end' => $booking->time_end,
                     'venue' => $booking->venue,
                     'clientID' => $booking->client->id,
-                    'client' => $booking->client->name
+                    'client' => $booking->client->name,
+                    'employees' => DB::table('bookings')
+                        ->select('employees.id', 'employees.name')
+                        ->join('booking_employees', 'bookings.id', '=', 'booking_employees.booking_id')
+                        ->join('employees', 'booking_employees.employee_id', '=', 'employees.id')
+                        ->where('bookings.id', '=', $booking->id)
+                        ->get()
                 ]
             ];
         };
+        // dd($events);
         //return $events;
         return view('admin.calendar', [
             'title' => 'Calendar',
             'events' => $events,
             'bookings' => Bookings::all(),
+            'employees' => Employee::all(),
             'clients' => Client::all()
         ]);
     }
 
     public function store(Request $request)
     {
-        //dd($request->end_date);
+        //dd($request->employees);
         $formFields = $request->validate([
             'name' => 'required',
             'start_date' => ['required', 'date'],
@@ -70,6 +85,14 @@ class CalendarController extends Controller
             'client_id' => $formFields['client'],
             'venue' => $formFields['venue']
         ]);
+
+        foreach ($request->employees as $employee) {
+            //     dd($employee);
+            BookingEmployees::create([
+                'booking_id' =>  $booking->id,
+                'employee_id' => $employee
+            ]);
+        }
 
         logs::create([
             'log_id' => $booking->id,
@@ -98,7 +121,7 @@ class CalendarController extends Controller
 
     public function update(Request $request)
     {
-
+        dd($request->all());
         $formFields = $request->validate([
             'name' => 'required',
             'start_date' => ['required', 'date'],
