@@ -261,9 +261,22 @@ input[type="tel"]:focus {
     background-repeat: repeat-x;
 }
 
+
+
 /* profile menu */
 
-.action {
+.profile{
+    width: 50px;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+.dropdown-menu h4{
+    text-align: left;
+    font-size: 1rem;
+    margin-left: 30px;
+    margin-top: 0px;
+}
+/* .action {
     top: 20px;
     right: 30px;
     margin-left: 10.5rem;
@@ -271,8 +284,8 @@ input[type="tel"]:focus {
 
 .action .profile {
     position: relative;
-    width: 60px;
-    height: 60px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
@@ -300,6 +313,8 @@ input[type="tel"]:focus {
     visibility: hidden;
     opacity: 0;
 }
+
+
 .action a {
     font-size: 0.85rem;
 }
@@ -339,7 +354,7 @@ input[type="tel"]:focus {
 
 .action .menu ul li {
     list-style: none;
-    padding: 16px 0;
+    margin: 10px;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
@@ -362,6 +377,16 @@ input[type="tel"]:focus {
     color: #555;
     font-weight: 500;
     transition: 0.5s;
+} */
+
+.btn-profile-main{
+    background: #181818;
+    color: #fff;
+    border-color: #181818;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: .75rem;
+    width: 100px;
 }
 
 .section {

@@ -25,14 +25,29 @@
         <li class="nav-item"><a class="nav-link {{ Route::is('contact')  ? 'active' : '' }}"
             href="{{route('contact')}}">Contact</a></li>
       </ul>
-      @auth
 
-      {{ Auth::user()->username }} + yung avatar niya
-      <form action="{{route('logout')}}" method="post">
+      {{-- if the user's login in --}}
+      @auth
+      <div class="dropdown">
+        <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="profile" src="images/contact/profile-sample.jpg" />
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <h4>{{Auth::user()->username}}<br /><span>Client</span></h4>
+          <a class="dropdown-item" href="#">Another action</a>
+          <form action="{{route('logout')}}" method="post">
+            @csrf
+          <a class="dropdrown-item" href="#" type="submit"> Logout </a>
+          {{-- <a href="#">Logout</a> --}}
+          </form>
+        </div>
+      </div>
+
+      {{-- <form action="{{route('logout')}}" method="post">
         @csrf
         <button type="submit"> logout </button>
         <a href="">dropdown to</a>
-      </form>
+      </form> --}}
       @else
       <a href="{{route('login')}}" button type="button" class="btn btn-solid-border">Login<i
           class="fa fa-angle-right ml-1"></i></a>

@@ -103,7 +103,7 @@
 						<div class="icon-block text-center">
 							<i class="ti-search"></i>
 							<h5>Choose a package</h5>
-							<p>Surely our set of package are affordable</p>
+							<p>Affordable set of package</p>
 						</div>
 					</div>
 
