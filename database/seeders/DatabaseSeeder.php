@@ -148,7 +148,8 @@ class DatabaseSeeder extends Seeder
             'role' => 'LED Wall Technician',
             'branch_id' => 1,
             'name' => 'Raymond Gamiao',
-            'contact' => '0911-111-1111'
+            'contact' => '0911-111-1111',
+            'pfp' => 'images/pfp/01.png'
         ]);
 
         User::create([
@@ -164,7 +165,8 @@ class DatabaseSeeder extends Seeder
             'role' => 'Admin',
             'branch_id' => 2,
             'name' => 'Ardhen Braso',
-            'contact' => '0911-111-1111'
+            'contact' => '0911-111-1111',
+            'pfp' => 'images/pfp/01.png'
         ]);
 
 
@@ -181,7 +183,8 @@ class DatabaseSeeder extends Seeder
             'role' => 'Admin',
             'branch_id' => 3,
             'name' => 'Brian Duterte',
-            'contact' => '0911-111-1111'
+            'contact' => '0911-111-1111',
+            'pfp' => 'images/pfp/01.png'
         ]);
 
 

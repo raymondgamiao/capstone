@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\logs;
 use App\Models\User;
 use App\Models\Client;
 use App\Models\Employee;
@@ -128,5 +129,28 @@ class UserController extends Controller
         }
 
         return back()->withErrors(['username' => 'invalid credentials'])->onlyInput('username');
+    }
+
+    public function employeeupdate(Request $request)
+    {
+        //dd($request->all());
+        $employee = Employee::find(Auth::user()->id);
+        $employee->name = $request->name;
+        $employee->pfp = $request->file('pfp')->store('images/pfp', 'public');
+        $employee->fb = $request->fb;
+        $employee->twitter = $request->twitter;
+        $employee->insta = $request->insta;
+        $employee->name = $request->name;
+        $employee->sss = $request->sss;
+        $employee->philhealth = $request->philhealth;
+        $employee->pagibig = $request->pagibig;
+        $employee->bankacct = $request->bankacct;
+        $employee->contact = $request->contact;
+        $employee->email = $request->email;
+        $employee->address = $request->address;
+        $employee->save();
+
+
+        return redirect()->route('admin/profile')->with('success', 'profile updated succesfully');
     }
 }

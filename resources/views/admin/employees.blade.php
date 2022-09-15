@@ -104,6 +104,7 @@
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
                                                 data-bs-toggle="modal" data-bs-target="#editEmployeeModal"
                                                 data-employee-id="{{ $employee->id }}"
+                                                data-user-id="{{ $employee->user->id }}"
                                                 data-username="{{ $employee->user->username }}"
                                                 data-name="{{ $employee->name }}" data-role="{{ $employee->role }}"
                                                 data-contact="{{ $employee->contact }}"
@@ -130,6 +131,7 @@
                                                 data-bs-target="#deleteEmployeeModal" data-toggle="tooltip"
                                                 data-placement="top" title="" data-original-title="Delete"
                                                 data-employee-id="{{ $employee->id }}"
+                                                data-user-id="{{ $employee->user->id }}"
                                                 data-employee-name-delete="{{ $employee->name }}" href="#">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
@@ -244,6 +246,18 @@
                         @enderror
                     </div>
 
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="status" class="col-form-label">Status</label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-select" name="status">
+                                <option selected value="active">Active</option>
+                                <option selected value="pending">Pending</option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -268,6 +282,7 @@
 
                     <div class="row g-1 align-items-center form-group">
                         <input type="hidden" id="employeeIDEdit" name="employeeIDEdit" class="form-control">
+                        <input type="hidden" id="userIDEdit" name="userIDEdit" class="form-control">
                     </div>
 
                     <div class="row g-1 align-items-center form-group">
@@ -335,6 +350,19 @@
                         @enderror
                     </div>
 
+
+                    <div class="row g-1 align-items-center form-group">
+                        <div class="col-3">
+                            <label for="status" class="col-form-label">Status</label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-select" name="status">
+                                <option selected value="active">Active</option>
+                                <option selected value="pending">Pending</option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -359,6 +387,7 @@
                     <p>Are you sure you want to <strong class="text-danger">DELETE</strong> Employee <strong
                             id="employee-name-delete" class="text-dark"></strong>?</p>
                     <input type="hidden" id="employeeIDDelete" name="employeeIDDelete" class="form-control">
+                    <input type="hidden" id="userIDDelete" name="userIDDelete" class="form-control">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -409,14 +438,17 @@
 <script>
     $('#deleteEmployeeModal').on('show.bs.modal', function(e) {
     var id = $(e.relatedTarget).data('employee-id');
+    var userid = $(e.relatedTarget).data('user-id');
     var employeename = $(e.relatedTarget).data('employee-name-delete');
 
     $(e.currentTarget).find('input[name="employeeIDDelete"]').val(id);
+    $(e.currentTarget).find('input[name="userIDDelete"]').val(userid);
     $(e.currentTarget).find('#employee-name-delete').text(employeename);
 });
 
 $('#editEmployeeModal').on('show.bs.modal', function(e) {
     var employeeID = $(e.relatedTarget).data('employee-id');
+    var userID = $(e.relatedTarget).data('user-id');
     var username = $(e.relatedTarget).data('username');
     var name = $(e.relatedTarget).data('name');
     var role = $(e.relatedTarget).data('role');
@@ -425,6 +457,7 @@ $('#editEmployeeModal').on('show.bs.modal', function(e) {
     var contact = $(e.relatedTarget).data('contact');
 
     $(e.currentTarget).find('input[name="employeeIDEdit"]').val(employeeID);
+    $(e.currentTarget).find('input[name="userIDEdit"]').val(userID);
     $(e.currentTarget).find('input[name="usernameEdit"]').val(username);
     $(e.currentTarget).find('input[name="nameEdit"]').val(name);
     $(e.currentTarget).find('input[name="roleEdit"]').val(role);

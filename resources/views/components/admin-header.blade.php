@@ -41,7 +41,7 @@
                     <li class="nav-item dropdown">
                         <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{asset('assets/images/avatars/01.png')}}" alt="User-Profile"
+                            <img src="{{ asset('storage/' . Auth::user()->employee->first()->pfp) }}" alt="User-Profile"
                                 class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
                             <div class="caption ms-3 d-none d-md-block ">
                                 <h6 class="mb-0 caption-title"> {{ Auth::user()->employee->first()->name }}</h6>
@@ -73,7 +73,6 @@
 
 
 
-
     <!-- Nav Header Component Start -->
     <div class="iq-navbar-header" style="height: 215px;">
         <div class="container iq-container">
@@ -81,8 +80,8 @@
                 <div class="col-md-12">
                     <div class="flex-wrap d-flex justify-content-between align-items-center">
                         <div>
-                            <h1>Hello Mondi</h1>
-                            <p>Check your lates reports below!</p>
+                            <h1>Hello {{ Auth::user()->username }}!</h1>
+                            <p>Check your latest reports below!</p>
                         </div>
                         <div>
                             <a href="" class="btn btn-link btn-soft-light">

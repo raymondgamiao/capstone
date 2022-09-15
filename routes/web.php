@@ -57,7 +57,7 @@ Route::post('/user/authenticate', [UserController::class, 'authenticate'])->name
 
 
 /* admin routes */
-Route::middleware(['auth', 'isAdmin'])->group(function () {
+Route::middleware(['auth', 'isAdmin', 'isActive'])->group(function () {
     Route::post('/admin/calendar/store', [CalendarController::class, 'store'])->name('admin/calendar/store');
     Route::post('/admin/calendar/update', [CalendarController::class, 'update'])->name('admin/calendar/update');
     Route::post('/admin/calendar/delete', [CalendarController::class, 'delete'])->name('admin/calendar/delete');
@@ -87,7 +87,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('/admin/branches/delete', [BranchController::class, 'delete'])->name('admin/branches/delete');
 });
 
-Route::middleware(['auth', 'isEmployee'])->group(function () {
+Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
     Route::get('/admin/', [DashboardController::class, 'index'])->name('admin');
     Route::get('/admin/calendar', [CalendarController::class, 'index'])->name('admin/calendar');
     Route::get('/admin/inventory', [InventoryController::class, 'index'])->name('admin/inventory');
@@ -103,7 +103,8 @@ Route::middleware(['auth', 'isEmployee'])->group(function () {
 
     Route::get('/admin/editprofile', function () {
         return view('admin/editprofile');
-    })->name('editprofile');
+    })->name('admin/editprofile');
+    Route::post('/admin/profile/update', [UserController::class, 'employeeupdate'])->name('admin/profile/update');
 });
 
 
