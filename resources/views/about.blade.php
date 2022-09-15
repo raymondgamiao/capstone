@@ -165,14 +165,14 @@
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="award-img-block mb-4 mb-lg-0">
                     <div class="award-img">
-                        <img src="{{asset('images/about/two.jpg')}}" alt="" class="img-fluid">
+                        <img src="{{asset('images/about/event-2.webp')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="award-img-block mb-4 mb-lg-0">
                     <div class="award-img">
-                        <img src="{{asset('images/about/three.png')}}" alt="" class="img-fluid">
+                        <img src="{{asset('images/about/event-3.webp')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -186,14 +186,14 @@
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="award-img-block mb-4 mb-lg-0">
                     <div class="award-img">
-                        <img src="{{asset('images/about/five.jpg')}}" alt="" class="img-fluid">
+                        <img src="{{asset('images/about/event-4.webp')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="award-img-block">
                     <div class="award-img">
-                        <img src="{{asset('images/about/six.jpg')}}" alt="" class="img-fluid">
+                        <img src="{{asset('images/about/event-5.webp')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>

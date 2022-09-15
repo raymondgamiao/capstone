@@ -129,15 +129,15 @@
                                     +88 01672 506 744
                                 </li>
                                 <li>
-                                    <h5>Email Us</h5>
+                                    <h5><a href="mailto:photocity38@gmail.com">Email Us</a></h5>
                                     Support@megakit.com
                                 </li>
                                 <li>
-                                    <h5>Location Map</h5>
-                                    Tuguegarao City, Cagayan
+                                    <h5><a href="https://goo.gl/maps/VhTdh3mDsA2UQxs89">Location Map</a></h5>
+                                    3500, 6 Mabini St. Tuguegarao City, Cagayan
                                 </li>
                                 <li>
-                                    <h5>Facebook Page</h5>
+                                    <h5><a href="https://web.facebook.com/pc2luna">Facebook Page</a></h5>
                                  https://web.facebook.com/pc2luna
                                   </li>
                             </ul>
@@ -152,7 +152,7 @@
             <div class="col-lg-12">
                 <div class="photo-map mt-90 mb-5">
                     <div id="maps">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1901.3625099894793!2d121.72389765966363!3d17.6157879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3385842b87419ae7%3A0x5a4ebb4259de146c!2sPhotocity!5e0!3m2!1sen!2sph!4v1662737873209!5m2!1sen!2sph" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1901.3854731558843!2d121.7269575264319!3d17.613608476225004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3385868212c692f1%3A0xbeb29fb5bec8510!2sPhoto%20City%20Digital%20Portraits!5e0!3m2!1sen!2sph!4v1663257171730!5m2!1sen!2sph" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
                     </div>
                 </div>
             </div>
@@ -163,7 +163,7 @@
             @foreach ($branches as $branch)
             <div class="col-lg-4 col-md-6 mb-5">
                 <div class="contact-info ">
-                    <a href class="mb-4"><strong>{{ $branch['name'] }}</strong></h4>
+                    <a href class="mb-4"><strong>{{ $branch['name'] }}</strong></a></h4>
                     <ul class="address-block list-unstyled">
                         <li>
                             <i class="ti-location-pin mr-3"></i>{{ $branch['location'] }}

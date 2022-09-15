@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="service-img mb-5 mb-lg-0">
-                    <img src="images/service/service-one.jpg" alt="" class="img-fluid">
+                    <img src="{{asset('images/service/service-one.jpg')}}" alt="" class="img-fluid">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="service-img">
-                        <img src="images/service/service-two.jpg" alt="" class="img-fluid">
+                        <img src="{{asset('images/service/service-two.jpg')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="service-img mb-5 mb-lg-0">
-                    <img src="images/service/service-4.jpg" alt="" class="img-fluid">
+                    <img src="{{asset('images/service/service-4.jpg')}}" alt="" class="img-fluid">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -105,7 +105,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="case-img ">
-                        <img src="images/service/passport.webp" alt="" class="img-fluid">
+                        <img src="{{asset('images/service/passport-pic.webp')}}" alt="" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -134,7 +134,7 @@
                 </div>
                 <div class="col-lg-6  order-1 order-lg-2">
                     <div class="case-img">
-                        <img src="images/service/tarpaulin.webp" alt="" class="img-fluid">
+                        <img src="{{asset('images/service/tarpaulin.webp')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="case-img">
-                        <img src="images/service/bindings.webp" alt="" class="img-fluid">
+                        <img src="{{asset('images/service/bookbind.webp')}}" alt="" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -156,6 +156,26 @@
                         <p>For those who are making a book or want to bind the documentation of your 
                             thesis. Inlcuding engrave of your title at the cover.  
                         </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-timeline">
+            <div class="case-timeline-divider"></div>
+            <div class="case-timeline-dot"></div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <div class="case-content">
+                        <h4 class="mb-3">Photobooth</h4>
+                        <p> If you want a Photobooth in your event, We have some plenty of backdrops and placards.
+                            Ready for printout also.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6  order-1 order-lg-2">
+                    <div class="case-img">
+                        <img src="{{asset('images/service/photobooth.webp')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -196,8 +216,14 @@
                         <div class="col">
                             <div class="collapse multi-collapse" id="multiCollapseExample1">
                                 <div class="card-body">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, molestiae ipsam
-                                    blanditiis doloremque quisquam vel assumenda illum facere consectetur quaerat?
+                                    <ul>
+                                        <li> 4hours of event day coverage </li>
+                                        <li> 1 photographer </li>
+                                        <li> 1 videographer </li>
+                                        <li> USB or DVD with high resolution images </li> 
+                                        <br>
+                                        <p class="text-dark font-weight-bold"> Amount  ₱ 10,000 </p>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -212,8 +238,16 @@
                         <div class="col">
                             <div class="collapse multi-collapse" id="multiCollapseExample2">
                                 <div class="card-body">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, molestiae ipsam
-                                    blanditiis doloremque quisquam vel assumenda illum facere consectetur quaerat?
+                                    <ul>
+                                        <li> 6 hours of event day coverage </li>
+                                        <li> 2 photographers </li>
+                                        <li> 1 videographer </li>
+                                        <li> Online Gallery to view and order prints </li>
+                                        <li> USB or DVD with high resolution images </li>
+                                        <li> 12x12 Photo Album (10 pages) </li>
+                                        <br>
+                                        <p class="text-dark font-weight-bold"> Amount  ₱ 20,000 </p>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -228,8 +262,17 @@
                         <div class="col">
                             <div class="collapse multi-collapse" id="multiCollapseExample3">
                                 <div class="card-body">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, molestiae ipsam
-                                    blanditiis doloremque quisquam vel assumenda illum facere consectetur quaerat?
+                                    <ul>
+                                        <li> 8 hours of event day coverage </li>
+                                        <li> 2 photographers </li>
+                                        <li> 2 videographers </li>
+                                        <li> Online Gallery to view and order prints </li>
+                                        <li> USB or DVD with all of the events images </li>
+                                        <li> 12x12 Photo Album (20 pages) </li>
+                                        <li> 16x20 Canvas of favorite photo </li>
+                                        <br>
+                                        <p class="text-dark font-weight-bold"> Amount  ₱ 25,000 </p>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -251,8 +294,16 @@
                         <div class="col">
                             <div class="collapse multi-collapse" id="multiCollapseExample4">
                                 <div class="card-body">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, molestiae ipsam
-                                    blanditiis doloremque quisquam vel assumenda illum facere consectetur quaerat?
+                                    <ul>
+                                        <li> 1 Unit Mixer Mackie DL </li>
+                                        <li> 2 Units Speaker Sound Logic 12a </li>
+                                        <li> 2 units wireless Microphone </li>
+                                        <li> 1 laptop for play back </li>   
+                                        <li> DMX for light control </li>
+                                        <li> Speaker stand and lights stand </li>   
+                                        <br>
+                                        <p class="text-dark font-weight-bold"> Amount ₱ 12,000 </p>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -267,8 +318,20 @@
                         <div class="col">
                             <div class="collapse multi-collapse" id="multiCollapseExample5">
                                 <div class="card-body">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, molestiae ipsam
-                                    blanditiis doloremque quisquam vel assumenda illum facere consectetur quaerat?
+                                    <ul>
+                                        <li> 1 Unit Mixer Mackie DL </li>
+                                        <li> 2 Units Speaker Sounds Logic 12a </li>
+                                        <li> 2 Units Speaker NEXO PS15 </li>
+                                        <li> 2 Units Amplifier </li>
+                                        <li> 4 units wireless microphone </li>
+                                        <li> 1 set DJ mixer with laptop </li>
+                                        <li> 16 units LED RGBW </li>
+                                        <li> 2 units movingheads beam </li>
+                                        <li> speaker stand and lights stand </li>
+                                        <li> smoke machine </li>
+                                        <br>
+                                        <p class="text-dark font-weight-bold"> Amount ₱ 18,000 </p>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -283,8 +346,19 @@
                         <div class="col">
                             <div class="collapse multi-collapse" id="multiCollapseExample6">
                                 <div class="card-body">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, molestiae ipsam
-                                    blanditiis doloremque quisquam vel assumenda illum facere consectetur quaerat?
+                                    <li> 1 Unit Mixer Yamaha DL </li>
+                                    <li> 2 Units Speaker Sounds Logic 12a </li>
+                                    <li> 2 Units Speaker NEXO PS15 </li>
+                                    <li> 2 Units Amplifier </li>
+                                    <li> 4 units wireless microphone </li>
+                                    <li> 1 set DJ mixer with laptop </li>
+                                    <li> 32 units LED RGBW </li>
+                                    <li> 4 units moving heads beam  </li>
+                                    <li> LED bar and Laser with laptop </li>
+                                    <li> speaker stand and lights stand </li>
+                                    <li> smoke machine </li>
+                                    <br>
+                                    <p class="text-dark font-weight-bold"> Amount ₱ 25,000 </p>
                                 </div>
                             </div>
                         </div>
