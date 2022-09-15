@@ -59,12 +59,14 @@
                     <div class="card-title mb-0">
                         <h4 class="mb-0"> Gallery Albums </h4>
                     </div>
+                    @if (Auth::user()->usertype === 'admin')
                     <div class="card-action mt-2 mt-sm-0">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#addAlbumModal">
                             + Add Album
                         </button>
                     </div>
+                    @endif
                 </div>
                 <div class="card-body px-0">
                     <div class="table-responsive">
@@ -73,10 +75,11 @@
                                 <tr class="light">
                                     <th>Album Name</th>
                                     <th>Thumbnail</th>
-
                                     <th>Date</th>
                                     <th>URL</th>
+                                    @if (Auth::user()->usertype === 'admin')
                                     <th style="min-width: 100px">Action</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -86,7 +89,13 @@
                                     <td><img src="{{asset( 'storage/' . $gallery->album_cover )}}" alt="sad"
                                             width="50px"></td>
                                     <td>{{ $gallery->album_date }}</td>
-                                    <td>{{ $gallery->album_url }}</td>
+                                    <td>
+                                        <a href=" {{ $gallery->album_url }}" target="_blank">
+                                            Click to view Album
+                                        </a>
+
+                                    </td>
+                                    @if (Auth::user()->usertype === 'admin')
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
@@ -138,6 +147,7 @@
                                             </a>
                                         </div>
                                     </td>
+                                    @endif
                                 </tr>
                                 @endforeach
                             </tbody>

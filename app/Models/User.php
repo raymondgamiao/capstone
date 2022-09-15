@@ -30,6 +30,10 @@ class User extends Authenticatable
         return $this->HasMany(Employee::class);
     }
 
+    public function client()
+    {
+        return $this->HasMany(Client::class);
+    }
 
 
     /**

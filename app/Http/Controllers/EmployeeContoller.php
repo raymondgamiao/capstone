@@ -39,8 +39,9 @@ class EmployeeContoller extends Controller
 
         $user = User::create([
             'username' =>  $formFields['username'],
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'password' => bcrypt(($formFields['username'])),
             'usertype' =>  'employee',
+            'status' => $request->status,
             'remember_token' => Str::random(10)
         ]);
 
@@ -49,7 +50,8 @@ class EmployeeContoller extends Controller
             'name' =>  $formFields['name'],
             'role' =>   $formFields['role'],
             'branch_id' => $formFields['branch_id'],
-            'contact' => $formFields['contact']
+            'contact' => $formFields['contact'],
+            'pfp' => 'images/pfp/01.png'
         ]);
 
         logs::create([
@@ -67,6 +69,9 @@ class EmployeeContoller extends Controller
         $employee = Employee::find($request->employeeIDDelete);
         $employee->delete();
 
+        $user = User::find($request->userIDDelete);
+        $user->delete();
+
         logs::create([
             'log_id' => $request->employeeIDDelete,
             'name' => 'Deleted Employee ' . $employee->name,
@@ -78,6 +83,7 @@ class EmployeeContoller extends Controller
 
     public function update(Request $request)
     {
+        //dd($request->all());
         //dd($request->branchIDEdit);
         $formFields = $request->validate([
             'roleEdit' => 'required',
@@ -92,6 +98,10 @@ class EmployeeContoller extends Controller
         $employee->name = $formFields['nameEdit'];
         $employee->contact = $formFields['contactEdit'];
         $employee->save();
+
+        $user = User::find($request->userIDEdit);
+        $user->status = $request->status;
+        $user->save();
 
         logs::create([
             'log_id' => $request->employeeIDEdit,

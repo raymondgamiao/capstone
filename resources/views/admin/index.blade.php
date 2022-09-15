@@ -32,6 +32,9 @@
     <!-- RTL Css -->
     <link rel="stylesheet" href="{{asset('assets/css/rtl.min.css')}}" />
 
+    {{-- alpine js --}}
+    <script src="//unpkg.com/alpinejs" defer></script>
+
 </head>
 @endsection
 
@@ -39,6 +42,12 @@
 <div class="container content-inner mt-n5 py-0">
     <div class="row">
         <div class="col-md-12 col-lg-12">
+            @if (session()->has('error'))
+            <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show"
+                class="alert alert-danger" role="alert">
+                {{session('error')}}
+            </div>
+            @endif
             {{-- yung widgets sa taas --}}
             <div class="row row-cols-1">
                 <div class="overflow-hidden d-slider1 ">
