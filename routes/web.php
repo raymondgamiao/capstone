@@ -69,7 +69,7 @@ Route::get('/admin/', [DashboardController::class, 'index'])->name('admin');
 
 Route::get('/admin/profile', function () {
     return view('admin/profile');
-})->name('profile');
+})->name('admin/profile');
 
 Route::get('/admin/editprofile', function () {
     return view('admin/editprofile');

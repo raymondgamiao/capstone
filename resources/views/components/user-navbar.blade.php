@@ -26,10 +26,12 @@
             href="{{route('contact')}}">Contact</a></li>
       </ul>
       @auth
-      yung avatar niya
+
+      {{ Auth::user()->username }} + yung avatar niya
       <form action="{{route('logout')}}" method="post">
         @csrf
-        <button type="submit"> logout</button>
+        <button type="submit"> logout </button>
+        <a href="">dropdown to</a>
       </form>
       @else
       <a href="{{route('login')}}" button type="button" class="btn btn-solid-border">Login<i

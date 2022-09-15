@@ -44,14 +44,14 @@
                             <img src="{{asset('assets/images/avatars/01.png')}}" alt="User-Profile"
                                 class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
                             <div class="caption ms-3 d-none d-md-block ">
-                                <h6 class="mb-0 caption-title">Mondi Gamiao</h6>
-                                <p class="mb-0 caption-sub-title">Admin</p>
+                                <h6 class="mb-0 caption-title"> {{ Auth::user()->username }}</h6>
+                                <p class="mb-0 caption-sub-title"> {{session('message')}}s</p>
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="../admin/app/user-profile.html">Profile</a></li>
-                            <li><a class="dropdown-item" href="../admin/app/user-privacy-setting.html">Privacy
-                                    Setting</a></li>
+                            <li><a class="dropdown-item" href="{{route('admin/profile')}}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{route('home')}}">Website</a></li>
+
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

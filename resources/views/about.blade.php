@@ -158,42 +158,42 @@
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="award-img-block mb-4 mb-lg-0">
                     <div class="award-img">
-                        <img src="images/about/one.jpg" alt="" class="img-fluid">
+                        <img src="{{asset('images/about/one.jpg')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="award-img-block mb-4 mb-lg-0">
                     <div class="award-img">
-                        <img src="images/about/two.jpg" alt="" class="img-fluid">
+                        <img src="{{asset('images/about/two.jpg')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="award-img-block mb-4 mb-lg-0">
                     <div class="award-img">
-                        <img src="images/about/three.png" alt="" class="img-fluid">
+                        <img src="{{asset('images/about/three.png')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="award-img-block mb-4 mb-lg-0">
                     <div class="award-img">
-                        <img src="images/about/four.jpg" alt="" class="img-fluid">
+                        <img src="{{asset('images/about/four.jpg')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="award-img-block mb-4 mb-lg-0">
                     <div class="award-img">
-                        <img src="images/about/five.jpg" alt="" class="img-fluid">
+                        <img src="{{asset('images/about/five.jpg')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="award-img-block">
                     <div class="award-img">
-                        <img src="images/about/six.jpg" alt="" class="img-fluid">
+                        <img src="{{asset('images/about/six.jpg')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -201,7 +201,7 @@
     </div>
 </section>
 
-<section class="section testimonial">
+{{-- <section class="section testimonial">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8">
@@ -226,7 +226,7 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial-one.webp" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-one.webp')}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
 							<h6>Kate Garcia</h6>
@@ -244,7 +244,7 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial-two.webp" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-two.webp')}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
 							<h6>Andrew Reyes</h6>
@@ -261,7 +261,7 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial-five.webp" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-five.webp')}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
 							<h6>Liebel Delacruz</h6>
@@ -279,7 +279,7 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial-six.webp"alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-six.webp')}} "alt="" class="img-fluid">
 						</div>
 						<div class="info">
 							<h6>Catherine Delosantos</h6>
@@ -296,7 +296,7 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial-four.webp" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-four.webp')}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
 							<h6>Erna Joyce</h6>
@@ -307,5 +307,8 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --}}
+
+<x-testimonials />
+
 @endsection

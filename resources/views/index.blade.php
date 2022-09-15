@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="banner d-flex align-items-center">
-	<div class="banner-img-part"></div>
+	<div class={{asset('images/bg/main-banner')}}></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-10 col-md-12 col-xl-8">
@@ -158,7 +158,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2758319024430558&type=3">
-						<img src="images/portfolio/gallery-index/event1.webp" alt="" class="img-fluid w-100">
+						<img src="{{asset('images/portfolio/gallery-index/event1.webp')}}" alt="" class="img-fluid w-100">
 						<div class="overlay-item"><i class="ti-link"></i></div>
 
 						<div class="portfolio-item-content">
@@ -172,7 +172,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2758319024430558&type=3">
-						<img src="images/portfolio/gallery-index/event2.webp" alt="" class="img-fluid w-100">
+						<img src="{{asset('images/portfolio/gallery-index/event2.webp')}}" alt="" class="img-fluid w-100">
 						<div class="overlay-item">
 							<i class="ti-link"></i>
 						</div>
@@ -187,7 +187,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2179834858945647&type=3">
-						<img src="images/portfolio/gallery-index/event3.webp" alt="" class="img-fluid w-100">
+						<img src="{{asset('images/portfolio/gallery-index/event3.webp')}}" alt="" class="img-fluid w-100">
 
 						<div class="overlay-item">
 							<i class="ti-link"></i>
@@ -203,7 +203,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2179834858945647&type=3">
-						<img src="images/portfolio/gallery-index/event4.webp" alt="" class="img-fluid w-100">
+						<img src="{{asset('images/portfolio/gallery-index/event4.webp')}}" alt="" class="img-fluid w-100">
 
 						<div class="overlay-item">
 							<i class="ti-link"></i>
@@ -219,7 +219,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="portflio-item position-relative  mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2486295468299583&type=3">
-						<img src="images/portfolio/gallery-index/event5.webp" alt="" class="img-fluid w-100">
+						<img src="{{asset('images/portfolio/gallery-index/event5.webp')}}" alt="" class="img-fluid w-100">
 
 						<div class="overlay-item">
 							<i class="ti-link"></i>
@@ -235,7 +235,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2486295468299583&type=3">
-						<img src="images/portfolio/gallery-index/event6.webp" alt="" class="img-fluid w-100">
+						<img src="{{asset('images/portfolio/gallery-index/event6.webp')}}" alt="" class="img-fluid w-100">
 
 						<div class="overlay-item">
 							<i class="ti-link"></i>
@@ -284,7 +284,7 @@
 
 
 
-<section class="section testimonial">
+{{-- <section class="section testimonial">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8">
@@ -309,7 +309,7 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial-one.webp" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-one.webp')}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
 							<h6>Kate Garcia</h6>
@@ -327,7 +327,7 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial-two.webp" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-two.webp')}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
 							<h6>Andrew Reyes</h6>
@@ -344,7 +344,7 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial-five.webp" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-five.webp')}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
 							<h6>Liebel Delacruz</h6>
@@ -362,7 +362,7 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial-six.webp"alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-six.webp')}} "alt="" class="img-fluid">
 						</div>
 						<div class="info">
 							<h6>Catherine Delosantos</h6>
@@ -379,7 +379,7 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial-four.webp" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-four.webp')}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
 							<h6>Erna Joyce</h6>
@@ -390,6 +390,8 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --}}
+
+<x-testimonials />
 
 @endsection
