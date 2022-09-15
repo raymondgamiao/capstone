@@ -162,24 +162,7 @@
         </div>
 
 
-        <div class="case-timeline">
-            <div class="case-timeline-divider"></div>
-            <div class="case-timeline-dot"></div>
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-2 order-lg-1">
-                    <div class="case-content">
-                        <h4 class="mb-3">Photobooth</h4>
-                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero laudantium facere dolor, sequi numquam ipsum?
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-6  order-1 order-lg-2">
-                    <div class="case-img">
-                        <img src="images/service/tarpaulin.webp" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
+       
 
         
         
