@@ -124,6 +124,10 @@ Route::post('/admin/branches/delete', [BranchController::class, 'delete'])->name
 /* test routes */
 
 
+Route::get('contacts', 'ContactController@showContactForm')->name('contact/show');
+Route::post('contacts', 'ContactController@submitContactForm')->name('contact/submit');
+
+
 
 
 Route::get('/welcome', function () {

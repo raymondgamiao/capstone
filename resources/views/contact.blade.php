@@ -20,6 +20,8 @@
         </div>
     </div>
 </section>
+
+
 <!-- contact form start -->
 <section class="contact-form-wrap section">
     <div class="container">
@@ -40,6 +42,7 @@
                                 </div>
                             </div>
 
+                            {!! Form::open(['route'=>'contact.submit'])!!}
                             <nav>
                                 <div class="nav nav-tabs mb-4" id="nav-tab" role="tablist">
                                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
@@ -55,21 +58,28 @@
 
                                 </div>
                             </nav>
+
+                            @if(Session::has('message'))
+                            <div class = "alert aler-success">
+                            {{Session('message')}}
+                            </div>
+                            @endif
+
                             <div class="tab-content" id="nav-tabContent">
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                     aria-labelledby="nav-home-tab" tabindex="0">
                                     <!-- Contact us -->
 
                                     <div class="form-group">
-                                        <input name="subject" id="subject" type="text" class="form-control"
+                                        <input name="name" id="subject" type="text" class="form-control"
                                             placeholder="Full Name" />
                                     </div>
                                     <div class="form-group">
-                                        <input name="name" id="name" type="text" class="form-control"
+                                        <input name="email" id="name" type="text" class="form-control"
                                             placeholder="Email Address" />
                                     </div>
                                     <div class="form-group">
-                                        <input name="email" id="email" type="email" class="form-control"
+                                        <input name="number" id="number" type="email" class="form-control"
                                             placeholder="Phone Number" />
                                     </div>
                                     <div class="form-group-2 mb-4">
@@ -116,9 +126,7 @@
                                     ...
                                 </div>
                             </div>
-
-
-                        </form>
+                        {!!Form::close()!!}
                     </div>
 
                     <div class="col-lg-4">
