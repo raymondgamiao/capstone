@@ -77,8 +77,8 @@
                                 <div class="card-title mb-0">
                                     <h4 class="mb-0">Book Appointment</h4>
                                 </div>
+                                @if (Auth::user()->usertype === 'admin')
                                 <div class="card-action mt-2 mt-sm-0">
-
                                     <button type="button" class="btn btn-primary ms-2 mt-2 mt-sm-0"
                                         data-bs-toggle="modal" data-bs-target="#add-appointment">
                                         <svg class="icon-20" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
@@ -89,6 +89,7 @@
                                         <span>Book Appointment</span>
                                     </button>
                                 </div>
+                                @endif
                             </div>
                         </div>
                     </div>

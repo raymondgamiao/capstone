@@ -27,6 +27,17 @@ class CreateEmployeesTable extends Migration
 
             $table->string('name');
             $table->string('contact')->nullable();
+            $table->string('email')->nullable();
+            $table->longText('pfp')->nullable();
+            $table->longText('address')->nullable();
+
+            $table->string('twitter')->nullable();
+            $table->string('insta')->nullable();
+            $table->string('fb')->nullable();
+            $table->string('sss')->nullable();
+            $table->string('philhealth')->nullable();
+            $table->string('pagibig')->nullable();
+            $table->string('bankacct')->nullable();
             $table->timestamps();
         });
     }

@@ -60,12 +60,15 @@
                     <div class="card-title mb-0">
                         <h4 class="mb-0">Category List</h4>
                     </div>
+
+                    @if (Auth::user()->usertype === 'admin')
                     <div class="card-action mt-2 mt-sm-0">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#addCategoryModal">
                             + Add Category
                         </button>
                     </div>
+                    @endif
                 </div>
                 <div class="card-body px-0">
                     <div class="table-responsive">
@@ -74,7 +77,9 @@
                                 <tr class="light">
                                     <th>Name</th>
                                     <th>Description</th>
+                                    @if (Auth::user()->usertype === 'admin')
                                     <th style="min-width: 100px">Action</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,6 +87,7 @@
                                 <tr>
                                     <td>{{ $category->name }}</td>
                                     <td>{{ $category->description }}</td>
+                                    @if (Auth::user()->usertype === 'admin')
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
@@ -130,6 +136,7 @@
                                             </a>
                                         </div>
                                     </td>
+                                    @endif
                                 </tr>
                                 @endforeach
                             </tbody>
