@@ -58,7 +58,7 @@ Route::post('/user/authenticate', [UserController::class, 'authenticate'])->name
 
 
 
-Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->name('generate-pdf');
 
 
 /* admin routes */
