@@ -18,7 +18,7 @@
         </li>
         <li class="nav-item"><a class="nav-link {{ Route::is('about')  ? 'active' : '' }}"
             href="{{route('about')}}">About</a></li>
-        <li class="nav-item"><a class="nav-link {{ Route::is('services')  ? 'active' : '' }}"
+        <li class="nav-item "><a class="nav-link  {{ Route::is('services')  ? 'active' : '' }}"
             href="{{route('services')}}">Services</a></li>
         <li class="nav-item"><a class="nav-link {{ Route::is('gallery')  ? 'active' : '' }}"
             href="{{route('gallery')}}">Gallery</a></li>
@@ -32,16 +32,15 @@
         <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img class="profile" src="images/contact/profile-sample.jpg" />
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <h4>{{Auth::user()->username}}<br /><span>Client</span></h4>
-          <a class="dropdown-item" href="#">Another action</a>
-          <form action="{{route('logout')}}" method="post">
+        <ul class="dropdown-menu w-100" >
+        <li><a class="dropdown-item" href="#">{{Auth::user()->username}}&nbsp:&nbsp<span>Client</span></a></li>
+        <li><a class="dropdown-item border-bottom" href="#">Bookings</a></li>
+        <form action="{{route('logout')}}" method="post">
             @csrf
-          <button class="dropdrown-item" type="submit"> Logout </button>
+          <button class="mb-3 ml-2 mt-3 btn btn-outline-danger">> Logout </button>
           {{-- <a href="#">Logout</a> --}}
           </form>
-        </div>
-      </div>
+      
 
       {{-- <form action="{{route('logout')}}" method="post">
         @csrf
