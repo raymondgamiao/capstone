@@ -67,6 +67,13 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap">
     </script>
 
+    <script>
+        function menuToggle() {
+        const toggleMenu = document.querySelector(".menu");
+        toggleMenu.classList.toggle("active");
+        }
+    </script>
+
     <script src="{{asset('js/script.js')}}"></script>
 
 </body>
