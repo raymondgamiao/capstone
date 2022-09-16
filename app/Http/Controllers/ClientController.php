@@ -65,7 +65,9 @@ class ClientController extends Controller
             'name' =>  $formFields['name'],
             'email' =>   $formFields['email'],
             'address' => $formFields['address'],
-            'contact' => $formFields['contact']
+            'contact' => $formFields['contact'],
+            'pfp' => 'images/pfp/01.png'
+
         ]);
 
 

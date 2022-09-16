@@ -54,7 +54,8 @@ class DashboardController extends Controller
             ->select(DB::raw('count(bookings.id) as total'), 'client_id', 'clients.name', 'clients.contact')
             ->groupBy('client_id')
             ->join('clients', 'bookings.client_id', '=', 'clients.id')
-            ->get();
+            ->orderBy('total', 'desc')
+            ->get()->take(5);
         //dd($topclients);
 
         // dd(logs::orderBy('id', 'desc')->take(10)->get());

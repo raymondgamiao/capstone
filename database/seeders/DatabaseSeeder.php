@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\BookingEmployees;
+use App\Models\Bookings;
 use App\Models\User;
 use App\Models\Branch;
 use App\Models\Client;
@@ -23,6 +25,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $faker = \Faker\Factory::create();
         // \App\Models\User::factory(15)->create();
 
         // Inventory::factory(20)->create();
@@ -36,8 +39,6 @@ class DatabaseSeeder extends Seeder
         'category_id' => $this->faker->numberBetween(1, 4), */
 
         Listing::factory(5)->create();
-
-
 
         Branch::create([
             'name' => 'PhotoCity Luna',
@@ -91,47 +92,100 @@ class DatabaseSeeder extends Seeder
 
         Category::create([
             'name' => 'Cameras Lenses and Accesories',
-            'description' => 'Lore Ipsum Dolor Sit amet'
+            'description' => 'Cameras Lenses and Accesories'
         ]);
 
         Category::create([
             'name' => 'Merchandise',
-            'description' => 'Lore Ipsum Dolor Sit amet'
+            'description' => 'Merchandise'
         ]);
 
         Category::create([
             'name' => 'Printers',
-            'description' => 'Lore Ipsum Dolor Sit amet'
+            'description' => 'Printers'
         ]);
 
         Category::create([
-            'name' => 'Bahala ka na',
-            'description' => 'Lore Ipsum Dolor Sit amet'
+            'name' => 'Speakers',
+            'description' => 'Speakers'
         ]);
 
-
+        /* 
+        categ: 1 = cams
+               2 = benta
+               3 = printers
+        branches = choose from 1-7 */
         Inventory::create([
-            'name' => 'Canon EOS 600D',
-            'description' => 'ewan ko, specs nya. basta',
-            'qty' => 1,
+            'name' => 'Nikon D90 ',
+            'description' => 'Basic photoshoots/photobooth',
+            'qty' => 3,
             'branch_id' => 1,
             'category_id' => 1
         ]);
 
+        Inventory::create([
+            'name' => 'Nikon D7000 ',
+            'description' => 'Basic Photo / Secondary camera',
+            'qty' => 1,
+            'branch_id' => 2,
+            'category_id' => 1
+        ]);
 
-        /*      return [
-            'user_id' => $this->faker->unique()->numberBetween(1, 5),
-            'role' => $this->faker->sentence(2),
-            'branch_id' => $this->faker->numberBetween(1, 5),
-            'name' => $this->faker->name(),
-            'contact' => $this->faker->numerify('####-###-####')
+        Inventory::create([
+            'name' => 'Sony ZV-1 ',
+            'description' => 'PhotoShoots / Graduation pictures',
+            'qty' => 1,
+            'branch_id' => 3,
+            'category_id' => 1
+        ]);
 
-             'username' => $this->faker->unique()->word(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'usertype' =>  $usertypes[rand(0, 2)],
-            'remember_token' => Str::random(10),
-        ];
- */
+        Inventory::create([
+            'name' => 'Canon EOS R3',
+            'description' => 'Primary Photo',
+            'qty' => 1,
+            'branch_id' => 4,
+            'category_id' => 1
+        ]);
+
+        Inventory::create([
+            'name' => 'Canon EOS 250D',
+            'description' => 'Primary Video',
+            'qty' => 1,
+            'branch_id' => 5,
+            'category_id' => 1
+        ]);
+
+        Inventory::create([
+            'name' => 'Photo Frame Basic Wood 9x12"',
+            'description' => 'custom made from blablabla',
+            'qty' => 132,
+            'branch_id' => 6,
+            'category_id' => 2
+        ]);
+
+        Inventory::create([
+            'name' => 'Mugs ',
+            'description' => 'chemical treated, printable',
+            'qty' => 32,
+            'branch_id' => 6,
+            'category_id' => 2
+        ]);
+
+        Inventory::create([
+            'name' => 'DS RX1',
+            'description' => 'printer for 4r and 5r photos',
+            'qty' => 3,
+            'branch_id' => 1,
+            'category_id' => 3
+        ]);
+
+        Inventory::create([
+            'name' => 'FUJI xerox',
+            'description' => 'mass printing and photocopy',
+            'qty' => 1,
+            'branch_id' => 1,
+            'category_id' => 3
+        ]);
 
 
 
@@ -148,24 +202,25 @@ class DatabaseSeeder extends Seeder
             'role' => 'LED Wall Technician',
             'branch_id' => 1,
             'name' => 'Raymond Gamiao',
-            'contact' => '0911-111-1111',
+            'contact' => '09' .  $faker->numerify('##-###-####'),
             'pfp' => 'images/pfp/01.png'
         ]);
+
 
         User::create([
             'username' => 'ardhen',
             'password' =>  bcrypt('ardhen'),
-            'usertype' => 'employee',
+            'usertype' => 'admin',
             'status' => 'active',
             'remember_token' =>  Str::random(10)
         ]);
 
         Employee::create([
             'user_id' => 2,
-            'role' => 'Admin',
+            'role' => 'Photographer',
             'branch_id' => 2,
             'name' => 'Ardhen Braso',
-            'contact' => '0911-111-1111',
+            'contact' => '09' .  $faker->numerify('##-###-####'),
             'pfp' => 'images/pfp/01.png'
         ]);
 
@@ -180,15 +235,138 @@ class DatabaseSeeder extends Seeder
 
         Employee::create([
             'user_id' => 3,
-            'role' => 'Admin',
+            'role' => 'Videographer',
             'branch_id' => 3,
             'name' => 'Brian Duterte',
-            'contact' => '0911-111-1111',
+            'contact' => '09' .  $faker->numerify('##-###-####'),
             'pfp' => 'images/pfp/01.png'
         ]);
 
+        $username =  $faker->word();
+        User::create([
+            'username' => $username,
+            'password' =>  bcrypt($username),
+            'usertype' => 'client',
+            'status' => 'active',
+            'remember_token' =>  Str::random(10)
+        ]);
 
+        Client::create([
+            'user_id' => 4,
+            'email' => $faker->email(),
+            'address' => $faker->Address(),
+            'name' =>  $faker->name(),
+            'contact' => '09' . $faker->numerify('##-###-####'),
+            'pfp' => 'images/pfp/01.png'
+        ]);
 
+        $username =  $faker->word();
+        User::create([
+            'username' => $username,
+            'password' =>  bcrypt($username),
+            'usertype' => 'client',
+            'status' => 'active',
+            'remember_token' =>  Str::random(10)
+        ]);
+
+        Client::create([
+            'user_id' => 5,
+            'email' => $faker->email(),
+            'address' => $faker->Address(),
+            'name' =>  $faker->name(),
+            'contact' => '09' . $faker->numerify('##-###-####'),
+            'pfp' => 'images/pfp/01.png'
+        ]);
+
+        $username =  $faker->word();
+        User::create([
+            'username' => $username,
+            'password' =>  bcrypt($username),
+            'usertype' => 'client',
+            'status' => 'active',
+            'remember_token' =>  Str::random(10)
+        ]);
+
+        Client::create([
+            'user_id' => 6,
+            'email' => $faker->email(),
+            'address' => $faker->Address(),
+            'name' =>  $faker->name(),
+            'contact' => '09' . $faker->numerify('##-###-####'),
+            'pfp' => 'images/pfp/01.png'
+        ]);
+
+        $username =  $faker->word();
+        User::create([
+            'username' => $username,
+            'password' =>  bcrypt($username),
+            'usertype' => 'client',
+            'status' => 'active',
+            'remember_token' =>  Str::random(10)
+        ]);
+
+        Client::create([
+            'user_id' => 7,
+            'email' => $faker->email(),
+            'address' => $faker->Address(),
+            'name' =>  $faker->name(),
+            'contact' => '09' . $faker->numerify('##-###-####'),
+            'pfp' => 'images/pfp/01.png'
+        ]);
+
+        $username =  $faker->word();
+        User::create([
+            'username' => $username,
+            'password' =>  bcrypt($username),
+            'usertype' => 'client',
+            'status' => 'active',
+            'remember_token' =>  Str::random(10)
+        ]);
+
+        Client::create([
+            'user_id' => 8,
+            'email' => $faker->email(),
+            'address' => $faker->Address(),
+            'name' =>  $faker->name(),
+            'contact' => '09' . $faker->numerify('##-###-####'),
+            'pfp' => 'images/pfp/01.png'
+        ]);
+
+        $username =  $faker->word();
+        User::create([
+            'username' => $username,
+            'password' =>  bcrypt($username),
+            'usertype' => 'client',
+            'status' => 'active',
+            'remember_token' =>  Str::random(10)
+        ]);
+
+        Client::create([
+            'user_id' => 9,
+            'email' => $faker->email(),
+            'address' => $faker->Address(),
+            'name' =>  $faker->name(),
+            'contact' => '09' . $faker->numerify('##-###-####'),
+            'pfp' => 'images/pfp/01.png'
+        ]);
+
+        $username =  $faker->word();
+        User::create([
+            'username' => $username,
+            'password' =>  bcrypt($username),
+            'usertype' => 'client',
+            'status' => 'active',
+            'remember_token' =>  Str::random(10)
+        ]);
+
+        Client::create([
+            'user_id' => 10,
+            'email' => $faker->email(),
+            'address' => $faker->Address(),
+            'name' =>  $faker->name(),
+            'contact' => '09' . $faker->numerify('##-###-####'),
+            'pfp' => 'images/pfp/01.png'
+        ]);
 
         Gallery::create([
             'album_url' => 'https://www.facebook.com/media/set/?set=a.3098028447126279&type=3',
@@ -266,6 +444,175 @@ class DatabaseSeeder extends Seeder
             'album_date' => '26-10-21'
         ]);
 
+
+        Bookings::create([
+            'name' => 'Garnet Photoshooot',
+            'date_start' => '2022-10-03',
+            'date_end' => '2022-10-03',
+            'time_start' => '10:00:00',
+            'time_end' => '11:00:00',
+            'venue' => 'Luna Branch',
+            'client_id' => $faker->numberBetween(1, 7)
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 1,
+            'employee_id' => $faker->numberBetween(1, 3)
+        ]);
+
+        Bookings::create([
+            'name' => 'Precylin @ 18 Basic Bronze Ledwall',
+            'date_start' => '2022-09-16',
+            'date_end' => '2022-09-16',
+            'time_start' => '15:00:00',
+            'time_end' => '22:00:00',
+            'venue' => 'Manios Pampanguena',
+            'client_id' => $faker->numberBetween(1, 7)
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 2,
+            'employee_id' => $faker->numberBetween(1, 3)
+        ]);
+
+        Bookings::create([
+            'name' => '9x12 LEDwall',
+            'date_start' => '2022-09-16',
+            'date_end' => '2022-09-16',
+            'time_start' => '08:00:00',
+            'time_end' => '17:00:00',
+            'venue' => 'Maynards Resort',
+            'client_id' => $faker->numberBetween(1, 7)
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 3,
+            'employee_id' => $faker->numberBetween(1, 3)
+        ]);
+
+
+        Bookings::create([
+            'name' => 'Monnette Christening',
+            'date_start' => '2022-09-20',
+            'date_end' => '2022-09-20',
+            'time_start' => '08:00:00',
+            'time_end' => '12:00:00',
+            'venue' => 'Linao West',
+            'client_id' => $faker->numberBetween(1, 7)
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 4,
+            'employee_id' => $faker->numberBetween(1, 3)
+        ]);
+
+        Bookings::create([
+            'name' => 'Sebastian Retirement',
+            'date_start' => '2022-09-21',
+            'date_end' => '2022-09-21',
+            'time_start' => '15:00:00',
+            'time_end' => '23:00:00',
+            'venue' => 'Dugo, Camalaniugan',
+            'client_id' => $faker->numberBetween(1, 7)
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 5,
+            'employee_id' => $faker->numberBetween(1, 3)
+        ]);
+
+        Bookings::create([
+            'name' => 'Macky + Mitchy Wedding Ultimate Platinum',
+            'date_start' => '2022-09-22',
+            'date_end' => '2022-09-22',
+            'time_start' => '15:00:00',
+            'time_end' => '23:00:00',
+            'venue' => 'Dugo, Camalaniugan',
+            'client_id' => $faker->numberBetween(1, 7)
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 6,
+            'employee_id' => 1
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 6,
+            'employee_id' => 2
+        ]);
+
+        Bookings::create([
+            'name' => 'Zina Athena Basic + Photobooth',
+            'date_start' => '2022-09-24',
+            'date_end' => '2022-09-24',
+            'time_start' => '08:00:00',
+            'time_end' => '13:30:00',
+            'venue' => 'Patio Lorenzo',
+            'client_id' => $faker->numberBetween(1, 7)
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 7,
+            'employee_id' => 1
+        ]);
+
+        Bookings::create([
+            'name' => 'Rupert + Heart Prenup',
+            'date_start' => '2022-09-24',
+            'date_end' => '2022-09-24',
+            'time_start' => '06:00:00',
+            'time_end' => '15:30:00',
+            'venue' => 'Hotel Roma',
+            'client_id' => $faker->numberBetween(1, 7)
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 8,
+            'employee_id' => 2
+        ]);
+
+
+        Bookings::create([
+            'name' => 'Czai 5th Birthday',
+            'date_start' => '2022-09-24',
+            'date_end' => '2022-09-24',
+            'time_start' => '12:00:00',
+            'time_end' => '16:00:00',
+            'venue' => 'Events Place',
+            'client_id' => $faker->numberBetween(1, 7)
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 9,
+            'employee_id' => 3
+        ]);
+
+        Bookings::create([
+            'name' => 'Tuguegarao Fiesta',
+            'date_start' => '2022-09-25',
+            'date_end' => '2022-09-30',
+            'time_start' => '12:00:00',
+            'time_end' => '16:00:00',
+            'venue' => 'City Hall',
+            'client_id' => $faker->numberBetween(1, 7)
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 10,
+            'employee_id' => 1
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 10,
+            'employee_id' => 2
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 10,
+            'employee_id' => 3
+        ]);
+
+
+        Bookings::create([
+            'name' => 'Ice Hardware Soft Opening ',
+            'date_start' => '2022-08-31',
+            'date_end' => '2022-08-31',
+            'time_start' => '09:00:00',
+            'time_end' => '20:00:00',
+            'venue' => 'Robinhood Mall',
+            'client_id' => $faker->numberBetween(1, 7)
+        ]);
+        BookingEmployees::create([
+            'booking_id' => 11,
+            'employee_id' => 1
+        ]);
         /*  Listing::create([
             'title' => 'Laravel Senior Developer',
             'tags' => 'laravel, javascript',
