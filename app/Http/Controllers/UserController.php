@@ -35,8 +35,6 @@ class UserController extends Controller
         //hash password
         $formFields['password'] = bcrypt(($formFields['password']));
 
-
-
         if ($request->usertype === 'client') {
             $user = User::create([
                 'username' =>  $formFields['username'],
@@ -47,7 +45,8 @@ class UserController extends Controller
 
             Client::create([
                 'user_id' => $user->id,
-                'name' =>  $formFields['name']
+                'name' =>  $formFields['name'],
+                'pfp' =>  'images/pfp/01.png'
             ]);
             auth()->login($user);
             return redirect('/');
@@ -61,7 +60,8 @@ class UserController extends Controller
 
             Employee::create([
                 'user_id' => $user->id,
-                'name' =>  $formFields['name']
+                'name' =>  $formFields['name'],
+                'pfp' => 'images/pfp/01.png'
             ]);
             // dd($user);
             return redirect('/admin/profile')->with('message', 'you have successfully creadtd an account. inform the admin to change status blabla');
@@ -75,7 +75,8 @@ class UserController extends Controller
 
             Employee::create([
                 'user_id' => $user->id,
-                'name' =>  $formFields['name']
+                'name' =>  $formFields['name'],
+                'pfp' =>  'images/pfp/01.png'
             ]);
             return redirect('/admin/profile')->with('message', 'you have successfully creadtd an account. inform the admin to change status blabla');
         }
@@ -133,10 +134,10 @@ class UserController extends Controller
 
     public function employeeupdate(Request $request)
     {
-        //dd($request->all());
-        $employee = Employee::find(Auth::user()->id);
+        // dd(Auth::user()->employee->first());
+        //dd(Auth::user()->employee->first()->id);
+        $employee = Employee::find(Auth::user()->employee->first()->id);
         $employee->name = $request->name;
-        $employee->pfp = $request->file('pfp')->store('images/pfp', 'public');
         $employee->fb = $request->fb;
         $employee->twitter = $request->twitter;
         $employee->insta = $request->insta;
@@ -148,6 +149,7 @@ class UserController extends Controller
         $employee->contact = $request->contact;
         $employee->email = $request->email;
         $employee->address = $request->address;
+        $employee->pfp = $request->file('pfp')->store('images/pfp', 'public');
         $employee->save();
 
 

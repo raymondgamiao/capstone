@@ -16,6 +16,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\AdminGalleryController;
+use App\Http\Controllers\LogsController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -96,6 +97,7 @@ Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
     Route::get('/admin/clients', [ClientController::class, 'index'])->name('admin/clients');
     Route::get('/admin/gallery', [AdminGalleryController::class, 'index'])->name('admin/gallery');
     Route::get('/admin/branches', [BranchController::class, 'index'])->name('admin/branches');
+    Route::get('/admin/logs', [LogsController::class, 'index'])->name('admin/logs');
 
     Route::get('/admin/profile', function () {
         return view('admin/profile');
