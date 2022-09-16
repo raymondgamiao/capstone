@@ -276,10 +276,10 @@ input[type="tel"]:focus {
     margin-left: 30px;
     margin-top: 0px;
 }
-/* .action {
+.action {
     top: 20px;
     right: 30px;
-    margin-left: 10.5rem;
+    position: fixed;
 }
 
 .action .profile {
@@ -349,7 +349,7 @@ input[type="tel"]:focus {
 .action .menu h3 span {
     font-size: 14px;
     color: #cecece;
-    font-weight: 300;
+    font-weight: 100;
 }
 
 .action .menu ul li {
@@ -377,7 +377,7 @@ input[type="tel"]:focus {
     color: #555;
     font-weight: 500;
     transition: 0.5s;
-} */
+} */ */
 
 .btn-profile-main{
     background: #181818;
@@ -599,6 +599,7 @@ a:focus {
     text-transform: capitalize;
     font-size: 18px;
     transition: all 0.25s ease;
+    
 }
 
 .nav-text-white > li > a {
