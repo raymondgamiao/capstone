@@ -17,6 +17,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\AdminGalleryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,10 @@ Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/user/store', [UserController::class, 'store'])->name('user/store');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 Route::post('/user/authenticate', [UserController::class, 'authenticate'])->name('user/authenticate');
+
+
+
+Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 
 
 /* admin routes */
