@@ -121,7 +121,7 @@ class CalendarController extends Controller
 
     public function update(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
         $formFields = $request->validate([
             'name' => 'required',
             'start_date' => ['required', 'date'],
@@ -137,6 +137,11 @@ class CalendarController extends Controller
             $end_date = $request->end_date;
         }
 
+
+
+
+
+
         $booking = Bookings::find($request->id);
         $booking->name = $formFields['name'];
         $booking->date_start = $formFields['start_date'];
@@ -146,6 +151,18 @@ class CalendarController extends Controller
         $booking->venue = $formFields['venue'];
         $booking->client_id = $formFields['client'];
         $booking->save();
+
+
+
+        BookingEmployees::where('booking_id', '=', $request->id)->delete();
+
+        foreach ($request->employee as $employee) {
+            BookingEmployees::create([
+                'booking_id' =>  $booking->id,
+                'employee_id' => $employee
+            ]);
+        }
+
 
         logs::create([
             'log_id' => $request->id,

@@ -16,7 +16,7 @@
                     </svg>
                 </i>
             </div>
-            <div class="input-group search-input">
+            {{-- <div class="input-group search-input">
                 <span class="input-group-text" id="search-input">
                     <svg width="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="11.7669" cy="11.7666" r="8.98856" stroke="currentColor" stroke-width="1.5"
@@ -26,7 +26,7 @@
                     </svg>
                 </span>
                 <input type="search" class="form-control" placeholder="Search...">
-            </div>
+            </div> --}}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -83,7 +83,7 @@
                             <h1>Hello {{ Auth::user()->username }}!</h1>
                             <p>Check your latest reports below!</p>
                         </div>
-                        <div>
+                        {{-- <div>
                             <a href="" class="btn btn-link btn-soft-light">
                                 <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -95,7 +95,7 @@
                                 </svg>
                                 Announcements
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
