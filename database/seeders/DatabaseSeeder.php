@@ -257,7 +257,7 @@ class DatabaseSeeder extends Seeder
             'address' => $faker->Address(),
             'name' =>  $faker->name(),
             'contact' => '09' . $faker->numerify('##-###-####'),
-            'pfp' => 'images/pfp/01.png'
+            'pfp' => 'images/pfp/01.jpg'
         ]);
 
         $username =  $faker->word();
@@ -275,7 +275,7 @@ class DatabaseSeeder extends Seeder
             'address' => $faker->Address(),
             'name' =>  $faker->name(),
             'contact' => '09' . $faker->numerify('##-###-####'),
-            'pfp' => 'images/pfp/01.png'
+            'pfp' => 'images/pfp/02.jpg'
         ]);
 
         $username =  $faker->word();
@@ -293,7 +293,7 @@ class DatabaseSeeder extends Seeder
             'address' => $faker->Address(),
             'name' =>  $faker->name(),
             'contact' => '09' . $faker->numerify('##-###-####'),
-            'pfp' => 'images/pfp/01.png'
+            'pfp' => 'images/pfp/03.jpg'
         ]);
 
         $username =  $faker->word();
@@ -311,7 +311,7 @@ class DatabaseSeeder extends Seeder
             'address' => $faker->Address(),
             'name' =>  $faker->name(),
             'contact' => '09' . $faker->numerify('##-###-####'),
-            'pfp' => 'images/pfp/01.png'
+            'pfp' => 'images/pfp/04.jpg'
         ]);
 
         $username =  $faker->word();
@@ -329,7 +329,7 @@ class DatabaseSeeder extends Seeder
             'address' => $faker->Address(),
             'name' =>  $faker->name(),
             'contact' => '09' . $faker->numerify('##-###-####'),
-            'pfp' => 'images/pfp/01.png'
+            'pfp' => 'images/pfp/05.jpg'
         ]);
 
         $username =  $faker->word();
@@ -347,7 +347,7 @@ class DatabaseSeeder extends Seeder
             'address' => $faker->Address(),
             'name' =>  $faker->name(),
             'contact' => '09' . $faker->numerify('##-###-####'),
-            'pfp' => 'images/pfp/01.png'
+            'pfp' => 'images/pfp/06.jpg'
         ]);
 
         $username =  $faker->word();
@@ -365,7 +365,7 @@ class DatabaseSeeder extends Seeder
             'address' => $faker->Address(),
             'name' =>  $faker->name(),
             'contact' => '09' . $faker->numerify('##-###-####'),
-            'pfp' => 'images/pfp/01.png'
+            'pfp' => 'images/pfp/07.jpg'
         ]);
 
         Gallery::create([

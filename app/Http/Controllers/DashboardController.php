@@ -11,6 +11,7 @@ use App\Models\Bookings;
 use App\Models\Employee;
 use App\Models\Inventory;
 use Illuminate\Http\Request;
+use App\Models\BookingEmployees;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -50,13 +51,22 @@ class DashboardController extends Controller
             ->count();
         // dd($newclients);
         DB::statement("SET SQL_MODE=''");
+
         $topclients = DB::table('bookings')
-            ->select(DB::raw('count(bookings.id) as total'), 'client_id', 'clients.name', 'clients.contact')
+            ->select(DB::raw('count(bookings.id) as total'), 'client_id', 'clients.name', 'clients.contact', 'clients.pfp')
             ->groupBy('client_id')
             ->join('clients', 'bookings.client_id', '=', 'clients.id')
             ->orderBy('total', 'desc')
             ->get()->take(5);
-        //dd($topclients);
+
+        $upcomingvents = DB::table('bookings')
+            ->orderBy('date_start', 'asc')
+            ->where('date_start', '>=',  Carbon::now())
+            ->get()->take(5);
+
+        /*       $empQuery = DB::table('booking_employees')
+        ->where('booking_id', '=',  $upcomingvent->id)
+        ->get(); */
 
         // dd(logs::orderBy('id', 'desc')->take(10)->get());
         return view('admin.index', [
@@ -66,11 +76,13 @@ class DashboardController extends Controller
             'clients' => Client::all(),
             'inventory' => Inventory::all(),
             'albums' => Gallery::all(),
+            'bookingEmployees' => BookingEmployees::all(),
             'logs' => logs::orderBy('id', 'desc')->take(10)->get(),
             'newclients' => $newclients,
             'topclients' => $topclients,
             'bookingsArr' => $bookingsArr,
             'monthsArr' => $monthsArr,
+            'upcomingvents' => $upcomingvents,
             'title' => 'Dashboard'
         ]);
     }
