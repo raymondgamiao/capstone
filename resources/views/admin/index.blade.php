@@ -230,7 +230,55 @@
                     </div>
                 </div> --}}
 
-                {{-- new clients table --}}
+                {{-- Upcoming events clients table --}}
+                <div class="col-lg-12 col-lg-12">
+                    <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="flex-wrap card-header d-flex justify-content-between">
+                            <div class="header-title">
+                                <h4 class="mb-2 card-title">Upcoming Events</h4>
+                                <p class="mb-0">
+                                    <svg class="me-2 text-primary" width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                                    </svg>
+                                    {{ $newclients }} new Client this month
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-0 card-body">
+                            <div class="mt-4 table-responsive">
+                                <table id="basic-table" class="table mb-0 " role="grid">
+                                    <thead>
+                                        <tr>
+                                            <th>Event</th>
+                                            <th>Assigned</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($upcomingvents as $upcomingvent)
+                                        <tr>
+                                            <td>
+                                                {{ $upcomingvent->name }}
+                                            </td>
+                                            <td>
+                                                {{-- {{ $bookingEmployees->where('booking_id', '=', $upcomingvent->id)
+                                                }} --}}
+
+                                            </td>
+                                            <td>
+                                                {{ $upcomingvent->date_start }}
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- top clients table --}}
                 <div class="col-lg-12 col-lg-12">
                     <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
                         <div class="flex-wrap card-header d-flex justify-content-between">
@@ -261,7 +309,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <img class="rounded bg-soft-primary img-fluid avatar-40 me-3"
-                                                        src="{{asset('assets/images/shapes/01.png')}}" alt="profile">
+                                                        src="{{ asset('storage/' . $topclient->pfp) }}"" alt=" profile">
                                                     <h6>{{ $topclient->name }}</h6>
                                                 </div>
                                             </td>
