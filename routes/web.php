@@ -116,7 +116,7 @@ Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
     Route::post('/admin/profile/update', [UserController::class, 'employeeupdate'])->name('admin/profile/update');
 });
 
-
+Route::post('/password/update', [UserController::class, 'passwordChange'])->name('password/update');
 
 
 /* test routes */

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Hash;
 use App\Models\logs;
 use App\Models\User;
 use App\Models\Client;
@@ -10,6 +11,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+
+use function GuzzleHttp\Promise\all;
 
 class UserController extends Controller
 {
@@ -102,7 +105,6 @@ class UserController extends Controller
 
     public function authenticate(Request $request)
     {
-
         $formFields = $request->validate(
             [
                 'username' => 'required',
@@ -130,6 +132,34 @@ class UserController extends Controller
         }
 
         return back()->withErrors(['username' => 'invalid credentials'])->onlyInput('username');
+    }
+
+    public function passwordChange(Request $request)
+    {
+
+        // dd(request()->all());
+        if (!(Hash::check($request->get('current_password'), Auth::user()->password))) {
+
+            // The passwords matches
+            return redirect()->back()->with("error", "Your current password does not matches with the password you provided. Please try again.");
+        }
+
+        if (strcmp($request->get('current_password'), $request->get('new_password')) == 0) {
+            //Current password and new password are same
+            return redirect()->back()->with("error", "New Password cannot be same as your current password. Please choose a different password.");
+        }
+
+        $validatedData = $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|string|min:6|confirmed',
+        ]);
+
+        //Change Password
+        $user = User::find(Auth::id());
+        $user->password = bcrypt($validatedData['new_password']);
+        $user->save();
+
+        return redirect()->back()->with("success", "Password changed successfully !");
     }
 
     public function employeeupdate(Request $request)
