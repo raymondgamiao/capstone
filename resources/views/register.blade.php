@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('content')
-<section class="section mt-3">
-  <div class="container h-100">
+<section class="section mt-5">
+  <div class="container mt-4 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
         <div class="card text-black" style="border-radius: 25px;">
@@ -42,7 +42,20 @@
                     </div>
                   </div>
 
+
                   @error('usertype')
+                  <span class="text-danger "><em>{{$message}}</em></span>
+                  @enderror
+
+                  <select class="form-control form-control-lg" name="usertype">
+                    <option selected value="client">Client</option>
+                    <option selected value="employee">Employee</option>
+                    <option selected value="admin">Admin</option>
+                  </select>
+                  <label class="form-label mb-4" for="usertype">User type</label>
+
+
+                  {{-- @error('usertype')
                   <span class="text-danger "><em>{{$message}}</em></span>
                   @enderror
                   <div class="d-flex flex-row align-items-center mb-4">
@@ -55,7 +68,7 @@
                       </select>
                       <label class="form-label" for="usertype">User Type</label>
                     </div>
-                  </div>
+                  </div> --}}
 
                   @error('password')
                   <span class="text-danger "><em>{{$message}}</em></span>

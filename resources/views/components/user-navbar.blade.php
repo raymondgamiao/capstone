@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg py-4 navigation header-padding " id="navbar">
+<nav class="navbar navbar-expand-lg py-4 navigation header-padding" id="navbar">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{route('home')}}">
       <h3 class="{{ Route::is('home') || Route::is('login') || Route::is('register')  ? 'logo' : 'logo-white' }}">Photo
@@ -26,6 +26,10 @@
             href="{{route('contact')}}">Contact</a></li>
       </ul>
 
+
+
+
+
       {{-- if the user's login in --}}
       @auth
       <div class="dropdown">
@@ -48,6 +52,21 @@
         <button type="submit"> logout </button>
         <a href="">dropdown to</a>
       </form> --}}
+
+      <div class="action">
+        <div class="profile">
+          <img src="images/contact/profile-sample.jpg">
+        </div>
+          <div class="menu">
+            <h3>{{Auth::user()->username}}<br /><span>Client</span></h3>
+            <ul>
+              <li><img src=""><a href="#">Profile</a></li>
+              <li><img src=""><a href="#">Logout</a></li>
+            </ul>
+          </div>
+      </div>
+
+
       @else
       <a href="{{route('login')}}" button type="button" class="btn btn-solid-border">Login<i
           class="fa fa-angle-right ml-1"></i></a>
@@ -56,32 +75,7 @@
       @endauth
 
 
-      {{-- <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Login form</h5>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="mb-1">
-                  <label for="exampleInputEmail1" class="form-label"></label>
-                  <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="Enter email">
-                  <label for="exampleInputPassword1" class="form-label"></label>
-                  <input type="password" name="password" class="form-control" id="exampleInputPassword1"
-                    placeholder="Password">
-                </div>
-
-              </form>
-            </div>
-            <div class="modal-footer text-center">
-              <button type="submit" class="btn btn-solid-border">Submit</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div> --}}
+    
     </div>
   </div>
 </nav>
