@@ -107,6 +107,8 @@ Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
 
     Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin/profile');
 
+   
+
 
     Route::get('/admin/editprofile', function () {
         return view('admin/editprofile');
@@ -118,6 +120,15 @@ Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
 
 
 /* test routes */
+
+Route::get('/admin/clientprofile', function () {
+    return view('admin/clientprofile');
+});
+
+Route::get('/admin/clienteditprofile', function () {
+    return view('admin/clienteditprofile');
+});
+
 
 
 Route::get('/welcome', function () {
