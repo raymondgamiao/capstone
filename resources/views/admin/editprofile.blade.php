@@ -52,8 +52,7 @@
                                     <i class="uil uil-image-upload"></i>
                                     <span>Change Photo</span>
                                  </label>
-                                 <input id="file-input" type="file" style="display:none" name="pfp"
-                                    value="{{ Auth::user()->employee->first()->pfp }}" />
+                                 <input id="file-input" type="file" style="display:none" name="pfp" />
                               </div>
                            </div>
                         </div>

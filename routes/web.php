@@ -5,6 +5,9 @@ use App\Models\Listing;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\LogsController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ListingControler;
@@ -16,9 +19,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\AdminGalleryController;
-use App\Http\Controllers\LogsController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\PDFController;
+use App\Http\Controllers\AdminProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,9 +105,8 @@ Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
     Route::get('/admin/branches', [BranchController::class, 'index'])->name('admin/branches');
     Route::get('/admin/logs', [LogsController::class, 'index'])->name('admin/logs');
 
-    Route::get('/admin/profile', function () {
-        return view('admin/profile');
-    })->name('admin/profile');
+    Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin/profile');
+
 
     Route::get('/admin/editprofile', function () {
         return view('admin/editprofile');

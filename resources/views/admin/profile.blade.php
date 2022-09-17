@@ -94,49 +94,49 @@
               <li class="list-group-item d-flex  align-items-center p-3">
                 <i class="uil uil-twitter" style="color: #55acee;"></i>
                 <p class="mb-0">SSS ID:&nbsp&nbsp
-                {{
-                    Auth::user()->employee->first()->sss !== null
-                    ?Auth::user()->employee->first()->sss
-                    : 'not available'
-                    }}
+                  {{
+                  Auth::user()->employee->first()->sss !== null
+                  ?Auth::user()->employee->first()->sss
+                  : 'not available'
+                  }}
                 </p>
               </li>
               <li class="list-group-item d-flex  align-items-center p-3">
                 <i class="uil uil-instagram-alt" style="color: #ac2bac;"></i>
                 <p class="mb-0">PhilHealth ID:&nbsp&nbsp
-                {{
-                    Auth::user()->employee->first()->philhealth !== null
-                    ?Auth::user()->employee->first()->philhealth
-                    : 'not available'
-                    }}
+                  {{
+                  Auth::user()->employee->first()->philhealth !== null
+                  ?Auth::user()->employee->first()->philhealth
+                  : 'not available'
+                  }}
                 </p>
               </li>
               <li class="list-group-item d-flex  align-items-center p-3">
                 <i class="uil uil-facebook" style="color: #3b5998;"></i>
                 <p class="mb-0">Pag-Ibig ID:&nbsp&nbsp
-                {{
-                    Auth::user()->employee->first()->pagibig !== null
-                    ?Auth::user()->employee->first()->pagibig
-                    : 'not available'
-                    }}
+                  {{
+                  Auth::user()->employee->first()->pagibig !== null
+                  ?Auth::user()->employee->first()->pagibig
+                  : 'not available'
+                  }}
                 </p>
               </li>
               <li class="list-group-item d-flex align-items-center p-3">
                 <i class="uil uil-facebook" style="color: #3b5998;"></i>
                 <p class="mb-0">Bank Account:&nbsp&nbsp
-                {{
-                    Auth::user()->employee->first()->bankacct !== null
-                    ?Auth::user()->employee->first()->bankacct
-                    : 'not available'
-                    }}
+                  {{
+                  Auth::user()->employee->first()->bankacct !== null
+                  ?Auth::user()->employee->first()->bankacct
+                  : 'not available'
+                  }}
                 </p>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      
-      
+
+
       <div class="col-lg-8">
         <div class="card mb-4">
           <div class="card-body">
@@ -202,83 +202,119 @@
         </div>
 
         {{-- Upcoming events clients table --}}
-                <div class="col-lg-8 col-lg-12">
-                    <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
-                        <div class="flex-wrap card-header d-flex justify-content-between">
-                            <div class="header-title">
-                                <h4 class="mb-2 card-title">My Bookings</h4>
-                                <p class="mb-0">
-                                    <svg class="me-2 text-primary" width="24" height="24" viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-                                    </svg>
-                              
-                                </p>
-                            </div>
-                        </div>
-                        <div class="p-0 card-body">
-                            <div class="mt-4 table-responsive">
-                                <table id="basic-table" class="table mb-0 " role="grid">
-                                    <thead>
-                                        <tr>
-                                            <th>Event</th>
-                                            <th>Assigned</th>
-                                            <th>Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                       
-                                        <tr>
-                                            <td>
-                                               Wedding
-                                            </td>
-                                            <td>
-                                              N/A
-                                            </td>
-                                            <td>
-                                            2022-09-17
-                                            </td>
-                                        </tr>
-                                       
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
+        <div class="col-lg-8 col-lg-12">
+          <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
+            <div class="flex-wrap card-header d-flex justify-content-between">
+              <div class="header-title">
+                <h4 class="mb-2 card-title">My Upcoming Bookings</h4>
+              </div>
+            </div>
+            <div class="p-0 card-body">
+              <div class="mt-4 table-responsive">
+                <table id="basic-table" class="table mb-0 " role="grid">
+                  <thead>
+                    <tr>
+                      <th>Event</th>
+                      <th>Date</th>
+                      <th>Location</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($upcomingevents as $upcomingevent)
+                    <tr>
+                      <td>
+                        {{ $upcomingevent->booking }}
+                      </td>
+                      <td>
+                        {{ \Carbon\Carbon::parse($upcomingevent->when )->format('M d') }},
+                        {{ \Carbon\Carbon::parse($upcomingevent->time_start )->format('g:i A') }}
+                      </td>
+                      <td>
+                        {{ $upcomingevent->venue }}
+                      </td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+                {{ $upcomingevents->links() }}
+              </div>
+            </div>
+          </div>
+        </div>
 
-          @endsection
+        {{-- Upcoming events clients table --}}
+        <div class="col-lg-8 col-lg-12">
+          <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
+            <div class="flex-wrap card-header d-flex justify-content-between">
+              <div class="header-title">
+                <h4 class="mb-2 card-title">My Past Bookings</h4>
+              </div>
+            </div>
+            <div class="p-0 card-body">
+              <div class="mt-4 table-responsive">
+                <table id="basic-table" class="table mb-0 " role="grid">
+                  <thead>
+                    <tr>
+                      <th>Event</th>
+                      <th>Date</th>
+                      <th>Location</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($pastevents as $pastevent)
+                    <tr>
+                      <td>
+                        {{ $pastevent->booking }}
+                      </td>
+                      <td>
+                        {{ \Carbon\Carbon::parse($pastevent->when )->format('M d') }},
+                        {{ \Carbon\Carbon::parse($pastevent->time_start )->format('g:i A') }}
+                      </td>
+                      <td>
+                        {{ $pastevent->venue }}
+                      </td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+                {{ $pastevents->links() }}
+              </div>
+            </div>
+          </div>
+        </div>
 
-          @section('scripts')
-          <!-- Library Bundle Script -->
-          <script src="{{asset('assets/js/core/libs.min.js')}}"></script>
 
-          <!-- External Library Bundle Script -->
-          <script src="{{asset('assets/js/core/external.min.js')}}"></script>
+        @endsection
 
-          <!-- Widgetchart Script -->
-          <script src="{{asset('assets/js/charts/widgetcharts.js')}}"></script>
+        @section('scripts')
+        <!-- Library Bundle Script -->
+        <script src="{{asset('assets/js/core/libs.min.js')}}"></script>
 
-          <!-- mapchart Script -->
-          <script src="{{asset('assets/js/charts/vectore-chart.js')}}"></script>
-          <script src="{{asset('assets/js/charts/dashboard.js')}}"></script>
+        <!-- External Library Bundle Script -->
+        <script src="{{asset('assets/js/core/external.min.js')}}"></script>
 
-          <!-- fslightbox Script -->
-          <script src="{{asset('assets/js/plugins/fslightbox.js')}}"></script>
+        <!-- Widgetchart Script -->
+        <script src="{{asset('assets/js/charts/widgetcharts.js')}}"></script>
 
-          <!-- Settings Script -->
-          <script src="{{asset('assets/js/plugins/setting.js')}}"></script>
+        <!-- mapchart Script -->
+        <script src="{{asset('assets/js/charts/vectore-chart.js')}}"></script>
+        <script src="{{asset('assets/js/charts/dashboard.js')}}"></script>
 
-          <!-- Slider-tab Script -->
-          <script src="{{asset('assets/js/plugins/slider-tabs.js')}}"></script>
+        <!-- fslightbox Script -->
+        <script src="{{asset('assets/js/plugins/fslightbox.js')}}"></script>
 
-          <!-- Form Wizard Script -->
-          <script src="{{asset('assets/js/plugins/form-wizard.js')}}"></script>
+        <!-- Settings Script -->
+        <script src="{{asset('assets/js/plugins/setting.js')}}"></script>
 
-          <!-- AOS Animation Plugin-->
-          <script src="{{asset('assets/vendor/aos/dist/aos.js')}}"></script>
+        <!-- Slider-tab Script -->
+        <script src="{{asset('assets/js/plugins/slider-tabs.js')}}"></script>
 
-          <!-- App Script -->
-          <script src="{{asset('assets/js/hope-ui.js')}}" defer></script>
-          @endsection
+        <!-- Form Wizard Script -->
+        <script src="{{asset('assets/js/plugins/form-wizard.js')}}"></script>
+
+        <!-- AOS Animation Plugin-->
+        <script src="{{asset('assets/vendor/aos/dist/aos.js')}}"></script>
+
+        <!-- App Script -->
+        <script src="{{asset('assets/js/hope-ui.js')}}" defer></script>
+        @endsection
