@@ -24,6 +24,9 @@ class CreateClientsTable extends Migration
             $table->string('contact')->nullable();
             $table->string('address')->nullable();
             $table->longText('pfp')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('insta')->nullable();
+            $table->string('fb')->nullable();
             $table->timestamps();
         });
     }
