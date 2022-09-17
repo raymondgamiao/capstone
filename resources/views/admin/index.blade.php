@@ -236,13 +236,6 @@
                         <div class="flex-wrap card-header d-flex justify-content-between">
                             <div class="header-title">
                                 <h4 class="mb-2 card-title">Upcoming Events</h4>
-                                <p class="mb-0">
-                                    <svg class="me-2 text-primary" width="24" height="24" viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-                                    </svg>
-                                    {{ $newclients }} new Client this month
-                                </p>
                             </div>
                         </div>
                         <div class="p-0 card-body">
@@ -262,8 +255,15 @@
                                                 {{ $upcomingvent->name }}
                                             </td>
                                             <td>
-                                                {{-- {{ $bookingEmployees->where('booking_id', '=', $upcomingvent->id)
-                                                }} --}}
+                                                <div class="iq-media-group iq-media-group-1 d-flex">
+                                                    @foreach ($bookingEmployees->where('booking_id', '=',
+                                                    $upcomingvent->id)
+                                                    as $bookingEmployee)
+                                                    <img src="{{ asset('storage/' . App\Models\Employee::find($bookingEmployee->employee_id)->pfp) }}"
+                                                        alt="" class="img-fluid avatar-40 avatar-rounded shadow"
+                                                        style="margin:-8px;">
+                                                    @endforeach
+                                                </div>
 
                                             </td>
                                             <td>

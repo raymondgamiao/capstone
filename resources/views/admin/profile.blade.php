@@ -52,7 +52,7 @@
             </div>
           </div>
         </div>
-        <div class="card mb-4 mb-lg-0">
+        <div class="card mb-5 mb-lg-4">
           <div class="card-body p-0">
             <ul class="list-group list-group-flush rounded-3">
               <li class="list-group-item d-flex justify-content-between align-items-center p-3">
@@ -88,7 +88,55 @@
             </ul>
           </div>
         </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush rounded-3">
+              <li class="list-group-item d-flex  align-items-center p-3">
+                <i class="uil uil-twitter" style="color: #55acee;"></i>
+                <p class="mb-0">SSS ID:&nbsp&nbsp
+                {{
+                    Auth::user()->employee->first()->sss !== null
+                    ?Auth::user()->employee->first()->sss
+                    : 'not available'
+                    }}
+                </p>
+              </li>
+              <li class="list-group-item d-flex  align-items-center p-3">
+                <i class="uil uil-instagram-alt" style="color: #ac2bac;"></i>
+                <p class="mb-0">PhilHealth ID:&nbsp&nbsp
+                {{
+                    Auth::user()->employee->first()->philhealth !== null
+                    ?Auth::user()->employee->first()->philhealth
+                    : 'not available'
+                    }}
+                </p>
+              </li>
+              <li class="list-group-item d-flex  align-items-center p-3">
+                <i class="uil uil-facebook" style="color: #3b5998;"></i>
+                <p class="mb-0">Pag-Ibig ID:&nbsp&nbsp
+                {{
+                    Auth::user()->employee->first()->pagibig !== null
+                    ?Auth::user()->employee->first()->pagibig
+                    : 'not available'
+                    }}
+                </p>
+              </li>
+              <li class="list-group-item d-flex align-items-center p-3">
+                <i class="uil uil-facebook" style="color: #3b5998;"></i>
+                <p class="mb-0">Bank Account:&nbsp&nbsp
+                {{
+                    Auth::user()->employee->first()->bankacct !== null
+                    ?Auth::user()->employee->first()->bankacct
+                    : 'not available'
+                    }}
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
+      
+      
       <div class="col-lg-8">
         <div class="card mb-4">
           <div class="card-body">
@@ -153,71 +201,52 @@
           </div>
         </div>
 
-        <div class="col-lg-12">
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">SSS ID</p>
+        {{-- Upcoming events clients table --}}
+                <div class="col-lg-8 col-lg-12">
+                    <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="flex-wrap card-header d-flex justify-content-between">
+                            <div class="header-title">
+                                <h4 class="mb-2 card-title">My Bookings</h4>
+                                <p class="mb-0">
+                                    <svg class="me-2 text-primary" width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                                    </svg>
+                              
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-0 card-body">
+                            <div class="mt-4 table-responsive">
+                                <table id="basic-table" class="table mb-0 " role="grid">
+                                    <thead>
+                                        <tr>
+                                            <th>Event</th>
+                                            <th>Assigned</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       
+                                        <tr>
+                                            <td>
+                                               Wedding
+                                            </td>
+                                            <td>
+                                              N/A
+                                            </td>
+                                            <td>
+                                            2022-09-17
+                                            </td>
+                                        </tr>
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">
-                    {{
-                    Auth::user()->employee->first()->sss !== null
-                    ?Auth::user()->employee->first()->sss
-                    : 'not available'
-                    }}
-                  </p>
-                </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Phil Health ID</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">
-                    {{
-                    Auth::user()->employee->first()->philhealth !== null
-                    ?Auth::user()->employee->first()->philhealth
-                    : 'not available'
-                    }}
-                  </p>
-                </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Pag-Ibig ID</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">
-                    {{
-                    Auth::user()->employee->first()->pagibig !== null
-                    ?Auth::user()->employee->first()->pagibig
-                    : 'not available'
-                    }}
-                  </p>
-                </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Bank Account</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">
-                    {{
-                    Auth::user()->employee->first()->bankacct !== null
-                    ?Auth::user()->employee->first()->bankacct
-                    : 'not available'
-                    }}
-                  </p>
-                </div>
-              </div>
-              <hr>
-            </div>
-          </div>
+        
 
           @endsection
 

@@ -36,4 +36,9 @@ class Employee extends Model
     {
         return $this->belongsTo(Branch::class);
     }
+
+    public function bookingemployees()
+    {
+        return $this->hasMany(BookingEmployees::class);
+    }
 }
