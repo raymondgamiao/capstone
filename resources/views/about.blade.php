@@ -73,7 +73,7 @@
                         <li><i class="ti-check mr-3"></i>Flexible staff with complete equipments. </li>
                     </ul>
 
-                    <a href="service.html" class="btn btn-main">All Services<i class="fa fa-angle-right ml-2"></i></a>
+                    <a class="btn btn-main" href="{{route('services')}}">All Services<i class="fa fa-angle-right ml-2"></i></a>
                 </div>
             </div>
 

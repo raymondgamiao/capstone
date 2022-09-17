@@ -232,6 +232,12 @@ input[type="tel"]:focus {
     outline: 0;
 }
 
+.btn-text-dark{
+    color: #181818;
+}
+.btn-text-white{
+    color: #fff;
+    }
 .bg-gray {
     background: #eff0f3;
 }

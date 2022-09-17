@@ -75,15 +75,14 @@
             </div>
           </div>
 
-
-          @else
-          <a href="{{route('login')}}" button type="button" class="btn btn-solid-border">Login<i
-              class="fa fa-angle-right ml-1"></i></a>
-          <a href="{{route('register')}}" button type="button" class="btn btn-not-solid-border">Register<i
-              class="fa fa-angle-right ml-1"></i></button></a>
-          @endauth
-
-
+      @else
+      <a href="{{route('login')}}" button type="button" class="btn btn-solid-border">Login<i
+          class="fa fa-angle-right ml-1"></i></a>
+      <a href="{{route('register')}}" button type="button" class="btn btn-not-solid-border
+      {{ Route::is('home') || Route::is('login') || Route::is('register')  ? 'btn-text-dark' : 'btn-text-white' }}
+      ">Register<i
+          class="fa fa-angle-right ml-1"></i></button></a>
+      @endauth
 
       </div>
     </div>
