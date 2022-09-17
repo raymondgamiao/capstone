@@ -272,7 +272,7 @@ input[type="tel"]:focus {
 /* profile menu */
 
 .profile{
-    width: 50px;
+    width: 70px;
     border: 1px solid black;
     border-radius: 50px;
 }
@@ -503,6 +503,14 @@ a:focus {
     margin-top: 60px;
     padding-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+@media (max-width: 480px){
+    .img-banner{
+        position: relative;
+        background: url("../images/bg/main-banner.jpg");
+        background-size: cover;
+
+    }
 }
 
 .slick-slide:focus,

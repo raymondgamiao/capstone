@@ -10,9 +10,9 @@
                     <h1 class="text-capitalize mb-5 text-lg">Our Company</h1>
 
                     <ul class="list-inline breadcumb-nav">
-                        <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+                        <li class="list-inline-item"><a href="{{route('home')}}" class="text-white">Home</a></li>
                         <li class="list-inline-item"><span class="text-white">/</span></li>
-                        <li class="list-inline-item"><a href="#" class="text-white-50">About Us</a></li>
+                        <li class="list-inline-item"><a href="{{route('about')}}" class="text-white-50">About</a></li>
                     </ul>
                 </div>
             </div>
