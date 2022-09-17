@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="banner d-flex align-items-center">
-	<div class=img-banner src="{{asset('images/bg/main-banner')}}"></div>
+	<div {{asset('images/bg/main-banner')}}></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-10 col-md-12 col-xl-8">
@@ -20,6 +20,11 @@
 		</div>
 	</div>
 </section>
+
+<img class="img-banner" src="images/bg/mobile-view-banner.png">
+{{-- <img class="img-banner-2" src="images/bg/mobile-view-banner-2.png"> --}}
+
+{{-- <p class="sample-text"> Hello World </p> --}}
 
 <section class="section about">
 	<div class="container">
