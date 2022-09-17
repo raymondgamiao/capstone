@@ -36,6 +36,25 @@
 @section('content')
 <div class="container content-inner mt-n5 py-0">
    <div>
+      @if (session('error'))
+      <div x-data="{show: true}" class="alert alert-danger card-action " role="alert">
+         {{ session('error') }}
+      </div>
+      @endif
+      @if (session('success'))
+      <div x-data="{show: true}" class="alert alert-success card-action " role="alert">
+         {{ session('success') }}
+      </div>
+      @endif
+      @if ($errors->any())
+      <div x-data="{show: true}" class="alert alert-danger card-action " role="alert">
+         <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+         </ul>
+      </div>
+      @endif
       <form method="POST" action="{{ route('admin/profile/update') }}" enctype="multipart/form-data">
          @csrf
          <div class="row">
@@ -153,28 +172,37 @@
             <h4 class="card-title">Change Password</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
-         <form>
+         <form method="POST" action="{{ route('password/update') }}">
+            @csrf
             <div class="modal-body">
                <div class="row">
                   <div class="form-group col-md-12">
-                     <label class="form-label" for="uname">Password:</label>
-                     <input type="text" class="form-control" id="uname" placeholder="User Name">
+                     <label class="form-label" for="current-password">Password:</label>
+                     <input id="current_password" type="password" class="form-control" name="current_password" required
+                        placeholder="Current Password">
+                     @if ($errors->has('current_password'))
+                     <span class="text-danger "><em>{{ $errors->first('current_password') }}</em></span>
+                     @endif
                   </div>
                   <div class="form-group col-md-12">
-                     <label class="form-label" for="pass">New Password:</label>
-                     <input type="password" class="form-control" id="pass" placeholder="Password">
+                     <label class="form-label" for="new_password">New Password:</label>
+                     <input type="password" class="form-control" id="new_password" name="new_password" required
+                        placeholder="New Password">
+                     @if ($errors->has('new_password'))
+                     <span class="text-danger "><em>{{ $errors->first('new_password') }}</em></span>
+                     @endif
                   </div>
                   <div class="form-group col-md-12">
-                     <label class="form-label" for="rpass">Confirm New Password:</label>
-                     <input type="password" class="form-control" id="rpass" placeholder="Repeat Password ">
+                     <label class="form-label" for="new_password_confirmation">Confirm New Password:</label>
+                     <input type="password" class="form-control" id="new_password_confirmation" required
+                        name="new_password_confirmation" placeholder="Confirm New Password">
                   </div>
-               </div>
 
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-               <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+               </div>
          </form>
       </div>
    </div>
