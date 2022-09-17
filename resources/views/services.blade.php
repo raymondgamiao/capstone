@@ -366,20 +366,7 @@
                 </div>
             </div>
 
-            <!-- <div class="col-lg-4 col-md-6">
-                  <div class="service-item-list">
-                      <i class="ti-headphone-alt"></i>
-                      <p>Integrated & Dedicated<br> Teams</p>
-                  </div>
-                  <div class="service-item-list">
-                      <i class="ti-bar-chart-alt"></i>
-                      <p>Big data and<br> analytics</p>
-                  </div>
-                  <div class="service-item-list">
-                      <i class="ti-cloud-up"></i>
-                      <p>Cloud backup <br>System</p>
-                  </div>
-              </div> -->
+           
         </div>
     </div>
 </section>

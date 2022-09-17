@@ -13,7 +13,7 @@
 					<p class="mb-5"> We'll create the perfect photo of your event. You've heard two heads are better
 						than one, <br>what about a whole team of heads whose passion is great photo experiences</p>
 
-					<a href="about.html" target="_blank" class="btn btn-main">Let's Get in Touch<i
+						<a class="btn btn-main" href="{{route('contact')}}">Let's Get in Touch<i
 							class="fa fa-angle-right ml-2"></i></a>
 
 				</div>
@@ -134,7 +134,7 @@
 						of your life
 					</p>
 
-					<a href="project.html" class="btn btn-main">Gallery<i class="fa fa-angle-right ml-2"></i></a>
+					<a class="btn btn-main" href="{{route('gallery')}}">Gallery<i class="fa fa-angle-right ml-2"></i></a>
 				</div>
 			</div>
 		</div>
@@ -251,7 +251,7 @@
 
 		<div class="row mx-2">
 			<div class="col-lg-4 col-md-6 mb-5 mx-2">
-				<a href="project.html" class="btn btn-main">Show more<i class="fa fa-angle-right ml-2"></i></a>
+				<a class="btn btn-main" href="{{route('gallery')}}">>Show more<i class="fa fa-angle-right ml-2"></i></a>
 			</div>
 		</div>
 	</div>
