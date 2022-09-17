@@ -203,7 +203,7 @@ class DatabaseSeeder extends Seeder
             'branch_id' => 1,
             'name' => 'Raymond Gamiao',
             'contact' => '09' .  $faker->numerify('##-###-####'),
-            'pfp' => 'images/pfp/01.png'
+            'pfp' => 'images/pfp/mondi.jpg'
         ]);
 
 
@@ -221,7 +221,7 @@ class DatabaseSeeder extends Seeder
             'branch_id' => 2,
             'name' => 'Ardhen Braso',
             'contact' => '09' .  $faker->numerify('##-###-####'),
-            'pfp' => 'images/pfp/01.png'
+            'pfp' => 'images/pfp/ardhen.jpg'
         ]);
 
 
@@ -239,7 +239,7 @@ class DatabaseSeeder extends Seeder
             'branch_id' => 3,
             'name' => 'Brian Duterte',
             'contact' => '09' .  $faker->numerify('##-###-####'),
-            'pfp' => 'images/pfp/01.png'
+            'pfp' => 'images/pfp/brian.jpg'
         ]);
 
         $username =  $faker->word();
