@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="banner d-flex align-items-center">
-	<div class={{asset('images/bg/main-banner')}}></div>
+	<div class=img-banner src="{{asset('images/bg/main-banner')}}"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-10 col-md-12 col-xl-8">
@@ -15,7 +15,6 @@
 
 						<a class="btn btn-main" href="{{route('contact')}}">Let's Get in Touch<i
 							class="fa fa-angle-right ml-2"></i></a>
-
 				</div>
 			</div>
 		</div>
@@ -34,8 +33,6 @@
 					<div class="content">
 						<h4 class="mt-3 mb-3">Photo-Video Coverage</h4>
 						<p class="mb-4">We turn into timeless memories, as well as the stories behind them.</p>
-
-						<a href="#"> Read More </a>
 					</div>
 				</div>
 			</div>
@@ -48,7 +45,6 @@
 					<div class="content">
 						<h4 class="mt-3 mb-3">Sound-Light & LED Wall</h4>
 						<p class="mb-4">We can also setup and operate sounds & lights professionaly</p>
-						<a href="#"> Read More </a>
 					</div>
 				</div>
 			</div>
@@ -59,9 +55,9 @@
 						<i class="ti-camera"></i>
 					</div>
 					<div class="content">
-						<h4 class="mt-3 mb-3">Digital Printing & Photo booth</h4>
+						<h4 class="mt-3 mb-3">Printing & Photo booth</h4>
 						<p class="mb-4">We also offer a magnetize hard copy of pictures in our photo booth</p>
-						<a href="#"> Read More </a>
+			
 					</div>
 				</div>
 			</div>

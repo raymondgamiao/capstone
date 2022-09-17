@@ -44,36 +44,18 @@
           />
         </button>
         <ul class="dropdown-menu w-100">
-          <li><a class="dropdown-item" href="#">{{Auth::user()->username}}&nbsp:&nbsp<span>Client</span></a></li>
+          <li><a class="dropdown-item" href="#"><strong>{{Auth::user()->username}}</strong><br><span>{{ Auth::user()->employee->first()->role }}</span></a></li>
           @if (Auth::user()->usertype !== 'client')
           <li><a class="dropdown-item" href="{{route('admin')}}">Dashboard</a></li>
           @endif
           <li><a class="dropdown-item border-bottom" href="#">Bookings</a></li>
           <form action="{{route('logout')}}" method="post">
             @csrf
-            <button class="mb-3 ml-2 mt-3 btn btn-outline-danger"> Logout </button>
+            <button class="mb-3 ml-2 mt-3 btn btn-white"> Logout </button>
             {{-- <a href="#">Logout</a> --}}
           </form>
 
 
-          {{-- <form action="{{route('logout')}}" method="post">
-            @csrf
-            <button type="submit"> logout </button>
-            <a href="">dropdown to</a>
-          </form> --}}
-
-          <div class="action">
-            <div class="profile">
-              <img src="images/contact/profile-sample.jpg">
-            </div>
-            <div class="menu">
-              <h3>{{Auth::user()->username}}<br /><span>Client</span></h3>
-              <ul>
-                <li><img src=""><a href="#">Profile</a></li>
-                <li><img src=""><a href="#">Logout</a></li>
-              </ul>
-            </div>
-          </div>
 
       @else
       <a href="{{route('login')}}" button type="button" class="btn btn-solid-border">Login<i

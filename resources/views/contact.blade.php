@@ -11,9 +11,9 @@
                     <h1 class="text-capitalize mb-5 text-lg">Get in Touch</h1>
 
                     <ul class="list-inline breadcumb-nav">
-                        <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+                        <li class="list-inline-item"><a href="{{route('home')}}" class="text-white">Home</a></li>
                         <li class="list-inline-item"><span class="text-white">/</span></li>
-                        <li class="list-inline-item"><a href="#" class="text-white-50">Contact Us</a></li>
+                        <li class="list-inline-item"><a href="{{route('contact')}}" class="text-white-50">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <span>Send a message</span>
+                <span class="text-color">Send a message</span>
                 <h3 class="text-md mb-2">Contact Form</h3>
 
                 <div class="row">
