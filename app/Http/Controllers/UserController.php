@@ -134,7 +134,8 @@ class UserController extends Controller
 
     public function employeeupdate(Request $request)
     {
-        // dd(Auth::user()->employee->first());
+        //dd($request->all());
+
         //dd(Auth::user()->employee->first()->id);
         $employee = Employee::find(Auth::user()->employee->first()->id);
         $employee->name = $request->name;
@@ -149,7 +150,9 @@ class UserController extends Controller
         $employee->contact = $request->contact;
         $employee->email = $request->email;
         $employee->address = $request->address;
-        $employee->pfp = $request->file('pfp')->store('images/pfp', 'public');
+        if ($request->pfp !== null) {
+            $employee->pfp = $request->file('pfp')->store('images/pfp', 'public');
+        }
         $employee->save();
 
 
