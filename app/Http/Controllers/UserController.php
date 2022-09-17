@@ -188,4 +188,26 @@ class UserController extends Controller
 
         return redirect()->route('admin/profile')->with('success', 'profile updated succesfully');
     }
+
+    public function clientupdate(Request $request)
+    {
+        //dd($request->all());
+
+        //dd(Auth::user()->employee->first()->id);
+        $client = Client::find(Auth::user()->client->first()->id);
+        $client->name = $request->name;
+        $client->email = $request->email;
+        $client->contact = $request->contact;
+        $client->address = $request->address;
+        $client->fb = $request->fb;
+        $client->twitter = $request->twitter;
+        $client->insta = $request->insta;
+        if ($request->pfp !== null) {
+            $client->pfp = $request->file('pfp')->store('images/pfp', 'public');
+        }
+        $client->save();
+
+
+        return redirect()->route('clientprofile')->with('success', 'profile updated succesfully');
+    }
 }

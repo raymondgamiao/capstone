@@ -20,6 +20,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\AdminGalleryController;
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\ClientProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,35 +34,24 @@ use App\Http\Controllers\AdminProfileController;
 */
 
 
-/* main website routes */
+/* guests routes */
 
 Route::get('/', function () {
     return view('index');
 })->name('home');
-
 Route::get('/about', function () {
     return view('about');
 })->name('about');
-
 Route::get('/services', function () {
     return view('services');
 })->name('services');
-
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
-
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::get('/login', [UserController::class, 'login'])->name('login');
-
 Route::post('/user/store', [UserController::class, 'store'])->name('user/store');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 Route::post('/user/authenticate', [UserController::class, 'authenticate'])->name('user/authenticate');
-
-
-
-Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->name('generate-pdf');
-
 
 /* admin routes */
 Route::middleware(['auth', 'isAdmin', 'isActive'])->group(function () {
@@ -94,6 +84,7 @@ Route::middleware(['auth', 'isAdmin', 'isActive'])->group(function () {
     Route::post('/admin/branches/delete', [BranchController::class, 'delete'])->name('admin/branches/delete');
 });
 
+/* employee routes */
 Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
     Route::get('/admin/', [DashboardController::class, 'index'])->name('admin');
     Route::get('/admin/calendar', [CalendarController::class, 'index'])->name('admin/calendar');
@@ -106,30 +97,45 @@ Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
     Route::get('/admin/logs', [LogsController::class, 'index'])->name('admin/logs');
 
     Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin/profile');
-
-   
-
-
     Route::get('/admin/editprofile', function () {
         return view('admin/editprofile');
     })->name('admin/editprofile');
     Route::post('/admin/profile/update', [UserController::class, 'employeeupdate'])->name('admin/profile/update');
 });
 
-Route::post('/password/update', [UserController::class, 'passwordChange'])->name('password/update');
+/* client routes */
+Route::middleware(['auth', 'isClient'])->group(function () {
+
+    Route::get('clienteditprofile', function () {
+        return view('clienteditprofile');
+    })->name('clienteditprofile');
+
+    Route::get('clientprofile', [ClientProfileController::class, 'index'])->name('clientprofile');
+    Route::post('/client/profile/update', [UserController::class, 'clientupdate'])->name('client/profile/update');
+});
+
+Route::post('/password/update', [UserController::class, 'passwordChange'])->name('password/update')->middleware('auth');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* test routes */
 
-Route::get('/admin/clientprofile', function () {
-    return view('admin/clientprofile');
-});
-
-Route::get('/admin/clienteditprofile', function () {
-    return view('admin/clienteditprofile');
-});
-
-
+Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->name('generate-pdf');
 
 Route::get('/welcome', function () {
     return view('welcome');
