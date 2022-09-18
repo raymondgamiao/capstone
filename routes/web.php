@@ -105,6 +105,7 @@ Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
     Route::get('/admin/editprofile', function () {
         return view('admin/editprofile');
     })->name('admin/editprofile');
+    Route::post('/admin/profile/update', [UserController::class, 'employeeupdate'])->name('admin/profile/update');
 });
 
 /* client routes */
