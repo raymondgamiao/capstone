@@ -21,6 +21,9 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\AdminGalleryController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\ClientProfileController;
+use App\Http\Controllers\BookingReservationController;
+use App\Http\Controllers\BookingsController;
+use App\Models\BookingReservation;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,12 +98,13 @@ Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
     Route::get('/admin/gallery', [AdminGalleryController::class, 'index'])->name('admin/gallery');
     Route::get('/admin/branches', [BranchController::class, 'index'])->name('admin/branches');
     Route::get('/admin/logs', [LogsController::class, 'index'])->name('admin/logs');
+    Route::get('/admin/bookings', [BookingsController::class, 'index'])->name('admin/bookings');
+    Route::get('/admin/reservations', [BookingReservationController::class, 'index'])->name('admin/reservations');
 
     Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin/profile');
     Route::get('/admin/editprofile', function () {
         return view('admin/editprofile');
     })->name('admin/editprofile');
-    Route::post('/admin/profile/update', [UserController::class, 'employeeupdate'])->name('admin/profile/update');
 });
 
 /* client routes */
@@ -112,6 +116,9 @@ Route::middleware(['auth', 'isClient'])->group(function () {
 
     Route::get('clientprofile', [ClientProfileController::class, 'index'])->name('clientprofile');
     Route::post('/client/profile/update', [UserController::class, 'clientupdate'])->name('client/profile/update');
+
+    Route::post('/admin/branches/store', [BranchController::class, 'store'])->name('admin/branches/store');
+    Route::post('/bookingreservation/store', [BookingReservationController::class, 'store'])->name('bookingreservation/store');
 });
 
 Route::post('/password/update', [UserController::class, 'passwordChange'])->name('password/update')->middleware('auth');
