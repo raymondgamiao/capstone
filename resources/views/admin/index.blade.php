@@ -267,7 +267,6 @@
 
                                             </td>
                                             <td>
-
                                                 {{ \Carbon\Carbon::parse($upcomingvent->date_start )->format('M d') }}
                                             </td>
                                         </tr>
