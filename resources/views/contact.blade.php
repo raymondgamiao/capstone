@@ -117,7 +117,7 @@
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                     aria-labelledby="nav-home-tab" tabindex="0">
                                     <!-- Contact us -->
-
+                                    
                                     <div class="form-group">
                                         <input type="text" name="Name" class="form-control" placeholder="Full Name" />
                                     </div>
@@ -189,7 +189,7 @@
             @foreach ($branches as $branch)
             <div class="col-lg-4 col-md-6 mb-5">
                 <div class="contact-info ">
-                    <a href class="mb-4"><strong>{{ $branch['name'] }}</strong></a></h4>
+                    <h5><strong>{{ $branch['name'] }}</strong></h5>
                     <ul class="address-block list-unstyled">
                         <li>
                             <i class="ti-location-pin mr-3"></i>{{ $branch['location'] }}

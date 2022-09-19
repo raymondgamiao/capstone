@@ -252,7 +252,7 @@
 
 		<div class="row mx-2">
 			<div class="col-lg-4 col-md-6 mb-5 mx-2">
-				<a class="btn btn-main" href="{{route('gallery')}}">>Show more<i class="fa fa-angle-right ml-2"></i></a>
+				<a class="btn btn-main" href="{{route('gallery')}}">Show more<i class="fa fa-angle-right ml-2"></i></a>
 			</div>
 		</div>
 	</div>
