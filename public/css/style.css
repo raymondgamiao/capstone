@@ -273,8 +273,8 @@ input[type="tel"]:focus {
 
 .profile{
     width: 70px;
-    border: 1px solid black;
     border-radius: 50px;
+    border: 1px solid black;
 }
 .dropdown-menu h4{
     text-align: left;
@@ -514,17 +514,7 @@ a:focus {
         display: none;
     }
 }
-/* @media (min-width: 750px){
-    .img-banner-2{
-        display: none;
-    }
-} */
 
-/* @media (min-width: 760px){
-    .img-banner-2{
-        display: none;
-    }
-} */
 
 .slick-slide:focus,
 .slick-slide a {

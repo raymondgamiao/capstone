@@ -40,13 +40,13 @@
                 </div>
                 @endif
                 @if (session()->has('success'))
-                <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show"
+                <div x-data="{show: true}" x-init="setTimeout(() => show = false, 10000)" x-show="show"
                     class="alert alert-success" role="alert">
                     {{session('success')}}
                 </div>
                 @endif
                 <span class="text-color">Send a message</span>
-                <h3 class="text-md mb-2">Contact Form</h3>
+                <h3 class="text-md mb-2">Booking Reservation Form</h3>
                 <div class="row">
                     <div class="col-lg-8">
 
@@ -106,7 +106,7 @@
                                         </div>
                                         <div class="col-12">
                                             <button class="btn btn-main" type="submit">
-                                                Send Message
+                                                Book reservation
                                             </button>
                                         </div>
                                     </div>
