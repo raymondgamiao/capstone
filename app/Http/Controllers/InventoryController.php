@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\logs;
 use App\Models\Branch;
 use App\Models\Category;
 use App\Models\Inventory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 
 class InventoryController extends Controller
 {
@@ -37,12 +38,18 @@ class InventoryController extends Controller
             ]
         );
 
-        Inventory::create([
+        $inventory = Inventory::create([
             'name' =>  $formFields['name'],
             'description' =>  $formFields['description'],
             'qty' =>  $formFields['qty'],
             'branch_id' =>  $formFields['branch_id'],
             'category_id' =>  $formFields['category_id']
+        ]);
+
+        logs::create([
+            'log_id' => $inventory->id,
+            'name' => 'New Item ' .  $formFields['name'],
+            'log_type' => 'Inventory'
         ]);
 
         return redirect()->route('admin/inventory')->with('success', 'Item created succesfully');
@@ -53,6 +60,12 @@ class InventoryController extends Controller
         // dd($request->all());
         $inventory = Inventory::find($request->inventoryIDDelete);
         $inventory->delete();
+
+        logs::create([
+            'log_id' => $request->inventoryIDDelete,
+            'name' => 'Deleted Item ' . $inventory->name,
+            'log_type' => 'Inventory'
+        ]);
 
         return redirect()->route('admin/inventory')->with('success', 'item deleted succesfully');
     }
@@ -75,6 +88,12 @@ class InventoryController extends Controller
         $inventory->branch_id = $formFields['branch_idEdit'];
         $inventory->category_id = $formFields['category_idEdit'];
         $inventory->save();
+
+        logs::create([
+            'log_id' => $request->inventoryIDEdit,
+            'name' => 'Updated Item ' .  $formFields['nameEdit'],
+            'log_type' => 'Inventory'
+        ]);
 
         return redirect()->route('admin/inventory')->with('success', 'inventory updated succesfully');
     }

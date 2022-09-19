@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="banner d-flex align-items-center">
-	<div class="banner-img-part"></div>
+	<div {{asset('images/bg/main-banner')}}></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-10 col-md-12 col-xl-8">
@@ -13,14 +13,18 @@
 					<p class="mb-5"> We'll create the perfect photo of your event. You've heard two heads are better
 						than one, <br>what about a whole team of heads whose passion is great photo experiences</p>
 
-					<a href="about.html" target="_blank" class="btn btn-main">Let's Get in Touch<i
+						<a class="btn btn-main" href="{{route('contact')}}">Let's Get in Touch<i
 							class="fa fa-angle-right ml-2"></i></a>
-
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+<img class="img-banner" src="images/bg/mobile-view-banner.png">
+{{-- <img class="img-banner-2" src="images/bg/mobile-view-banner-2.png"> --}}
+
+{{-- <p class="sample-text"> Hello World </p> --}}
 
 <section class="section about">
 	<div class="container">
@@ -34,8 +38,6 @@
 					<div class="content">
 						<h4 class="mt-3 mb-3">Photo-Video Coverage</h4>
 						<p class="mb-4">We turn into timeless memories, as well as the stories behind them.</p>
-
-						<a href="#"> Read More </a>
 					</div>
 				</div>
 			</div>
@@ -48,7 +50,6 @@
 					<div class="content">
 						<h4 class="mt-3 mb-3">Sound-Light & LED Wall</h4>
 						<p class="mb-4">We can also setup and operate sounds & lights professionaly</p>
-						<a href="#"> Read More </a>
 					</div>
 				</div>
 			</div>
@@ -59,9 +60,9 @@
 						<i class="ti-camera"></i>
 					</div>
 					<div class="content">
-						<h4 class="mt-3 mb-3">Digital Printing & Photo booth</h4>
+						<h4 class="mt-3 mb-3">Printing & Photo booth</h4>
 						<p class="mb-4">We also offer a magnetize hard copy of pictures in our photo booth</p>
-						<a href="#"> Read More </a>
+			
 					</div>
 				</div>
 			</div>
@@ -81,13 +82,13 @@
 				</div>
 			</div>
 
-			<div class="col-lg-7 col-xs-12 col-md-12">
+				<div class="col-lg-7 col-xs-12 col-md-12">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<div class="icon-block text-center mb-4 mb-lg-0">
 							<i class="ti-comment-alt"></i>
 							<h5>Inquire</h5>
-							<p>A complete web app solution for business</p>
+							<p>Consulit faster in our form. Will response immmediately</p>
 						</div>
 					</div>
 
@@ -95,7 +96,7 @@
 						<div class="icon-block text-center mt-4 mb-4 mb-lg-0">
 							<i class="ti-pencil-alt"></i>
 							<h5>Fillout our Form</h5>
-							<p>A complete web app solution for business</p>
+							<p>A little bit of your information to proceed to the next step</p>
 						</div>
 					</div>
 
@@ -103,7 +104,7 @@
 						<div class="icon-block text-center">
 							<i class="ti-search"></i>
 							<h5>Choose a package</h5>
-							<p>A complete web app solution for business</p>
+							<p>Affordable set of package</p>
 						</div>
 					</div>
 
@@ -111,11 +112,11 @@
 						<div class="icon-block text-center mt-4">
 							<i class="ti-check-box"></i>
 							<h5>Confirm Booking</h5>
-							<p>A complete web app solution for business</p>
+							<p>All done! Easy as that</p>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>	
 		</div>
 	</div>
 </section>
@@ -134,7 +135,7 @@
 						of your life
 					</p>
 
-					<a href="project.html" class="btn btn-main">Gallery<i class="fa fa-angle-right ml-2"></i></a>
+					<a class="btn btn-main" href="{{route('gallery')}}">Gallery<i class="fa fa-angle-right ml-2"></i></a>
 				</div>
 			</div>
 		</div>
@@ -158,7 +159,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2758319024430558&type=3">
-						<img src="images/portfolio/gallery-index/event1.webp" alt="" class="img-fluid w-100">
+						<img src="{{asset('images/portfolio/gallery-index/event1.webp')}}" alt="" class="img-fluid w-100">
 						<div class="overlay-item"><i class="ti-link"></i></div>
 
 						<div class="portfolio-item-content">
@@ -172,7 +173,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2758319024430558&type=3">
-						<img src="images/portfolio/gallery-index/event2.webp" alt="" class="img-fluid w-100">
+						<img src="{{asset('images/portfolio/gallery-index/event2.webp')}}" alt="" class="img-fluid w-100">
 						<div class="overlay-item">
 							<i class="ti-link"></i>
 						</div>
@@ -187,7 +188,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2179834858945647&type=3">
-						<img src="images/portfolio/gallery-index/event3.webp" alt="" class="img-fluid w-100">
+						<img src="{{asset('images/portfolio/gallery-index/event3.webp')}}" alt="" class="img-fluid w-100">
 
 						<div class="overlay-item">
 							<i class="ti-link"></i>
@@ -203,7 +204,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2179834858945647&type=3">
-						<img src="images/portfolio/gallery-index/event4.webp" alt="" class="img-fluid w-100">
+						<img src="{{asset('images/portfolio/gallery-index/event4.webp')}}" alt="" class="img-fluid w-100">
 
 						<div class="overlay-item">
 							<i class="ti-link"></i>
@@ -219,7 +220,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="portflio-item position-relative  mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2486295468299583&type=3">
-						<img src="images/portfolio/gallery-index/event5.webp" alt="" class="img-fluid w-100">
+						<img src="{{asset('images/portfolio/gallery-index/event5.webp')}}" alt="" class="img-fluid w-100">
 
 						<div class="overlay-item">
 							<i class="ti-link"></i>
@@ -235,7 +236,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="portflio-item position-relative mb-2">
 					<a href="https://www.facebook.com/media/set/?set=a.2486295468299583&type=3">
-						<img src="images/portfolio/gallery-index/event6.webp" alt="" class="img-fluid w-100">
+						<img src="{{asset('images/portfolio/gallery-index/event6.webp')}}" alt="" class="img-fluid w-100">
 
 						<div class="overlay-item">
 							<i class="ti-link"></i>
@@ -251,7 +252,7 @@
 
 		<div class="row mx-2">
 			<div class="col-lg-4 col-md-6 mb-5 mx-2">
-				<a href="project.html" class="btn btn-main">Show more<i class="fa fa-angle-right ml-2"></i></a>
+				<a class="btn btn-main" href="{{route('gallery')}}">>Show more<i class="fa fa-angle-right ml-2"></i></a>
 			</div>
 		</div>
 	</div>
@@ -282,7 +283,9 @@
 	</div>
 </section>
 
-<section class="section testimonial">
+
+
+{{-- <section class="section testimonial">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8">
@@ -299,19 +302,19 @@
 			<div class="col-lg-12 testimonial-wrap">
 				<div class="testimonial-block">
 					<p>
-						I would like to thank you Mr. Henry(sample name) and the rest of your team for taking care of my
-						daughter's debut party. Your teams
+						I would like to thank you Mr. Henry and the rest of your team for taking care of my
+						debut party. Your teams
 						did an excellent job in filming the event. May God bless all of you always and more power to
 						your company.
 					</p>
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial1.jpg" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-one.webp')}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
+							<h6>Kate Garcia</h6>
+							<span>Solena Tuguegarao</span>
 						</div>
 					</div>
 				</div>
@@ -325,11 +328,11 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial2.jpg" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-two.webp')}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
+							<h6>Andrew Reyes</h6>
+							<span>Isabela</span>
 						</div>
 					</div>
 				</div>
@@ -342,11 +345,11 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial1.jpg" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-five.webp')}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
+							<h6>Liebel Delacruz</h6>
+							<span>Isabela City</span>
 						</div>
 					</div>
 				</div>
@@ -360,11 +363,11 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial2.jpg" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-six.webp')}} "alt="" class="img-fluid">
 						</div>
 						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
+							<h6>Catherine Delosantos</h6>
+							<span>Nueva Viscaya</span>
 						</div>
 					</div>
 				</div>
@@ -377,17 +380,19 @@
 
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="images/team/testimonial1.jpg" alt="" class="img-fluid">
+							<img src="{{asset('images/team/testimonial-four.webp')}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
+							<h6>Erna Joyce</h6>
+							<span>Ilagan City</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
+</section> --}}
+
+<x-testimonials />
 
 @endsection

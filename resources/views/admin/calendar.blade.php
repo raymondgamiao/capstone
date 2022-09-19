@@ -77,8 +77,8 @@
                                 <div class="card-title mb-0">
                                     <h4 class="mb-0">Book Appointment</h4>
                                 </div>
+                                @if (Auth::user()->usertype === 'admin')
                                 <div class="card-action mt-2 mt-sm-0">
-
                                     <button type="button" class="btn btn-primary ms-2 mt-2 mt-sm-0"
                                         data-bs-toggle="modal" data-bs-target="#add-appointment">
                                         <svg class="icon-20" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
@@ -89,6 +89,7 @@
                                         <span>Book Appointment</span>
                                     </button>
                                 </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -198,16 +199,16 @@
                                 <div class="row g-3 align-items-center form-group">
                                     <div class="col-2">
                                         <label class="col-form-label">
-                                            <svg class="icon-24" width="24" viewBox="0 0 24 24" fill="none"
+                                            <svg class="icon-32" width="28" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.7474 20.4429H21" stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M12.78 3.79479C13.5557 2.86779 14.95 2.73186 15.8962 3.49173C15.9485 3.53296 17.6295 4.83879 17.6295 4.83879C18.669 5.46719 18.992 6.80311 18.3494 7.82259C18.3153 7.87718 8.81195 19.7645 8.81195 19.7645C8.49578 20.1589 8.01583 20.3918 7.50291 20.3973L3.86353 20.443L3.04353 16.9723C2.92866 16.4843 3.04353 15.9718 3.3597 15.5773L12.78 3.79479Z"
+                                                    d="M11.9849 15.3462C8.11731 15.3462 4.81445 15.931 4.81445 18.2729C4.81445 20.6148 8.09636 21.2205 11.9849 21.2205C15.8525 21.2205 19.1545 20.6348 19.1545 18.2938C19.1545 15.9529 15.8735 15.3462 11.9849 15.3462Z"
                                                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M11.0208 6.00092L16.4731 10.188" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                    stroke-linejoin="round"></path>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M11.9849 12.0059C14.523 12.0059 16.5801 9.94779 16.5801 7.40969C16.5801 4.8716 14.523 2.81445 11.9849 2.81445C9.44679 2.81445 7.3887 4.8716 7.3887 7.40969C7.38013 9.93922 9.42394 11.9973 11.9525 12.0059H11.9849Z"
+                                                    stroke="currentColor" stroke-width="1.42857" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
                                             </svg>
                                         </label>
                                     </div>
@@ -220,22 +221,50 @@
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="row g-3 align-items-center form-group">
                                     <div class="col-2">
                                         <label class="col-form-label">
-                                            <svg class="icon-24" width="24" viewBox="0 0 24 24" fill="none"
+
+                                            <svg class="icon-32" width="29" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341"
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M9.87651 15.2063C6.03251 15.2063 2.74951 15.7873 2.74951 18.1153C2.74951 20.4433 6.01251 21.0453 9.87651 21.0453C13.7215 21.0453 17.0035 20.4633 17.0035 18.1363C17.0035 15.8093 13.7415 15.2063 9.87651 15.2063Z"
                                                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round"></path>
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M8.82812 10.921L16.3011 3.44799C17.2321 2.51799 18.7411 2.51799 19.6721 3.44799L20.8891 4.66499C21.8201 5.59599 21.8201 7.10599 20.8891 8.03599L13.3801 15.545C12.9731 15.952 12.4211 16.181 11.8451 16.181H8.09912L8.19312 12.401C8.20712 11.845 8.43412 11.315 8.82812 10.921Z"
+                                                    d="M9.8766 11.886C12.3996 11.886 14.4446 9.841 14.4446 7.318C14.4446 4.795 12.3996 2.75 9.8766 2.75C7.3546 2.75 5.3096 4.795 5.3096 7.318C5.3006 9.832 7.3306 11.877 9.8456 11.886H9.8766Z"
                                                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round"></path>
-                                                <path d="M15.1655 4.60254L19.7315 9.16854" stroke="currentColor"
+                                                <path d="M19.2036 8.66919V12.6792" stroke="currentColor"
                                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                                 </path>
+                                                <path d="M21.2497 10.6741H17.1597" stroke="currentColor"
+                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                                </path>
+                                            </svg>
+
+                                        </label>
+                                    </div>
+                                    <div class="col-10">
+                                        <select name="employees[]" class="form-select choices-multiple-remove-button"
+                                            multiple>
+                                            @foreach ($employees as $employee)
+                                            <option value="{{ $employee->id}}">{{ $employee->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 align-items-center form-group">
+                                    <div class="col-2">
+                                        <label class="col-form-label">
+                                            <svg class="icon-32" width="27" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.15722 20.7714V17.7047C9.1572 16.9246 9.79312 16.2908 10.581 16.2856H13.4671C14.2587 16.2856 14.9005 16.9209 14.9005 17.7047V17.7047V20.7809C14.9003 21.4432 15.4343 21.9845 16.103 22H18.0271C19.9451 22 21.5 20.4607 21.5 18.5618V18.5618V9.83784C21.4898 9.09083 21.1355 8.38935 20.538 7.93303L13.9577 2.6853C12.8049 1.77157 11.1662 1.77157 10.0134 2.6853L3.46203 7.94256C2.86226 8.39702 2.50739 9.09967 2.5 9.84736V18.5618C2.5 20.4607 4.05488 22 5.97291 22H7.89696C8.58235 22 9.13797 21.4499 9.13797 20.7714V20.7714"
+                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
                                             </svg>
                                         </label>
                                     </div>
@@ -274,7 +303,7 @@
                         <div class=" w-100" id="app-pills-tabContent">
                             <div class="fade active show" id="v-pills-home-3">
 
-                                <input type="text" name="id" id="id">
+                                <input type="hidden" name="id" id="id">
 
                                 <div class="row g-3 align-items-center form-group">
                                     <div class="col-2">
@@ -350,16 +379,16 @@
                                 <div class="row g-3 align-items-center form-group">
                                     <div class="col-2">
                                         <label class="col-form-label">
-                                            <svg class="icon-24" width="24" viewBox="0 0 24 24" fill="none"
+                                            <svg class="icon-32" width="28" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.7474 20.4429H21" stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M12.78 3.79479C13.5557 2.86779 14.95 2.73186 15.8962 3.49173C15.9485 3.53296 17.6295 4.83879 17.6295 4.83879C18.669 5.46719 18.992 6.80311 18.3494 7.82259C18.3153 7.87718 8.81195 19.7645 8.81195 19.7645C8.49578 20.1589 8.01583 20.3918 7.50291 20.3973L3.86353 20.443L3.04353 16.9723C2.92866 16.4843 3.04353 15.9718 3.3597 15.5773L12.78 3.79479Z"
+                                                    d="M11.9849 15.3462C8.11731 15.3462 4.81445 15.931 4.81445 18.2729C4.81445 20.6148 8.09636 21.2205 11.9849 21.2205C15.8525 21.2205 19.1545 20.6348 19.1545 18.2938C19.1545 15.9529 15.8735 15.3462 11.9849 15.3462Z"
                                                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M11.0208 6.00092L16.4731 10.188" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                    stroke-linejoin="round"></path>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M11.9849 12.0059C14.523 12.0059 16.5801 9.94779 16.5801 7.40969C16.5801 4.8716 14.523 2.81445 11.9849 2.81445C9.44679 2.81445 7.3887 4.8716 7.3887 7.40969C7.38013 9.93922 9.42394 11.9973 11.9525 12.0059H11.9849Z"
+                                                    stroke="currentColor" stroke-width="1.42857" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
                                             </svg>
                                         </label>
                                     </div>
@@ -372,22 +401,46 @@
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="row g-3 align-items-center form-group">
                                     <div class="col-2">
                                         <label class="col-form-label">
-                                            <svg class="icon-24" width="24" viewBox="0 0 24 24" fill="none"
+
+                                            <svg class="icon-32" width="29" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341"
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M9.87651 15.2063C6.03251 15.2063 2.74951 15.7873 2.74951 18.1153C2.74951 20.4433 6.01251 21.0453 9.87651 21.0453C13.7215 21.0453 17.0035 20.4633 17.0035 18.1363C17.0035 15.8093 13.7415 15.2063 9.87651 15.2063Z"
                                                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round"></path>
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M8.82812 10.921L16.3011 3.44799C17.2321 2.51799 18.7411 2.51799 19.6721 3.44799L20.8891 4.66499C21.8201 5.59599 21.8201 7.10599 20.8891 8.03599L13.3801 15.545C12.9731 15.952 12.4211 16.181 11.8451 16.181H8.09912L8.19312 12.401C8.20712 11.845 8.43412 11.315 8.82812 10.921Z"
+                                                    d="M9.8766 11.886C12.3996 11.886 14.4446 9.841 14.4446 7.318C14.4446 4.795 12.3996 2.75 9.8766 2.75C7.3546 2.75 5.3096 4.795 5.3096 7.318C5.3006 9.832 7.3306 11.877 9.8456 11.886H9.8766Z"
                                                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round"></path>
-                                                <path d="M15.1655 4.60254L19.7315 9.16854" stroke="currentColor"
+                                                <path d="M19.2036 8.66919V12.6792" stroke="currentColor"
                                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                                 </path>
+                                                <path d="M21.2497 10.6741H17.1597" stroke="currentColor"
+                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                                </path>
+                                            </svg>
+
+                                        </label>
+                                    </div>
+                                    <div class="col-10">
+                                        <select name="employee[]" id="employee" class="form-select" multiple>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 align-items-center form-group">
+                                    <div class="col-2">
+                                        <label class="col-form-label">
+                                            <svg class="icon-32" width="26" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.15722 20.7714V17.7047C9.1572 16.9246 9.79312 16.2908 10.581 16.2856H13.4671C14.2587 16.2856 14.9005 16.9209 14.9005 17.7047V17.7047V20.7809C14.9003 21.4432 15.4343 21.9845 16.103 22H18.0271C19.9451 22 21.5 20.4607 21.5 18.5618V18.5618V9.83784C21.4898 9.09083 21.1355 8.38935 20.538 7.93303L13.9577 2.6853C12.8049 1.77157 11.1662 1.77157 10.0134 2.6853L3.46203 7.94256C2.86226 8.39702 2.50739 9.09967 2.5 9.84736V18.5618C2.5 20.4607 4.05488 22 5.97291 22H7.89696C8.58235 22 9.13797 21.4499 9.13797 20.7714V20.7714"
+                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
                                             </svg>
                                         </label>
                                     </div>
@@ -401,9 +454,10 @@
                 </form>
                 <form action="{{ route('admin/calendar/delete') }}" method="post" id="delete-form">
                     @csrf
-                    <input type="text" name="iddelete" id="iddelete">
+                    <input type="hidden" name="iddelete" id="iddelete">
                 </form>
             </div>
+            @if (Auth::user()->usertype === 'admin')
             <div class="modal-footer border-0">
 
                 <button type="submit" form="delete-form" class="btn btn-danger" data-bs-dismiss="modal">Delete
@@ -413,6 +467,7 @@
                 <button type="submit" form="edit-form" class="btn btn-primary" data-bs-dismiss="modal"
                     name="save">Save</button>
             </div>
+            @endif
         </div>
     </div>
 </div>
@@ -464,8 +519,13 @@
 <!-- Fullcalender Javascript -->
 <script src="{{asset('assets/js/plugins/bookappointment.js')}}"></script>
 <script>
+    const element = document.querySelector('#employee');
+    const employeeChoices = new Choices(element,{              
+    removeItemButton: true
+   });
+   
     var events  = @json($events);
-    console.log(events);
+    //console.log(events);
     if (document.querySelectorAll("#bookingcalendar").length) {
     document.addEventListener("DOMContentLoaded", function () {
         let calendarEl = document.getElementById("bookingcalendar");
@@ -487,6 +547,7 @@
                 $("#date-event").modal("show");
             },
             eventClick: function (info) {
+                //console.log(info.event.extendedProps.employees);
                 $("#edit-appointment").modal("show");
                 const editelem = document.getElementById("edit-appointment");
                 editelem.querySelector("#id").value =
@@ -510,20 +571,40 @@
                 editelem.querySelector('[name="venue"]').value =
                     info.event.extendedProps.venue;
 
+                    var employeesAll =  @json($employees);
+                    var employees = info.event.extendedProps.employees;
 
-       /*          const updatebutton = editelem.querySelector('[name="save"]');
-                updatebutton.addEventListener("click", function () {
-                    info.event.setProp(
-                        "title",
-                        editelem.querySelector("#title-drop-1").value
-                    );
-                }); */
+               /*      value:  employeesAll[x].id,
+                    label: employeesAll[x].name,
+                    selected: false */
+                    const choicesArr=[];                   
+                    for(x=0; x<employeesAll.length; x++){                   
+                      if (employees.some(e => e.id === employeesAll[x].id)) {
+                        choicesArr.push({
+                            value:  employeesAll[x].id,
+                            label: employeesAll[x].name,
+                            selected: true
+                        });
+                      }else{
+                        choicesArr.push({
+                            value:  employeesAll[x].id,
+                            label: employeesAll[x].name,
+                            selected: false
+                        });
+                      }
+                    }
+
+                //console.log(choicesArr);
+                employeeChoices.clearStore();
+                employeeChoices.setChoices(choicesArr, 'value', 'label', true)                   
             },
 
         });
         bookingcalendar.render();
     });
+
 }
+
 
 </script>
 <script src="{{asset('assets/vendor/fullcalendar/core/main.js')}}"></script>

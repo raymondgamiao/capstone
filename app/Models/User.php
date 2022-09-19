@@ -22,7 +22,19 @@ class User extends Authenticatable
         'password',
         'usertype',
         'remember_token',
+        'status',
     ];
+
+    public function employee()
+    {
+        return $this->HasMany(Employee::class);
+    }
+
+    public function client()
+    {
+        return $this->HasMany(Client::class);
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.

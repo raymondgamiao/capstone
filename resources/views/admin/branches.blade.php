@@ -60,12 +60,15 @@
                     <div class="card-title mb-0">
                         <h4 class="mb-0">Branch List</h4>
                     </div>
+                    @if (Auth::user()->usertype === 'admin')
                     <div class="card-action mt-2 mt-sm-0">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#addBranchModal">
                             + Add Branch
                         </button>
                     </div>
+                    @endif
+
                 </div>
                 <div class="card-body px-0">
                     <div class="table-responsive">
@@ -76,7 +79,10 @@
                                     <th>Location</th>
                                     <th>Email</th>
                                     <th>Contact</th>
+                                    @if (Auth::user()->usertype === 'admin')
                                     <th style="min-width: 100px">Action</th>
+                                    @endif
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -86,6 +92,7 @@
                                     <td>{{ $branch->location }}</td>
                                     <td>{{ $branch->email }}</td>
                                     <td>{{ $branch->contact }}</td>
+                                    @if (Auth::user()->usertype === 'admin')
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
@@ -137,6 +144,8 @@
                                             </a>
                                         </div>
                                     </td>
+                                    @endif
+
                                 </tr>
                                 @endforeach
                             </tbody>

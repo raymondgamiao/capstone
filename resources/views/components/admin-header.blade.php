@@ -16,7 +16,7 @@
                     </svg>
                 </i>
             </div>
-            <div class="input-group search-input">
+            {{-- <div class="input-group search-input">
                 <span class="input-group-text" id="search-input">
                     <svg width="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="11.7669" cy="11.7666" r="8.98856" stroke="currentColor" stroke-width="1.5"
@@ -26,7 +26,7 @@
                     </svg>
                 </span>
                 <input type="search" class="form-control" placeholder="Search...">
-            </div>
+            </div> --}}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -41,28 +41,35 @@
                     <li class="nav-item dropdown">
                         <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{asset('assets/images/avatars/01.png')}}" alt="User-Profile"
+                            <img src="{{ asset('storage/' . Auth::user()->employee->first()->pfp) }}" alt="User-Profile"
                                 class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
                             <div class="caption ms-3 d-none d-md-block ">
-                                <h6 class="mb-0 caption-title">Mondi Gamiao</h6>
-                                <p class="mb-0 caption-sub-title">Admin</p>
+                                <h6 class="mb-0 caption-title"> {{ Auth::user()->employee->first()->name }}</h6>
+                                <p class="mb-0 caption-sub-title"> {{ Auth::user()->employee->first()->role }}</p>
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="../admin/app/user-profile.html">Profile</a></li>
-                            <li><a class="dropdown-item" href="../admin/app/user-privacy-setting.html">Privacy
-                                    Setting</a></li>
+                            <li><a class="dropdown-item" href="{{route('admin/profile')}}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{route('home')}}">Website</a></li>
+
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../admin/auth/sign-in.html">Logout</a></li>
+
+
+
+                            <li>
+                                <form action="{{route('logout')}}" method="post">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item"> Logout</button>
+                                </form>
+                            </li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
 
 
 
@@ -73,10 +80,10 @@
                 <div class="col-md-12">
                     <div class="flex-wrap d-flex justify-content-between align-items-center">
                         <div>
-                            <h1>Hello Mondi</h1>
-                            <p>Check your lates reports below!</p>
+                            <h1>Hello {{ Auth::user()->username }}!</h1>
+                            <p>Check your latest reports below!</p>
                         </div>
-                        <div>
+                        {{-- <div>
                             <a href="" class="btn btn-link btn-soft-light">
                                 <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -88,7 +95,7 @@
                                 </svg>
                                 Announcements
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -96,6 +103,16 @@
         <div class="iq-header-img">
             <img src="{{asset('assets/images/dashboard/top-header.png')}}" alt="header"
                 class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
+            <img src="{{asset('assets/images/dashboard/top-header1.png')}}" alt="header"
+                class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX">
+            <img src="{{asset('assets/images/dashboard/top-header2.png')}}" alt="header"
+                class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX">
+            <img src="{{asset('assets/images/dashboard/top-header3.png')}}" alt="header"
+                class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX">
+            <img src="{{asset('assets/images/dashboard/top-header4.png')}}" alt="header"
+                class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX">
+            <img src="{{asset('assets/images/dashboard/top-header5.png')}}" alt="header"
+                class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX">
         </div>
     </div>
     <!-- Nav Header Component End -->

@@ -9,7 +9,23 @@ class Employee extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'name', 'role', 'branch_id', 'contact'];
+    protected $fillable = [
+        'user_id',
+        'name',
+        'role',
+        'branch_id',
+        'contact',
+        'email',
+        'pfp',
+        'twitter',
+        'insta',
+        'fb',
+        'sss',
+        'philhealth',
+        'pagibig',
+        'address',
+        'bankacct'
+    ];
 
     public function user()
     {
@@ -19,5 +35,10 @@ class Employee extends Model
     public function branch()
     {
         return $this->belongsTo(Branch::class);
+    }
+
+    public function bookingemployees()
+    {
+        return $this->hasMany(BookingEmployees::class);
     }
 }

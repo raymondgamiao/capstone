@@ -59,12 +59,14 @@
                     <div class="card-title mb-0">
                         <h4 class="mb-0"> Gallery Albums </h4>
                     </div>
+                    @if (Auth::user()->usertype === 'admin')
                     <div class="card-action mt-2 mt-sm-0">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#addAlbumModal">
                             + Add Album
                         </button>
                     </div>
+                    @endif
                 </div>
                 <div class="card-body px-0">
                     <div class="table-responsive">
@@ -73,20 +75,27 @@
                                 <tr class="light">
                                     <th>Album Name</th>
                                     <th>Thumbnail</th>
-                                    <th>Cover</th>
                                     <th>Date</th>
                                     <th>URL</th>
+                                    @if (Auth::user()->usertype === 'admin')
                                     <th style="min-width: 100px">Action</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($galleries as $gallery)
                                 <tr>
                                     <td>{{ $gallery->album_name }}</td>
-                                    <td><img src="{{asset( $gallery->album_cover )}}" alt="sad" width="50px"></td>
-                                    <td>{{ $gallery->album_cover }}</td>
+                                    <td><img src="{{asset( 'storage/' . $gallery->album_cover )}}" alt="sad"
+                                            width="50px"></td>
                                     <td>{{ $gallery->album_date }}</td>
-                                    <td>{{ $gallery->album_url }}</td>
+                                    <td>
+                                        <a href=" {{ $gallery->album_url }}" target="_blank">
+                                            Click to view Album
+                                        </a>
+
+                                    </td>
+                                    @if (Auth::user()->usertype === 'admin')
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
@@ -138,6 +147,7 @@
                                             </a>
                                         </div>
                                     </td>
+                                    @endif
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -158,7 +168,7 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Add Album</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('admin/gallery/store') }}">
+            <form method="POST" action="{{ route('admin/gallery/store') }}" enctype="multipart/form-data">
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
@@ -179,7 +189,7 @@
                             <label for="album_cover" class="col-form-label">Cover Image</label>
                         </div>
                         <div class="col-8">
-                            <input type="text" id="album_cover" name="album_cover" class="form-control"
+                            <input type="file" id="album_cover" name="album_cover" class="form-control"
                                 aria-describedby="addtitle" value={{old('album_cover')}}>
                         </div>
                         @error('album_cover')
@@ -237,7 +247,7 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row g-1 align-items-center form-group">
-                        <input type="text" id="album_IDEdit" name="album_IDEdit" class="form-control">
+                        <input type="hidden" id="album_IDEdit" name="album_IDEdit" class="form-control">
                     </div>
 
                     <div class="row g-1 align-items-center form-group">

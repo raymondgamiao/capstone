@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\logs;
 use App\Models\User;
 use App\Models\Branch;
 use App\Models\Client;
@@ -59,12 +60,21 @@ class ClientController extends Controller
             'remember_token' => Str::random(10)
         ]);
 
-        Client::create([
+        $client =  Client::create([
             'user_id' => $user->id,
             'name' =>  $formFields['name'],
             'email' =>   $formFields['email'],
             'address' => $formFields['address'],
-            'contact' => $formFields['contact']
+            'contact' => $formFields['contact'],
+            'pfp' => 'images/pfp/01.png'
+
+        ]);
+
+
+        logs::create([
+            'log_id' => $client->id,
+            'name' => 'New Client ' .  $formFields['name'],
+            'log_type' => 'Client'
         ]);
 
         return redirect('/admin/clients')->with('success', 'client created succesfully');
@@ -75,6 +85,12 @@ class ClientController extends Controller
         // dd($request->all());
         $client = Client::find($request->clientIDDelete);
         $client->delete();
+
+        logs::create([
+            'log_id' => $request->clientIDDelete,
+            'name' => 'Deleted Client ' . $client->name,
+            'log_type' => 'Client'
+        ]);
 
         return redirect()->route('admin/clients')->with('success', 'client deleted succesfully');
     }
@@ -95,6 +111,12 @@ class ClientController extends Controller
         $client->contact = $formFields['contactEdit'];
         $client->address = $formFields['addressEdit'];
         $client->save();
+
+        logs::create([
+            'log_id' => $request->clientIDEdit,
+            'name' => 'Updated Client ' .  $formFields['nameEdit'],
+            'log_type' => 'Client'
+        ]);
 
         return redirect()->route('admin/clients')->with('success', 'client updated succesfully');
     }
