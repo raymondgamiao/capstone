@@ -118,7 +118,6 @@ Route::middleware(['auth', 'isClient'])->group(function () {
     Route::get('clientprofile', [ClientProfileController::class, 'index'])->name('clientprofile');
     Route::post('/client/profile/update', [UserController::class, 'clientupdate'])->name('client/profile/update');
 
-    Route::post('/admin/branches/store', [BranchController::class, 'store'])->name('admin/branches/store');
     Route::post('/bookingreservation/store', [BookingReservationController::class, 'store'])->name('bookingreservation/store');
 });
 
