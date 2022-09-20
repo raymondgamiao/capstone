@@ -100,14 +100,15 @@ Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
     Route::get('/admin/logs', [LogsController::class, 'index'])->name('admin/logs');
     Route::get('/admin/bookings', [BookingsController::class, 'index'])->name('admin/bookings');
     Route::get('/admin/reservations', [BookingReservationController::class, 'index'])->name('admin/reservations');
+});
 
+Route::middleware(['auth', 'isEmployee'])->group(function () {
     Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin/profile');
     Route::get('/admin/editprofile', function () {
         return view('admin/editprofile');
     })->name('admin/editprofile');
     Route::post('/admin/profile/update', [UserController::class, 'employeeupdate'])->name('admin/profile/update');
 });
-
 /* client routes */
 Route::middleware(['auth', 'isClient'])->group(function () {
 

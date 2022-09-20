@@ -25,7 +25,6 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-
         $formFields = $request->validate(
             [
                 'username' => ['required', Rule::unique('users', 'username')],
@@ -52,7 +51,7 @@ class UserController extends Controller
                 'pfp' =>  'images/pfp/01.png'
             ]);
             auth()->login($user);
-            return redirect('/');
+            return redirect()->route('contact')->with('success', 'Thank you for registering with us!');
         } elseif ($request->usertype === 'employee') {
             $user = User::create([
                 'username' =>  $formFields['username'],
@@ -67,7 +66,8 @@ class UserController extends Controller
                 'pfp' => 'images/pfp/01.png'
             ]);
             // dd($user);
-            return redirect('/admin/profile')->with('message', 'you have successfully creadtd an account. inform the admin to change status blabla');
+            auth()->login($user);
+            return redirect('/admin/profile')->with('success', 'You have successfully created an account. Inform the admin to change your status');
         } elseif ($request->usertype === 'admin') {
             $user = User::create([
                 'username' =>  $formFields['username'],
@@ -81,7 +81,7 @@ class UserController extends Controller
                 'name' =>  $formFields['name'],
                 'pfp' =>  'images/pfp/01.png'
             ]);
-            return redirect('/admin/profile')->with('message', 'you have successfully creadtd an account. inform the admin to change status blabla');
+            return redirect('/admin/profile')->with('success', 'You have successfully created an account. Inform the admin to change your status');
         }
     }
 

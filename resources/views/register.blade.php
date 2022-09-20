@@ -46,13 +46,17 @@
                   @error('usertype')
                   <span class="text-danger "><em>{{$message}}</em></span>
                   @enderror
-
-                  <select class="form-control form-control-lg" name="usertype">
-                    <option selected value="client">Client</option>
-                    <option selected value="employee">Employee</option>
-                    <option selected value="admin">Admin</option>
-                  </select>
-                  <label class="form-label mb-4" for="usertype">User type</label>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <!-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> -->
+                    <div class="form-outline flex-fill mb-0">
+                      <select class="form-control form-control-lg" name="usertype">
+                        <option selected value="client">Client</option>
+                        <option selected value="employee">Employee</option>
+                        <option selected value="admin">Admin</option>
+                      </select>
+                      <label class="form-label mb-4" for="usertype">User type</label>
+                    </div>
+                  </div>
 
 
                   {{-- @error('usertype')
