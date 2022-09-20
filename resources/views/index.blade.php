@@ -13,7 +13,7 @@
 					<p class="mb-5"> We'll create the perfect photo of your event. You've heard two heads are better
 						than one, <br>what about a whole team of heads whose passion is great photo experiences</p>
 
-						<a class="btn btn-main" href="{{route('contact')}}">Let's Get in Touch<i
+						<a class="btn btn-main" href="{{route('contact')}}">Book with us now<i
 							class="fa fa-angle-right ml-2"></i></a>
 				</div>
 			</div>
@@ -21,10 +21,10 @@
 	</div>
 </section>
 
-<img class="img-banner" src="images/bg/mobile-view-banner.png">
-{{-- <img class="img-banner-2" src="images/bg/mobile-view-banner-2.png"> --}}
+<center><img class="img-banner" src="images/bg/mobile-view-banner.webp"></center>
 
-{{-- <p class="sample-text"> Hello World </p> --}}
+
+
 
 <section class="section about">
 	<div class="container">
@@ -252,7 +252,7 @@
 
 		<div class="row mx-2">
 			<div class="col-lg-4 col-md-6 mb-5 mx-2">
-				<a class="btn btn-main" href="{{route('gallery')}}">>Show more<i class="fa fa-angle-right ml-2"></i></a>
+				<a class="btn btn-main" href="{{route('gallery')}}">Show more<i class="fa fa-angle-right ml-2"></i></a>
 			</div>
 		</div>
 	</div>

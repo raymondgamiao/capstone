@@ -40,13 +40,13 @@
                 </div>
                 @endif
                 @if (session()->has('success'))
-                <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show"
+                <div x-data="{show: true}" x-init="setTimeout(() => show = false, 10000)" x-show="show"
                     class="alert alert-success" role="alert">
                     {{session('success')}}
                 </div>
                 @endif
                 <span class="text-color">Send a message</span>
-                <h3 class="text-md mb-2">Contact Form</h3>
+                <h3 class="text-md mb-2">Booking Reservation Form</h3>
                 <div class="row">
                     <div class="col-lg-8">
 
@@ -106,7 +106,7 @@
                                         </div>
                                         <div class="col-12">
                                             <button class="btn btn-main" type="submit">
-                                                Send Message
+                                                Book reservation
                                             </button>
                                         </div>
                                     </div>
@@ -117,7 +117,7 @@
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                     aria-labelledby="nav-home-tab" tabindex="0">
                                     <!-- Contact us -->
-
+                                    
                                     <div class="form-group">
                                         <input type="text" name="Name" class="form-control" placeholder="Full Name" />
                                     </div>
@@ -189,7 +189,7 @@
             @foreach ($branches as $branch)
             <div class="col-lg-4 col-md-6 mb-5">
                 <div class="contact-info ">
-                    <a href class="mb-4"><strong>{{ $branch['name'] }}</strong></a></h4>
+                    <h5><strong>{{ $branch['name'] }}</strong></h5>
                     <ul class="address-block list-unstyled">
                         <li>
                             <i class="ti-location-pin mr-3"></i>{{ $branch['location'] }}
