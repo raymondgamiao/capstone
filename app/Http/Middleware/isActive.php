@@ -21,7 +21,7 @@ class isActive
             if (Auth::user()->status === 'active') {
                 return $next($request);
             } else {
-                return redirect()->route('home')->with('message', 'your accoutn is not active');
+                return redirect()->route('admin/profile')->with('error', 'Your account is not active. Please contact an admin');
             }
         }
     }

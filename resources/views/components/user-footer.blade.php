@@ -34,15 +34,15 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="widget widget-contact mb-5 mb-lg-0">
-					<h4 class="text-capitalize mb-4">Get in Touch</h4>
-					<h6><a href="tel:+23-345-67890" > <i class="ti-email mr-3"></i>Support@megakit.com</a></h6>
-					<h6><a href="Support@megakit.com " > <i class="ti-mobile mr-3"></i>+23-456-6588</a></h6>
-					<h6><a href="https://web.facebook.com/pc2luna"> <i class="ti-facebook mr-3"></i>Faceook Page</a></h6>
-
-					
-				</div>
-			</div>
+                <div class="widget widget-contact mb-5 mb-lg-0">
+                    <h4 class="text-capitalize mb-4">Get in Touch</h4>
+                    <h6><a href="mailto:photocity38@gmail.com"> <i class="ti-email mr-3"></i>photocity38@gmail.com</a>
+                    </h6>
+                    <h6><a href="#"> <i class="ti-mobile mr-3"></i>+23-456-6588</a></h6>
+                    <h6><a href="https://web.facebook.com/pc2luna"> <i class="ti-facebook mr-3"></i>Faceook Page</a>
+                    </h6>
+                </div>
+            </div>
         </div>
 
         <div class="footer-btm py-4 mt-5">

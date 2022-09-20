@@ -38,13 +38,16 @@
           @else
           src="{{ asset('storage/' . Auth::user()->employee->first()->pfp) }}"
           @endif
-
           />
+
         </button>
         <ul class="dropdown-menu w-100">
           <li><a class="dropdown-item" href="#"><strong>{{Auth::user()->username}}</strong><br></a></li>
           @if (Auth::user()->usertype !== 'client')
+          @if (Auth::user()->status === 'active')
           <li><a class="dropdown-item" href="{{route('admin')}}">Dashboard</a></li>
+          @endif
+          <li><a class="dropdown-item" href="{{route('admin/profile')}}">Profile</a></li>
           @else
           <li><a class="dropdown-item" href="{{route('clientprofile')}}">Profile</a></li>
           @endif
