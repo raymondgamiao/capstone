@@ -85,6 +85,9 @@ Route::middleware(['auth', 'isAdmin', 'isActive'])->group(function () {
     Route::post('/admin/branches/store', [BranchController::class, 'store'])->name('admin/branches/store');
     Route::post('/admin/branches/update', [BranchController::class, 'update'])->name('admin/branches/update');
     Route::post('/admin/branches/delete', [BranchController::class, 'delete'])->name('admin/branches/delete');
+
+    Route::post('/admin/reservation/delete', [BookingReservationController::class, 'delete'])->name('admin/reservation/delete');
+    Route::post('/admin/reservation/approve', [BookingReservationController::class, 'approve'])->name('admin/reservation/approve');
 });
 
 /* employee routes */
