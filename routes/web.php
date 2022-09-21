@@ -107,6 +107,8 @@ Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
     Route::get('/admin/logs', [LogsController::class, 'index'])->name('admin/logs');
     Route::get('/admin/bookings', [BookingsController::class, 'index'])->name('admin/bookings');
     Route::get('/admin/reservations', [BookingReservationController::class, 'index'])->name('admin/reservations');
+
+    Route::get('/admin/profile/{user}', [UserController::class, 'show']);
 });
 
 Route::middleware(['auth', 'isEmployee'])->group(function () {
