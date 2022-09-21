@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\BookingEmployees;
+use App\Models\BookingReservation;
 use App\Models\Bookings;
 use App\Models\User;
 use App\Models\Branch;
@@ -366,6 +367,52 @@ class DatabaseSeeder extends Seeder
             'name' =>  $faker->name(),
             'contact' => '09' . $faker->numerify('##-###-####'),
             'pfp' => 'images/pfp/07.jpg'
+        ]);
+
+
+        User::create([
+            'username' => 'client',
+            'password' =>  bcrypt('client'),
+            'usertype' => 'client',
+            'status' => 'active',
+            'remember_token' =>  Str::random(10)
+        ]);
+
+        Client::create([
+            'user_id' => 11,
+            'email' => $faker->email(),
+            'address' => $faker->Address(),
+            'name' =>  'Juan Dela Cruz',
+            'contact' => '09' . $faker->numerify('##-###-####'),
+            'pfp' => 'images/pfp/01.png'
+        ]);
+
+        User::create([
+            'username' => 'employee',
+            'password' =>  bcrypt('employee'),
+            'usertype' => 'employee',
+            'status' => 'pending',
+            'remember_token' =>  Str::random(10)
+        ]);
+
+        Employee::create([
+            'user_id' => 12,
+            'role' => 'Lights Technician',
+            'branch_id' => 3,
+            'name' => 'Gabriel East',
+            'contact' => '09' .  $faker->numerify('##-###-####'),
+            'pfp' => 'images/pfp/01.png'
+        ]);
+
+        BookingReservation::create([
+            'name' => 'Raul 19th Bday',
+            'date_start' => '2022-09-29',
+            'date_end' => '2022-09-29',
+            'time_start' => '13:00:00',
+            'time_end' => '13:00:00',
+            'venue' => "Manio's Pampanguena",
+            'message' => 'Basic lang photo video',
+            'client_id' => 8,
         ]);
 
         Gallery::create([

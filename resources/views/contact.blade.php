@@ -30,7 +30,7 @@
         {{-- contact form --}}
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                @if ($errors->any())
+                {{-- @if ($errors->any())
                 <div x-data="{show: true}" class="alert alert-danger card-action " role="alert">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -38,15 +38,15 @@
                         @endforeach
                     </ul>
                 </div>
-                @endif
+                @endif --}}
                 @if (session()->has('success'))
-                <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show"
+                <div x-data="{show: true}" x-init="setTimeout(() => show = false, 10000)" x-show="show"
                     class="alert alert-success" role="alert">
                     {{session('success')}}
                 </div>
                 @endif
                 <span class="text-color">Send a message</span>
-                <h3 class="text-md mb-2">Contact Form</h3>
+                <h3 class="text-md mb-2">{{ Auth::check() ? 'Booking Reservation Form' : 'Contact Form' }}</h3>
                 <div class="row">
                     <div class="col-lg-8">
 
@@ -65,30 +65,28 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-12 col-sm-6">
-                                            <input id="start_date" name="start_date" class="form-control"
-                                                placeholder="Date Start" type="text" onfocus="(this.type='date')"
-                                                onblur="(this.type='text')" value="{{old('start_date')}}" />
+                                            <input id="start_date" name="start_date"
+                                                class="form-control date_flatpicker" placeholder="Date Start"
+                                                value="{{old('start_date')}}" />
                                             @error('start_date')
                                             <span class="text-danger "><em>{{$message}}</em></span>
                                             @enderror
                                         </div>
                                         <div class=" form-group col-12 col-sm-6">
-                                            <input id="end_date" name="end_date" class="form-control"
-                                                placeholder="Date End" type="text" onfocus="(this.type='date')"
-                                                onblur="(this.type='text')" value="{{old('end_date')}}" />
+                                            <input id="end_date" name="end_date" class="form-control date_flatpicker"
+                                                placeholder="Date End" value="{{old('end_date')}}" />
                                         </div>
                                         <div class="form-group col-12 col-sm-6">
-                                            <input id="start_time" name="start_time" class="form-control"
-                                                placeholder="Time Start" type="text" onfocus="(this.type='time')"
-                                                onblur="(this.type='text')" value="{{old('start_time')}}" />
+                                            <input id="start_time" name="start_time"
+                                                class="form-control time_flatpicker" placeholder="Time Start"
+                                                value="{{old('start_time')}}" />
                                             @error('start_time')
                                             <span class="text-danger "><em>{{$message}}</em></span>
                                             @enderror
                                         </div>
                                         <div class="form-group col-12 col-sm-6">
-                                            <input id="end_time" name="end_time" class="form-control"
-                                                placeholder="Time End" type="text" onfocus="(this.type='time')"
-                                                onblur="(this.type='text')" value="{{old('end_time')}}" />
+                                            <input id="end_time" name="end_time" class="form-control time_flatpicker"
+                                                placeholder="Time End" value="{{old('end_time')}}" />
                                             @error('end_time')
                                             <span class="text-danger "><em>{{$message}}</em></span>
                                             @enderror
@@ -106,7 +104,7 @@
                                         </div>
                                         <div class="col-12">
                                             <button class="btn btn-main" type="submit">
-                                                Send Message
+                                                Book reservation
                                             </button>
                                         </div>
                                     </div>
@@ -151,14 +149,16 @@
                                 </li>
                                 <li>
                                     <h5><a href="mailto:photocity38@gmail.com">Email Us</a></h5>
-                                    Support@megakit.com
+                                    photocity38@gmail.com
                                 </li>
                                 <li>
-                                    <h5><a href="https://goo.gl/maps/VhTdh3mDsA2UQxs89">Location Map</a></h5>
+                                    <h5><a href="https://goo.gl/maps/VhTdh3mDsA2UQxs89" target="_blank">Location Map</a>
+                                    </h5>
                                     3500, 6 Mabini St. Tuguegarao City, Cagayan
                                 </li>
                                 <li>
-                                    <h5><a href="https://web.facebook.com/pc2luna">Facebook Page</a></h5>
+                                    <h5><a href="https://web.facebook.com/pc2luna" target="_blank">Facebook Page</a>
+                                    </h5>
                                     https://web.facebook.com/pc2luna
                                 </li>
                             </ul>
@@ -189,7 +189,7 @@
             @foreach ($branches as $branch)
             <div class="col-lg-4 col-md-6 mb-5">
                 <div class="contact-info ">
-                    <a href class="mb-4"><strong>{{ $branch['name'] }}</strong></a></h4>
+                    <h5><strong>{{ $branch['name'] }}</strong></h5>
                     <ul class="address-block list-unstyled">
                         <li>
                             <i class="ti-location-pin mr-3"></i>{{ $branch['location'] }}
@@ -208,4 +208,11 @@
         </div>
     </div>
 </section>
+
+@endsection
+
+@section('scripts')
+<!-- Flatpickr Script -->
+<script src="{{asset('assets/vendor/flatpickr/dist/flatpickr.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins/flatpickr.js')}}" defer></script>
 @endsection

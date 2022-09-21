@@ -21,7 +21,7 @@ class CreateBookingReservationsTable extends Migration
             $table->time('time_start');
             $table->time('time_end');
             $table->string('venue');
-            $table->longText('message');
+            $table->longText('message')->nullable();
 
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');

@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use Hash;
+use Carbon\Carbon;
 use App\Models\logs;
 use App\Models\User;
 use App\Models\Client;
+use App\Models\Bookings;
 use App\Models\Employee;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 use function GuzzleHttp\Promise\all;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -25,7 +28,6 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-
         $formFields = $request->validate(
             [
                 'username' => ['required', Rule::unique('users', 'username')],
@@ -52,7 +54,7 @@ class UserController extends Controller
                 'pfp' =>  'images/pfp/01.png'
             ]);
             auth()->login($user);
-            return redirect('/');
+            return redirect()->route('contact')->with('success', 'Thank you for registering with us!');
         } elseif ($request->usertype === 'employee') {
             $user = User::create([
                 'username' =>  $formFields['username'],
@@ -67,7 +69,8 @@ class UserController extends Controller
                 'pfp' => 'images/pfp/01.png'
             ]);
             // dd($user);
-            return redirect('/admin/profile')->with('message', 'you have successfully creadtd an account. inform the admin to change status blabla');
+            auth()->login($user);
+            return redirect('/admin/profile')->with('success', 'You have successfully created an account. Inform the admin to change your status');
         } elseif ($request->usertype === 'admin') {
             $user = User::create([
                 'username' =>  $formFields['username'],
@@ -81,7 +84,7 @@ class UserController extends Controller
                 'name' =>  $formFields['name'],
                 'pfp' =>  'images/pfp/01.png'
             ]);
-            return redirect('/admin/profile')->with('message', 'you have successfully creadtd an account. inform the admin to change status blabla');
+            return redirect('/admin/profile')->with('success', 'You have successfully created an account. Inform the admin to change your status');
         }
     }
 
@@ -209,5 +212,50 @@ class UserController extends Controller
 
 
         return redirect()->route('clientprofile')->with('success', 'profile updated succesfully');
+    }
+
+    public function show(User $user)
+    {
+        // dd($user->client->first()->id);
+        $usertype = $user->usertype;
+        // dd($usertype);
+
+        if ($usertype === 'admin' || $usertype === 'employee') {
+            $upcomingevents = DB::table('employees')
+                ->select('employees.name as employee', 'bookings.name as booking', 'bookings.date_start as when', 'bookings.time_start as time_start', 'bookings.venue as venue')
+                ->join('booking_employees', 'booking_employees.employee_id', '=', 'employees.id')
+                ->join('bookings', 'booking_employees.booking_id', '=', 'bookings.id')
+                ->where('booking_employees.employee_id', '=', $user->id)
+                ->where('date_start', '>=',  Carbon::now())
+                ->paginate(10);
+
+            $pastevents = DB::table('employees')
+                ->select('employees.name as employee', 'bookings.name as booking', 'bookings.date_start as when', 'bookings.time_start as time_start', 'bookings.venue as venue')
+                ->join('booking_employees', 'booking_employees.employee_id', '=', 'employees.id')
+                ->join('bookings', 'booking_employees.booking_id', '=', 'bookings.id')
+                ->where('booking_employees.employee_id', '=', $user->id)
+                ->where('date_start', '<=',  Carbon::now())
+                ->paginate(10);
+        } else {
+            $upcomingevents = DB::table('bookings')
+                ->select('name', 'date_start', 'time_start', 'venue')
+                ->where('client_id', '=', $user->client->first()->id)
+                ->where('date_start', '>=',  Carbon::now())
+                ->paginate(10);
+            $pastevents = DB::table('bookings')
+                ->select('name', 'date_start', 'time_start', 'venue')
+                ->where('client_id', '=', $user->client->first()->id)
+                ->where('date_start', '<=',  Carbon::now())
+                ->paginate(10);
+        }
+
+
+        return view('admin.showProfile', [
+            'user' => $user,
+            'upcomingevents' => $upcomingevents,
+            'pastevents' => $pastevents,
+            'usertype' => $usertype,
+            'title' => 'Profile'
+        ]);
     }
 }

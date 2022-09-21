@@ -36,6 +36,18 @@
 @section('content')
 <div class="container content-inner mt-n5 py-0">
   <div>
+    @if (session()->has('error'))
+    <div x-data="{show: true}" x-init="setTimeout(() => show = false, 10000)" x-show="show" class="alert alert-danger"
+      role="alert">
+      {{session('error')}}
+    </div>
+    @endif
+    @if (session()->has('success'))
+    <div x-data="{show: true}" x-init="setTimeout(() => show = false, 10000)" x-show="show" class="alert alert-success"
+      role="alert">
+      {{session('success')}}
+    </div>
+    @endif
     <div class="row">
       <div class="col-lg-4">
         <div class="card mb-4">

@@ -88,7 +88,11 @@
                                 @foreach ($clients as $client)
                                 <tr>
                                     <td>{{ $client->user->username }}</td>
-                                    <td>{{ $client->name }}</td>
+                                    <td>
+                                        <a href="/admin/profile/{{ $client->user->id }}">
+                                            {{ $client->name }}
+                                        </a>
+                                    </td>
                                     <td>{{ $client->email }}</td>
                                     <td>{{ $client->contact }}</td>
                                     <td>{{ $client->address }}</td>

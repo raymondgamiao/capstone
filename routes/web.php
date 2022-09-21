@@ -62,6 +62,10 @@ Route::middleware(['auth', 'isAdmin', 'isActive'])->group(function () {
     Route::post('/admin/calendar/update', [CalendarController::class, 'update'])->name('admin/calendar/update');
     Route::post('/admin/calendar/delete', [CalendarController::class, 'delete'])->name('admin/calendar/delete');
 
+    Route::post('/admin/booking/store', [BookingsController::class, 'store'])->name('admin/booking/store');
+    Route::post('/admin/booking/update', [BookingsController::class, 'update'])->name('admin/booking/update');
+    Route::post('/admin/booking/delete', [BookingsController::class, 'delete'])->name('admin/booking/delete');
+
     Route::post('/admin/inventory/store', [InventoryController::class, 'store'])->name('admin/inventory/store');
     Route::post('/admin/inventory/update', [InventoryController::class, 'update'])->name('admin/inventory/update');
     Route::post('/admin/inventory/delete', [InventoryController::class, 'delete'])->name('admin/inventory/delete');
@@ -85,6 +89,9 @@ Route::middleware(['auth', 'isAdmin', 'isActive'])->group(function () {
     Route::post('/admin/branches/store', [BranchController::class, 'store'])->name('admin/branches/store');
     Route::post('/admin/branches/update', [BranchController::class, 'update'])->name('admin/branches/update');
     Route::post('/admin/branches/delete', [BranchController::class, 'delete'])->name('admin/branches/delete');
+
+    Route::post('/admin/reservation/delete', [BookingReservationController::class, 'delete'])->name('admin/reservation/delete');
+    Route::post('/admin/reservation/approve', [BookingReservationController::class, 'approve'])->name('admin/reservation/approve');
 });
 
 /* employee routes */
@@ -101,13 +108,16 @@ Route::middleware(['auth', 'isEmployee', 'isActive'])->group(function () {
     Route::get('/admin/bookings', [BookingsController::class, 'index'])->name('admin/bookings');
     Route::get('/admin/reservations', [BookingReservationController::class, 'index'])->name('admin/reservations');
 
+    Route::get('/admin/profile/{user}', [UserController::class, 'show']);
+});
+
+Route::middleware(['auth', 'isEmployee'])->group(function () {
     Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin/profile');
     Route::get('/admin/editprofile', function () {
         return view('admin/editprofile');
     })->name('admin/editprofile');
     Route::post('/admin/profile/update', [UserController::class, 'employeeupdate'])->name('admin/profile/update');
 });
-
 /* client routes */
 Route::middleware(['auth', 'isClient'])->group(function () {
 
