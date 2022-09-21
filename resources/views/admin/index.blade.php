@@ -259,9 +259,12 @@
                                                     @foreach ($bookingEmployees->where('booking_id', '=',
                                                     $upcomingvent->id)
                                                     as $bookingEmployee)
-                                                    <img src="{{ asset('storage/' . App\Models\Employee::find($bookingEmployee->employee_id)->pfp) }}"
-                                                        alt="" class="img-fluid avatar-40 avatar-rounded shadow"
-                                                        style="margin:-8px;">
+                                                    <a
+                                                        href="/admin/profile/{{  App\Models\Employee::find($bookingEmployee->employee_id)->user->id}}">
+                                                        <img src="{{ asset('storage/' . App\Models\Employee::find($bookingEmployee->employee_id)->pfp) }}"
+                                                            alt="" class="img-fluid avatar-40 avatar-rounded shadow"
+                                                            style="margin:-8px;">
+                                                    </a>
                                                     @endforeach
                                                 </div>
 
