@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="{{asset('plugins/slick-carousel/slick/slick.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/slick-carousel/slick/slick-theme.css')}}">
 
+    <link rel="stylesheet" href="{{asset('assets/vendor/flatpickr/dist/flatpickr.min.css')}}" />
+
+
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
@@ -48,8 +51,10 @@
     <!-- Bootstrap 4.3.2 -->
     <script src="{{asset('plugins/bootstrap/js/popper.js')}}"></script>
     <script src="{{asset('plugins/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>	
-	
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
+
 
     <!--  Magnific Popup-->
     <script src="{{asset('plugins/magnific-popup/dist/jquery.magnific-popup.min.js')}}"></script>
@@ -67,7 +72,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap">
     </script>
 
-    
+
 
     <script>
         function menuToggle() {
@@ -76,10 +81,11 @@
         }
     </script>
 
-    
+
 
     <script src="{{asset('js/script.js')}}"></script>
 
+    @yield('scripts')
 </body>
 
 </html>

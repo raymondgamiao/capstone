@@ -13,6 +13,7 @@
     <!-- Library / Plugin Css Build -->
     <link rel="stylesheet" href="{{asset('assets/css/core/libs.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/vendor/choiceJS/style/choices.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/vendor/flatpickr/dist/flatpickr.min.css')}}" />
 
     <!-- Hope Ui Design System Css -->
     <link rel="stylesheet" href="{{asset('assets/css/hope-ui.min.css?v=1.2.0')}}" />
@@ -59,7 +60,7 @@
                 @endif
                 <div class="card-body d-flex justify-content-between align-items-center flex-wrap">
                     <div class="card-title mb-0">
-                        <h4 class="mb-0">Booking Records</h4>
+                        <h4 class="mb-0">Booking Reservations</h4>
                     </div>
                 </div>
                 <div class="card-body px-0">
@@ -357,7 +358,7 @@
             <form action="{{ route('admin/reservation/delete') }}" method="POST">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Decline Deservation</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Decline Reservation</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -370,7 +371,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger">Delete Branch</button>
+                    <button type="submit" class="btn btn-danger">DECLINE</button>
                 </div>
             </form>
         </div>
@@ -400,6 +401,10 @@
 <!-- Choisejs Script -->
 <script src="{{asset('assets/vendor/choiceJS/script/choices.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/choice.js')}}" defer></script>
+
+<!-- Flatpickr Script -->
+<script src="{{asset('assets/vendor/flatpickr/dist/flatpickr.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins/flatpickr.js')}}" defer></script>
 
 <!-- Settings Script -->
 <script src="{{asset('assets/js/plugins/setting.js')}}"></script>

@@ -137,11 +137,6 @@ class CalendarController extends Controller
             $end_date = $request->end_date;
         }
 
-
-
-
-
-
         $booking = Bookings::find($request->id);
         $booking->name = $formFields['name'];
         $booking->date_start = $formFields['start_date'];
@@ -152,8 +147,6 @@ class CalendarController extends Controller
         $booking->client_id = $formFields['client'];
         $booking->save();
 
-
-
         BookingEmployees::where('booking_id', '=', $request->id)->delete();
 
         foreach ($request->employee as $employee) {
@@ -162,8 +155,6 @@ class CalendarController extends Controller
                 'employee_id' => $employee
             ]);
         }
-
-
         logs::create([
             'log_id' => $request->id,
             'name' => 'Updated Booking ' .  $formFields['name'],

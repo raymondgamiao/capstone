@@ -62,6 +62,10 @@ Route::middleware(['auth', 'isAdmin', 'isActive'])->group(function () {
     Route::post('/admin/calendar/update', [CalendarController::class, 'update'])->name('admin/calendar/update');
     Route::post('/admin/calendar/delete', [CalendarController::class, 'delete'])->name('admin/calendar/delete');
 
+    Route::post('/admin/booking/store', [BookingsController::class, 'store'])->name('admin/booking/store');
+    Route::post('/admin/booking/update', [BookingsController::class, 'update'])->name('admin/booking/update');
+    Route::post('/admin/booking/delete', [BookingsController::class, 'delete'])->name('admin/booking/delete');
+
     Route::post('/admin/inventory/store', [InventoryController::class, 'store'])->name('admin/inventory/store');
     Route::post('/admin/inventory/update', [InventoryController::class, 'update'])->name('admin/inventory/update');
     Route::post('/admin/inventory/delete', [InventoryController::class, 'delete'])->name('admin/inventory/delete');
