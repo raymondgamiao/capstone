@@ -65,30 +65,28 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-12 col-sm-6">
-                                            <input id="start_date" name="start_date" class="form-control"
-                                                placeholder="Date Start" type="text" onfocus="(this.type='date')"
-                                                onblur="(this.type='text')" value="{{old('start_date')}}" />
+                                            <input id="start_date" name="start_date"
+                                                class="form-control date_flatpicker" placeholder="Date Start"
+                                                value="{{old('start_date')}}" />
                                             @error('start_date')
                                             <span class="text-danger "><em>{{$message}}</em></span>
                                             @enderror
                                         </div>
                                         <div class=" form-group col-12 col-sm-6">
-                                            <input id="end_date" name="end_date" class="form-control"
-                                                placeholder="Date End" type="text" onfocus="(this.type='date')"
-                                                onblur="(this.type='text')" value="{{old('end_date')}}" />
+                                            <input id="end_date" name="end_date" class="form-control date_flatpicker"
+                                                placeholder="Date End" value="{{old('end_date')}}" />
                                         </div>
                                         <div class="form-group col-12 col-sm-6">
-                                            <input id="start_time" name="start_time" class="form-control"
-                                                placeholder="Time Start" type="text" onfocus="(this.type='time')"
-                                                onblur="(this.type='text')" value="{{old('start_time')}}" />
+                                            <input id="start_time" name="start_time"
+                                                class="form-control time_flatpicker" placeholder="Time Start"
+                                                value="{{old('start_time')}}" />
                                             @error('start_time')
                                             <span class="text-danger "><em>{{$message}}</em></span>
                                             @enderror
                                         </div>
                                         <div class="form-group col-12 col-sm-6">
-                                            <input id="end_time" name="end_time" class="form-control"
-                                                placeholder="Time End" type="text" onfocus="(this.type='time')"
-                                                onblur="(this.type='text')" value="{{old('end_time')}}" />
+                                            <input id="end_time" name="end_time" class="form-control time_flatpicker"
+                                                placeholder="Time End" value="{{old('end_time')}}" />
                                             @error('end_time')
                                             <span class="text-danger "><em>{{$message}}</em></span>
                                             @enderror
@@ -210,4 +208,11 @@
         </div>
     </div>
 </section>
+
+@endsection
+
+@section('scripts')
+<!-- Flatpickr Script -->
+<script src="{{asset('assets/vendor/flatpickr/dist/flatpickr.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins/flatpickr.js')}}" defer></script>
 @endsection
