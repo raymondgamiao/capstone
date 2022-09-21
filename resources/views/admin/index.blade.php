@@ -310,7 +310,12 @@
                                                 <div class="d-flex align-items-center">
                                                     <img class="rounded bg-soft-primary img-fluid avatar-40 me-3"
                                                         src="{{ asset('storage/' . $topclient->pfp) }}"" alt=" profile">
-                                                    <h6>{{ $topclient->name }}</h6>
+                                                    <h6>
+                                                        <a
+                                                            href="/admin/profile/{{ App\Models\Client::find($topclient->client_id)->user->id }}">
+                                                            {{ $topclient->name }}
+                                                        </a>
+                                                    </h6>
                                                 </div>
                                             </td>
                                             <td>

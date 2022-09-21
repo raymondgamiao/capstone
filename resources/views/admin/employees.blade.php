@@ -88,7 +88,11 @@
                                 @foreach ($employees as $employee)
                                 <tr>
                                     <td>{{ $employee->user->username }}</td>
-                                    <td>{{ $employee->name }}</td>
+                                    <td>
+                                        <a href="/admin/profile/{{ $employee->user->id }}">
+                                            {{ $employee->name }}
+                                        </a>
+                                    </td>
                                     <td>{{ $employee->role }}</td>
                                     <td>{{ $employee->contact }}</td>
                                     <td>{{ $employee->branch?->name}}</td>
